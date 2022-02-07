@@ -16,7 +16,7 @@ import history from './Services/history';
 
 
 function App() {
-  const [theme, setTheme] = UsePersistedState('theme', Principal);
+  const [theme] = UsePersistedState('theme', Principal);
 
   // const toggleTheme = useCallback(() => {
   //   setTheme(theme.title === 'Principal' ? dark : Principal);
