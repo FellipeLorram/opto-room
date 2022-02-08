@@ -1,7 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { Button } from '../../../Components/Button/Index';
 import { Input } from '../../../Components/Input/Index';
+import { FormProgressContext } from '../Context/Index';
 import { UserContextData } from '../Context/UserContext';
+import { Variants } from './FormAnimationVariants';
 import { FormContainer } from './styled';
 import { PersonalInfoFormValidate } from './Validations';
 
@@ -9,6 +11,8 @@ const PersonalInfosForm: React.FC = () => {
   const [errors, setErrors] = useState({
     nameError: false, birthDayError: false, cpfError: false,
   });
+
+  const { setFormFirstStep, setFormSecondStep} = useContext(FormProgressContext);
 
   const {
     name,
@@ -22,15 +26,19 @@ const PersonalInfosForm: React.FC = () => {
   } = useContext(UserContextData);
 
   const handleContinueClick = () => {
-    PersonalInfoFormValidate(
+    if (!PersonalInfoFormValidate(
       name,
       birthday,
       cpf,
       setErrors,
-    );    
+    )) return;
+    setFormFirstStep(false);
+    setFormSecondStep(true);
   };
 
-  return <FormContainer>
+  return <FormContainer
+    variants={Variants}
+  >
     <div className="row">
       <Input
         value={name}
@@ -71,7 +79,7 @@ const PersonalInfosForm: React.FC = () => {
         format="###.###.###-##"
       />
     </div>
-    <div className="button-container">
+    <div className="button-row">
       <Button onClick={handleContinueClick}>
         Continuar
       </Button>

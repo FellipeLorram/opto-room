@@ -5,7 +5,7 @@ function PersonalInfoFormValidate(
   birthday: string,
   cpf: string,
   setErrors: (errorsObject: SetStateAction<{ nameError: boolean; birthDayError: boolean; cpfError: boolean; }>) => void
-): void {
+): Boolean {
   const errors = {
     nameError: false,
     birthDayError: false,
@@ -17,6 +17,7 @@ function PersonalInfoFormValidate(
   if (!cpf) errors.cpfError = true;
 
   setErrors(errors);
+  return Object.values(errors).every(key => !key);
 };
 
 export {

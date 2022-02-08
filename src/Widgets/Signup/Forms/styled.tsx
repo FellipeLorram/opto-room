@@ -8,22 +8,25 @@ export const FormContainer = styled(motion.div)`
   justify-content: center;
   flex-direction: column;
   gap: 1rem;
-  .row{
+  .row, .button-row{
     width: 70%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: row;
     padding: .5rem 0;
   }
 
-  .button-container {
-    width: 70%;
+  .button-row {
     padding: 10% 0 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+
+    .back-button{
+      position: relative;
+      svg { 
+        position: absolute;
+        left: 10%;
+      }
+    }
   }
 `;
 
@@ -41,7 +44,6 @@ export const StepsTrace = styled.div`
   text-align: left;
   flex-direction: column;
   gap: 1rem;
-  padding: 0 1rem;
   .step-progress{
     color: ${({ theme }) => theme.colors.secondary};
     font-size: 1rem;

@@ -1,7 +1,9 @@
 import React, { useContext, useState } from 'react';
+import { ChevronLeft } from '../../../Assets/svgs/ChevronLeft';
 import { Button } from '../../../Components/Button/Index';
 import { Input } from '../../../Components/Input/Index';
 import { UserContextData } from '../Context/UserContext';
+import { Variants } from './FormAnimationVariants';
 import { FormContainer } from './styled';
 
 const AccountInfoForm: React.FC = () => {
@@ -14,7 +16,9 @@ const AccountInfoForm: React.FC = () => {
     setPassword,
   } = useContext(UserContextData);
 
-  return <FormContainer>
+  return <FormContainer
+    variants={Variants}
+  >
     <div className="row">
       <Input value={email} setValue={setEmail} type="email" label="Email" />
     </div>
@@ -25,7 +29,11 @@ const AccountInfoForm: React.FC = () => {
       <Input value={confirmPassword} setValue={setConfirmPassword} type="text" label="Confirme a senha" />
     </div>
 
-    <div className="button-container">
+    <div className="button-row">
+      <Button inverse className="back-button">
+        <ChevronLeft />
+        Voltar
+      </Button>
       <Button>
         Continuar
       </Button>
