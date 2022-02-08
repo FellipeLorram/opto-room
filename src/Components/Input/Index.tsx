@@ -48,7 +48,6 @@ const Input: React.FC<Props> = ({
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
-    setErrorOnScreen(false);
   }
 
   return (
@@ -75,9 +74,9 @@ const Input: React.FC<Props> = ({
         />
       )}
 
-      <div className="error-message">
+      <label htmlFor={label} className="error-message">
         {errorOnScreen && (<>{errorMessage}</>)}
-      </div>
+      </label>
       {type === 'password' && value && (<Eye onClick={handleEyeOnClick} className="eye" />)}
       {seePassword && (<EyeOff onClick={handleEyeOffOnClick} className="eye" />)}
       <label htmlFor={label}>{label}</label>

@@ -5,6 +5,7 @@ import { FormProgressContext } from '../Context/Index';
 
 const FormProgress: React.FC = () => {
   const {
+    formFirstStep,
     formSecondStep,
     formThirdStep
   } = useContext(FormProgressContext);
@@ -12,6 +13,10 @@ const FormProgress: React.FC = () => {
   const [currentStep, setCurrentStep] = useState('Informações pessoais');
 
   useEffect(() => {
+    if (formFirstStep) {
+      setFormProgress('1');
+      setCurrentStep('Informações da conta');
+    };
     if (formSecondStep) {
       setFormProgress('2');
       setCurrentStep('Informações da conta');
@@ -20,7 +25,7 @@ const FormProgress: React.FC = () => {
       setFormProgress('3');
       setCurrentStep('Escolha seu plano');
     }
-  }, [formSecondStep, formThirdStep]);
+  }, [formSecondStep, formThirdStep, formFirstStep]);
 
   return <FormStepsContainer>
     <StepsTrace>
