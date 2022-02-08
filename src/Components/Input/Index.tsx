@@ -31,7 +31,8 @@ const Input: React.FC<Props> = ({
 
   useEffect(() => {
     if (error) setErrorOnScreen(true);
-  }, [error])
+    if (value) setAnimate(true);
+  }, [error, value])
 
   const handleInputonClick = useCallback(() => setAnimate(true), []);
 
