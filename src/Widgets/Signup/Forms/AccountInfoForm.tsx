@@ -32,6 +32,7 @@ const AccountInfoForm: React.FC = () => {
   const {
     setFormFirstStep,
     setFormSecondStep,
+    setFormThirdStep,
   } = useContext(FormProgressContext);
 
   const handleBackwardsClick = () => {
@@ -46,6 +47,8 @@ const AccountInfoForm: React.FC = () => {
       confirmPassword,
       setErrors,
     )) return;
+    setFormSecondStep(false);
+    setFormThirdStep(true);
   };
 
   return <FormContainer
