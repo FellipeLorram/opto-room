@@ -22,6 +22,6 @@ export const Container = styled(motion.div)`
   justify-content: flex-start;
   flex-direction: column;
   padding: 2rem;
-  gap: 2rem;
+  gap: 1rem;
   z-index: 4;
 `;

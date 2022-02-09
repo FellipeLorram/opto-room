@@ -9,6 +9,7 @@ import AccountInfoForm from '../Forms/AccountInfoForm';
 import { SignupModalProps } from '../Index';
 import { AnimatePresence } from 'framer-motion';
 import { BackgroundVariants, ContainerVariants } from './AnimationVariants';
+import { SubsciptionModalityForm } from '../Forms/SubsciptionModalityForm';
 
 interface IFormProgressContext {
   formFirstStep: boolean;
@@ -23,8 +24,8 @@ export const FormProgressContext = createContext({} as IFormProgressContext)
 
 const SignupModalWrapper: React.FC<SignupModalProps> = ({ onScreen, setOnScreen }) => {
   const [formFirstStep, setFormFirstStep] = useState(false);
-  const [formSecondStep, setFormSecondStep] = useState(true);
-  const [formThirdStep, setFormThirdStep] = useState(false);
+  const [formSecondStep, setFormSecondStep] = useState(false);
+  const [formThirdStep, setFormThirdStep] = useState(true);
 
   const formSteps = {
     formFirstStep,
@@ -52,6 +53,7 @@ const SignupModalWrapper: React.FC<SignupModalProps> = ({ onScreen, setOnScreen 
               <FormProgress />
               {formFirstStep && <PersonalInfosForm />}
               {formSecondStep && <AccountInfoForm />}
+              {formThirdStep && <SubsciptionModalityForm />}
             </FormProgressContext.Provider>
           </Container>
         </Background>
