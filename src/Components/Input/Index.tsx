@@ -51,7 +51,7 @@ const Input: React.FC<Props> = ({
   }
 
   return (
-    <Container animate={animate}>
+    <Container animate={animate} error={error}>
       {!format ? (
         <input
           type={type}

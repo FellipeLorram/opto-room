@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 interface Props {
   animate: boolean;
+  error?: boolean;
 }
 
 export const Container = styled.div`
@@ -52,4 +53,8 @@ export const Container = styled.div`
     cursor: pointer;
     stroke: ${({ theme }) => theme.colors.secondary};
   }
+  ${({ error }) => error && `
+    animation-duration: 0.2s;
+    animation-name: shake;
+  `}
 `;

@@ -17,4 +17,19 @@ export default createGlobalStyle`
     font-family: 'Cairo', sans-serif;
     background: ${({ theme }) => theme.colors.background};
   }
+  @keyframes shake {
+    0% {
+      transform: translateX(10px);
+    }
+    25% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-10px);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
 `;

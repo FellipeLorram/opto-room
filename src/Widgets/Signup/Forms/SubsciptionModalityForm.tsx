@@ -85,7 +85,7 @@ const SubsciptionModalityForm: React.FC = () => {
       </div>
 
       <div className="row">
-        <Button inverse className="back-button" onClick={handleBackwardButtonClick} >
+        <Button inverse className="back-button" onClick={handleBackwardButtonClick}>
           <ChevronLeft />
           Voltar
         </Button>
