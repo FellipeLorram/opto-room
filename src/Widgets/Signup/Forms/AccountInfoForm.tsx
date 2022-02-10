@@ -4,11 +4,16 @@ import { Button } from '../../../Components/Button/Index';
 import { Input } from '../../../Components/Input/Index';
 import { FormProgressContext } from '../Context/Index';
 import { UserContextData } from '../Context/UserContext';
+import { createUserRequest } from '../Request/CreateUserRequest';
 import { Variants } from './FormAnimationVariants';
 import { FormContainer } from './styled';
 import { AccountInfoFormValidate } from './Validations';
 
-const AccountInfoForm: React.FC = () => {
+interface Props {
+  requestFunction?: { (): void }
+}
+
+const AccountInfoForm: React.FC<Props> = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [confirmPasswordType, setConfirmPasswordType] = useState('password');
   const [passwordType, setPasswordType] = useState('password');
@@ -23,10 +28,13 @@ const AccountInfoForm: React.FC = () => {
   });
 
   const {
+    birthday,
+    cpf,
     email,
-    setEmail,
     password,
+    name,
     setPassword,
+    setEmail,
   } = useContext(UserContextData);
 
   const {
@@ -40,15 +48,24 @@ const AccountInfoForm: React.FC = () => {
     setFormFirstStep(true);
   };
 
-  const handleClickContinue = () => {
+  const handleClickContinue = async () => {
     if (!AccountInfoFormValidate(
       email,
       password,
       confirmPassword,
       setErrors,
     )) return;
+    
     setFormSecondStep(false);
     setFormEmailVerifyStep(true);
+
+    await createUserRequest(
+      email,
+      password,
+      cpf,
+      name,
+      birthday,
+    );
   };
 
   return <FormContainer

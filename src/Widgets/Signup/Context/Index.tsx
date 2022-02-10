@@ -3,7 +3,6 @@ import Header from '../Header';
 import PersonalInfosForm from '../Forms/PersonalInfosForm';
 
 import { Background, Container } from './styled';
-// import { UserContextData } from './UserContext';
 import { FormProgress } from '../Forms/FormProgress';
 import AccountInfoForm from '../Forms/AccountInfoForm';
 import { SignupModalProps } from '../Index';
@@ -38,7 +37,7 @@ const SignupModalWrapper: React.FC<SignupModalProps> = ({ onScreen, setOnScreen 
     formThirdStep,
     setFormThirdStep,
     setFormEmailVerifyStep
-  }
+  };
 
   return (
     <AnimatePresence>

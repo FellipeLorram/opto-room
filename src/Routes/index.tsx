@@ -5,7 +5,7 @@ import { AnimatePresence } from 'framer-motion';
 import { Login } from '../Pages/Login/Index';
 import MyRoute from './MyRoute';
 
-export default function Routes() {
+const Routes = (): React.ReactElement => {
   return (
     <AnimatePresence exitBeforeEnter>
       <Switch>
@@ -15,3 +15,5 @@ export default function Routes() {
     </AnimatePresence>
   );
 }
+
+export default Routes;
