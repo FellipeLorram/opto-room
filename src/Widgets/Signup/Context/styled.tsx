@@ -24,4 +24,12 @@ export const Container = styled(motion.div)`
   padding: 2rem;
   gap: 1rem;
   z-index: 4;
+  position: relative;
+  .waveOpacity{
+    opacity: 0.5;
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    transform: rotate(180deg);
+  }
 `;

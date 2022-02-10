@@ -19,7 +19,7 @@ const FormProgress: React.FC = () => {
     };
     if (formSecondStep) {
       setFormProgress('2');
-      setCurrentStep('Agora precisamos dos dados para criar seu acesso.');
+      setCurrentStep('Dados para criar seu acesso.');
     };
     if (formThirdStep) {
       setFormProgress('3');

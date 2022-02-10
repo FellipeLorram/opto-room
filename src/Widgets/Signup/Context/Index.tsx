@@ -9,7 +9,8 @@ import { SignupModalProps } from '../Index';
 import { AnimatePresence } from 'framer-motion';
 import { BackgroundVariants, ContainerVariants } from './AnimationVariants';
 import { SubsciptionModalityForm } from '../Forms/SubsciptionModalityForm';
-import { VerifyEmailForm } from '../Forms/VerifyEmailForm';
+import { VerifyEmailForm } from '../Forms/VerifyEmail/VerifyEmailForm';
+import { WaveOpacity } from '../../../Assets/svgs/WaveOpacity';
 
 interface IFormProgressContext {
   formFirstStep: boolean;
@@ -24,9 +25,9 @@ interface IFormProgressContext {
 export const FormProgressContext = createContext({} as IFormProgressContext)
 
 const SignupModalWrapper: React.FC<SignupModalProps> = ({ onScreen, setOnScreen }) => {
-  const [formFirstStep, setFormFirstStep] = useState(true);
+  const [formFirstStep, setFormFirstStep] = useState(false);
   const [formSecondStep, setFormSecondStep] = useState(false);
-  const [formEmailVerifyStep, setFormEmailVerifyStep] = useState(false);
+  const [formEmailVerifyStep, setFormEmailVerifyStep] = useState(true);
   const [formThirdStep, setFormThirdStep] = useState(false);
 
   const formSteps = {
@@ -59,6 +60,7 @@ const SignupModalWrapper: React.FC<SignupModalProps> = ({ onScreen, setOnScreen 
               {formEmailVerifyStep && <VerifyEmailForm />}
               {formThirdStep && <SubsciptionModalityForm />}
             </FormProgressContext.Provider>
+            <WaveOpacity className="waveOpacity"/>
           </Container>
         </Background>
       )}

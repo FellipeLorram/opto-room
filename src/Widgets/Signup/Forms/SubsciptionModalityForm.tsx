@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Check } from '../../../Assets/svgs/Check';
 import { Button } from '../../../Components/Button/Index';
+import { Variants } from './FormAnimationVariants';
 import { FormContainer, ModalityCard } from './styled';
 
 const SubsciptionModalityForm: React.FC = () => {
@@ -46,7 +47,9 @@ const SubsciptionModalityForm: React.FC = () => {
   }
 
   return (
-    <FormContainer>
+    <FormContainer
+      variants={Variants}
+    >
       <div className="row" style={{ gap: '1.5rem', width: '90%' }}>
         {cards.map(({ header, price, selected, benefits, type }) => (
           <ModalityCard

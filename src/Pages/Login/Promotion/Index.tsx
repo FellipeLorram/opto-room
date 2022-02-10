@@ -79,7 +79,7 @@ const Promotion = () => {
         ))}
       </div>
       <Link to="/get-to-know-us">
-        Conheça a plataforma que venho sanar o problema de todo optometrista.
+        Conheça a Opto room
       </Link>
     </div>
   </PromotionContainer>;
