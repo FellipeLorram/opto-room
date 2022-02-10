@@ -25,9 +25,9 @@ interface IFormProgressContext {
 export const FormProgressContext = createContext({} as IFormProgressContext)
 
 const SignupModalWrapper: React.FC<SignupModalProps> = ({ onScreen, setOnScreen }) => {
-  const [formFirstStep, setFormFirstStep] = useState(false);
+  const [formFirstStep, setFormFirstStep] = useState(true);
   const [formSecondStep, setFormSecondStep] = useState(false);
-  const [formEmailVerifyStep, setFormEmailVerifyStep] = useState(true);
+  const [formEmailVerifyStep, setFormEmailVerifyStep] = useState(false);
   const [formThirdStep, setFormThirdStep] = useState(false);
 
   const formSteps = {
