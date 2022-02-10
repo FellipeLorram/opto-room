@@ -7,6 +7,7 @@ import CheckListLoop from '../../../Assets/Animations/CheckListLoop.json'
 import Content from './Promotion';
 import Dot from './Dot';
 import { AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Promotion = () => {
   const [promoOnScreen, setpromoOnScreen] = useState([true, false, false]);
@@ -64,15 +65,22 @@ const Promotion = () => {
         />
       ))}
     </AnimatePresence>
-    <div className="dots-container">
-      {Sets.map(({ active, index }) => (
-        <Dot
-          key={index}
-          index={index}
-          active={active}
-          setOnScreen={setpromoOnScreen}
-        />
-      ))}
+    <div className="footer">
+
+
+      <div className="dots-container">
+        {Sets.map(({ active, index }) => (
+          <Dot
+            key={index}
+            index={index}
+            active={active}
+            setOnScreen={setpromoOnScreen}
+          />
+        ))}
+      </div>
+      <Link to="/get-to-know-us">
+        Venha conhecer a plataforma que venho sanar o problema de todo optometrista.
+      </Link>
     </div>
   </PromotionContainer>;
 };

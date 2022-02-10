@@ -15,15 +15,15 @@ const FormProgress: React.FC = () => {
   useEffect(() => {
     if (formFirstStep) {
       setFormProgress('1');
-      setCurrentStep('Informações da conta');
+      setCurrentStep('Precisamos de algumas informações pessoais. Nos conte sobre você');
     };
     if (formSecondStep) {
       setFormProgress('2');
-      setCurrentStep('Informações da conta');
+      setCurrentStep('Agora precisamos dos dados para criar seu acesso.');
     };
     if (formThirdStep) {
       setFormProgress('3');
-      setCurrentStep('Escolha seu plano');
+      setCurrentStep('Por fim, escolha o plano que melhor se adapta as suas necessidades e entre no seu Opto room :)');
     }
   }, [formSecondStep, formThirdStep, formFirstStep]);
 
@@ -38,5 +38,5 @@ const FormProgress: React.FC = () => {
     </StepsTrace>
   </FormStepsContainer>;
 };
-
+ 
 export { FormProgress };

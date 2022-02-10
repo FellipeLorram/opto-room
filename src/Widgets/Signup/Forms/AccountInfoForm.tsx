@@ -32,7 +32,7 @@ const AccountInfoForm: React.FC = () => {
   const {
     setFormFirstStep,
     setFormSecondStep,
-    setFormThirdStep,
+    setFormEmailVerifyStep,
   } = useContext(FormProgressContext);
 
   const handleBackwardsClick = () => {
@@ -48,7 +48,7 @@ const AccountInfoForm: React.FC = () => {
       setErrors,
     )) return;
     setFormSecondStep(false);
-    setFormThirdStep(true);
+    setFormEmailVerifyStep(true);
   };
 
   return <FormContainer

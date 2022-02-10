@@ -1,18 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Check } from '../../../Assets/svgs/Check';
-import { ChevronLeft } from '../../../Assets/svgs/ChevronLeft';
 import { Button } from '../../../Components/Button/Index';
-import { FormProgressContext } from '../Context/Index';
 import { FormContainer, ModalityCard } from './styled';
 
 const SubsciptionModalityForm: React.FC = () => {
   const [montlyPaymentSelected, setMontlyPaymentSelected] = useState(false);
   const [anualPaymentSelected, setAnualPaymentSelected] = useState(true);
-
-  const {
-    setFormThirdStep,
-    setFormSecondStep,
-  } = useContext(FormProgressContext);
 
   const cards = [
     {
@@ -41,11 +34,6 @@ const SubsciptionModalityForm: React.FC = () => {
       ],
     }
   ];
-
-  const handleBackwardButtonClick = () => {
-    setFormThirdStep(false);
-    setFormSecondStep(true);
-  }
 
   const handleCardCick = (type: string) => {
     if (type === 'montly') {
@@ -84,11 +72,7 @@ const SubsciptionModalityForm: React.FC = () => {
         ))}
       </div>
 
-      <div className="row">
-        <Button inverse className="back-button" onClick={handleBackwardButtonClick}>
-          <ChevronLeft />
-          Voltar
-        </Button>
+      <div className="row" style={{ justifyContent: 'center' }}>
         <Button className="paid-button" >
           Pagar
           {anualPaymentSelected ? ' R$349,99' : ' R$39,99'}

@@ -28,8 +28,19 @@ export const FormContainer = styled(motion.div)`
     }
   }
 
+  .row.verify-message {
+    font-size: 1rem;
+    color: #00000099;
+    span{
+      background: ${({ theme }) => theme.colors.secondary};
+      color: #fff;
+      padding: 2px 5px;
+      border-radius: 5px;
+    }
+  }
+
   .paid-button {
-    gap: 0.5rem;
+    width: unset;
   }
  
 `;

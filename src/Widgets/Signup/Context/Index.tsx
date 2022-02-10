@@ -10,6 +10,7 @@ import { SignupModalProps } from '../Index';
 import { AnimatePresence } from 'framer-motion';
 import { BackgroundVariants, ContainerVariants } from './AnimationVariants';
 import { SubsciptionModalityForm } from '../Forms/SubsciptionModalityForm';
+import { VerifyEmailForm } from '../Forms/VerifyEmailForm';
 
 interface IFormProgressContext {
   formFirstStep: boolean;
@@ -18,6 +19,7 @@ interface IFormProgressContext {
   setFormSecondStep(value: boolean): void;
   formThirdStep: boolean;
   setFormThirdStep(value: boolean): void;
+  setFormEmailVerifyStep(value: boolean): void;
 }
 
 export const FormProgressContext = createContext({} as IFormProgressContext)
@@ -25,6 +27,7 @@ export const FormProgressContext = createContext({} as IFormProgressContext)
 const SignupModalWrapper: React.FC<SignupModalProps> = ({ onScreen, setOnScreen }) => {
   const [formFirstStep, setFormFirstStep] = useState(true);
   const [formSecondStep, setFormSecondStep] = useState(false);
+  const [formEmailVerifyStep, setFormEmailVerifyStep] = useState(false);
   const [formThirdStep, setFormThirdStep] = useState(false);
 
   const formSteps = {
@@ -34,6 +37,7 @@ const SignupModalWrapper: React.FC<SignupModalProps> = ({ onScreen, setOnScreen 
     setFormSecondStep,
     formThirdStep,
     setFormThirdStep,
+    setFormEmailVerifyStep
   }
 
   return (
@@ -53,6 +57,7 @@ const SignupModalWrapper: React.FC<SignupModalProps> = ({ onScreen, setOnScreen 
               <FormProgress />
               {formFirstStep && <PersonalInfosForm />}
               {formSecondStep && <AccountInfoForm />}
+              {formEmailVerifyStep && <VerifyEmailForm />}
               {formThirdStep && <SubsciptionModalityForm />}
             </FormProgressContext.Provider>
           </Container>

@@ -13,17 +13,27 @@ export const PromotionContainer = styled.div`
   color: #fff;
   align-self: stretch;  
   position: relative;
-  .dots-container {
+  .footer {
     position: absolute;
     width: 100%;
     padding: 1rem 2rem;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: space-between;
     gap: 1rem;
     left: 0;
     bottom: 0;
     background: #fff;
     box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    a{
+      color: #1a73e8;
+      font-size: .9rem;
+    }
+
+    .dots-container {
+      display: flex;
+      gap: 1rem;
+    }
   }
 `;
 
