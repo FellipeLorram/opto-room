@@ -3,8 +3,10 @@ import styled from 'styled-components';
 
 export const Background = styled(motion.div)`
   background: rgba(0, 0, 0, 0.5);
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   position: fixed;
   left: 0;
   bottom: 0;
@@ -15,8 +17,10 @@ export const Background = styled(motion.div)`
 
 export const Container = styled(motion.div)`
   width: 60rem;
+  max-width: 90%;
   background: ${({ theme }) => theme.colors.card};
-  height: 100vh;
+  /* height: 100vh; */
+  align-self: stretch;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -31,5 +35,9 @@ export const Container = styled(motion.div)`
     left: 0;
     bottom: -20px;
     transform: rotate(180deg);
+  }
+  @media (max-width: 841px) {
+    padding-top: 4rem;
+    max-width: 100%;
   }
 `;

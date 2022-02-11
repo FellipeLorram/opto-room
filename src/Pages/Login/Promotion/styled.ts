@@ -35,6 +35,10 @@ export const PromotionContainer = styled.div`
       gap: 1rem;
     }
   }
+
+  @media (max-width: 1020px) {
+    display: none;
+  }
 `;
 
 export const PromotionContent = styled(motion.div)`

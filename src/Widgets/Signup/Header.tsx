@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { OptoLogo } from '../../Components/Logo/Index';
 
 const Container = styled.div`
-width: 100%;
+  width: 100%;
   text-align: left;
   display: flex;
   align-items: center;
@@ -14,6 +14,9 @@ width: 100%;
   .info{
     color: #a6a6a6;
     font-size: 1.2rem;
+    @media (max-width: 841px) {
+      display: none;
+    }
   }
 
   .logo{
@@ -27,6 +30,11 @@ width: 100%;
     top: 0;
     right: 0;
     cursor: pointer;
+  }
+  @media (max-width: 841px) {
+    .close, .logo {
+      top: -2.5rem;
+    }
   }
 `;
 

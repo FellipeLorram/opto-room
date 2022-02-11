@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { OptoLogo } from '../../Components/Logo/Index';
-import { CardContainer } from './styled';
-import { PageBackground } from '../../Widgets/PageBackground/Index';
+import { CardContainer, PageContainer } from './styled';
 import UserGoogleLogin from '../../Widgets/GoogleLogin/Index';
 import { Promotion } from './Promotion/Index';
 import ArrowLink from './ArrowLink';
 import LoginForm from './LoginForm';
 import { SignupModal } from '../../Widgets/Signup/Index'
+import { Wave } from '../../Assets/svgs/Wave';
 
 const transition = {
   duration: 0.3,
@@ -28,7 +28,9 @@ const Login: React.FC = () => {
   };
 
   return (
-    <PageBackground style={{ flexDirection: 'row', gap: '2rem', padding: '2rem' }}>
+    <PageContainer>
+      <Wave className="background-wave" />
+
       <Promotion />
       <CardContainer
         variants={CardVariant}
@@ -45,11 +47,11 @@ const Login: React.FC = () => {
         <ArrowLink text="Crie sua conta em menos de 5 minutos." onClick={handleCreateAccountClick} />
 
       </CardContainer>
-      <SignupModal 
+      <SignupModal
         onScreen={signupModalOnScreen}
         setOnScreen={setSignupModalOnScreen}
       />
-    </PageBackground>
+    </PageContainer>
   );
 };
 

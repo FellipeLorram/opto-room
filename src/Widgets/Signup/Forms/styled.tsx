@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export const FormContainer = styled(motion.div)`
   width: 40rem;
+  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,6 +16,9 @@ export const FormContainer = styled(motion.div)`
     justify-content: space-between;
     flex-direction: row;
     padding: .5rem 0;
+    @media (max-width: 768px) {
+      width: 85%;
+    }
   }
 
   .button-row {
@@ -42,15 +46,20 @@ export const FormContainer = styled(motion.div)`
   .paid-button {
     width: unset;
   }
+  @media (max-width: 768px) {
+    gap: 1.5rem;
+  }
  
 `;
 
 export const FormStepsContainer = styled(motion.div)`
   width: 40rem;
+  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
+
 `;
 
 export const StepsTrace = styled.div`
