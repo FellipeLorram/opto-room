@@ -1,40 +1,23 @@
 import { SetStateAction } from 'react';
 import validator from 'validator';
 
-function PersonalInfoFormValidate(
+export default function signupWithEmailAndPasswordFormValidation(
   name: string,
-  birthday: string,
-  cpf: string,
-  setErrors: (errorsObject: SetStateAction<{ nameError: boolean; birthDayError: boolean; cpfError: boolean; }>) => void
-): Boolean {
-  const errors = {
-    nameError: false,
-    birthDayError: false,
-    cpfError: false,
-  };
-
-  if (!name) errors.nameError = true;
-  if (!birthday) errors.birthDayError = true;
-  if (!cpf) errors.cpfError = true;
-
-  setErrors(errors);
-  return Object.values(errors).every(key => !key);
-};
-
-function AccountInfoFormValidate(
   email: string,
   password: string,
   confirmPassword: string,
   setErrors: (errorsObject: SetStateAction<{
+    nameError: boolean;
     passwordError: boolean;
     confirmPasswordError: boolean;
     emailError: boolean;
     passwordMessage: string;
     emailMessage: string;
     confirmPasswordMessage: string;
-  }>) => void,
-): boolean {
+  }>) => void
+): Boolean {
   const errors = {
+    nameError: false,
     passwordError: false,
     passwordMessage: '',
     confirmPasswordError: false,
@@ -43,6 +26,7 @@ function AccountInfoFormValidate(
     emailMessage: '',
   };
 
+  if (!name) errors.nameError = true;
   if (!validator.isEmail(email)) {
     errors.emailError = true;
     errors.emailMessage = 'Insira um e-mail válido'
@@ -58,16 +42,11 @@ function AccountInfoFormValidate(
     errors.passwordMessage = 'A senha pode ter no maximo 55 caracteres'
   };
 
-  if (password !== confirmPassword) { 
+  if (password !== confirmPassword) {
     errors.confirmPasswordError = true;
     errors.confirmPasswordMessage = 'As senhas precisam ser iguas'
   }
 
   setErrors(errors);
   return Object.values(errors).every(key => !key);
-}
-
-export {
-  PersonalInfoFormValidate,
-  AccountInfoFormValidate,
-}
+};

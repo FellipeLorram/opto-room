@@ -1,42 +1,40 @@
 import React, { createContext, useState } from 'react';
 import Header from '../Header';
-import PersonalInfosForm from '../Forms/PersonalInfosForm';
+import AccountInformationForm from '../Forms/AccountInformationForm/AccountInformationForm';
 
 import { Background, Container } from './styled';
-import { FormProgress } from '../Forms/FormProgress';
-import AccountInfoForm from '../Forms/AccountInfoForm';
+import { FormProgress } from '../Forms/FormProgress/FormProgress';
 import { SignupModalProps } from '../Index';
 import { AnimatePresence } from 'framer-motion';
 import { BackgroundVariants, ContainerVariants } from './AnimationVariants';
-import { SubsciptionModalityForm } from '../Forms/SubsciptionModalityForm';
+import { SubsciptionModalityForm } from '../Forms/SubscriptionModalityForm/SubsciptionModalityForm';
 import { VerifyEmailForm } from '../Forms/VerifyEmail/VerifyEmailForm';
 import { WaveOpacity } from '../../../Assets/svgs/WaveOpacity';
+import { ChooseSignupForm } from '../ChooseSignupForm/ChooseSignupForm';
 
 interface IFormProgressContext {
-  formFirstStep: boolean;
-  setFormFirstStep(value: boolean): void;
-  formSecondStep: boolean;
-  setFormSecondStep(value: boolean): void;
-  formThirdStep: boolean;
-  setFormThirdStep(value: boolean): void;
+  EmailFormStepOnScreen: boolean;
+  setEmailFormStepOnScreen(value: boolean): void;
+  PlanSubscriptionFormOnScreen: boolean;
+  setPlanSubscriptionFormOnScreen(value: boolean): void;
+  formEmailVerifyStep: boolean;
   setFormEmailVerifyStep(value: boolean): void;
 }
 
 export const FormProgressContext = createContext({} as IFormProgressContext)
 
 const SignupModalWrapper: React.FC<SignupModalProps> = ({ onScreen, setOnScreen }) => {
-  const [formFirstStep, setFormFirstStep] = useState(true);
-  const [formSecondStep, setFormSecondStep] = useState(false);
+  const [EmailSignup, setEmailSignup] = useState(false);
+  const [EmailFormStepOnScreen, setEmailFormStepOnScreen] = useState(true);
   const [formEmailVerifyStep, setFormEmailVerifyStep] = useState(false);
-  const [formThirdStep, setFormThirdStep] = useState(false);
+  const [PlanSubscriptionFormOnScreen, setPlanSubscriptionFormOnScreen] = useState(false);
 
   const formSteps = {
-    formFirstStep,
-    setFormFirstStep,
-    formSecondStep,
-    setFormSecondStep,
-    formThirdStep,
-    setFormThirdStep,
+    EmailFormStepOnScreen,
+    setEmailFormStepOnScreen,
+    PlanSubscriptionFormOnScreen,
+    setPlanSubscriptionFormOnScreen,
+    formEmailVerifyStep,
     setFormEmailVerifyStep
   };
 
@@ -53,14 +51,29 @@ const SignupModalWrapper: React.FC<SignupModalProps> = ({ onScreen, setOnScreen 
             variants={ContainerVariants}
           >
             <Header setOnScreen={setOnScreen} />
+
             <FormProgressContext.Provider value={formSteps}>
-              <FormProgress />
-              {formFirstStep && <PersonalInfosForm />}
-              {formSecondStep && <AccountInfoForm />}
-              {formEmailVerifyStep && <VerifyEmailForm />}
-              {formThirdStep && <SubsciptionModalityForm />}
+              {EmailSignup ? (
+                <>
+                  <FormProgress />
+                  {EmailFormStepOnScreen && <AccountInformationForm setSignupEmailForm={setEmailSignup} />}
+                  {formEmailVerifyStep && <VerifyEmailForm />}
+
+                </>
+              ) : (PlanSubscriptionFormOnScreen) ?
+                (
+                  <>
+                    <FormProgress />
+                    <SubsciptionModalityForm />
+                  </>
+                ) :
+                <ChooseSignupForm setSignupEmailForm={setEmailSignup} />
+
+              }
+
             </FormProgressContext.Provider>
-            <WaveOpacity className="waveOpacity"/>
+
+            <WaveOpacity className="waveOpacity" />
           </Container>
         </Background>
       )}

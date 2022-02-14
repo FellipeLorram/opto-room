@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { ChevronLeft } from '../../../../Assets/svgs/ChevronLeft';
 import { Button } from '../../../../Components/Button/Index';
+import signupWithEmailAndPasswordEmailVerification from '../../../../firebase/Auth/SWAPEmailVerification';
 import { FormProgressContext } from '../../Context/Index';
 import { UserContextData } from '../../Context/UserContext';
-import { verifyUserEmail } from '../../Request/VerifyUserEmail';
 import { Variants } from '../FormAnimationVariants';
 
 import { FormContainer } from '../styled';
@@ -13,24 +13,24 @@ const VerifyEmailForm: React.FC = () => {
   const [verificationFailed, setVerificationFailed] = useState(false);
 
   const {
-    setFormSecondStep,
-    setFormThirdStep,
+    setEmailFormStepOnScreen,
+    setPlanSubscriptionFormOnScreen,
     setFormEmailVerifyStep,
   } = useContext(FormProgressContext);
 
   const handleBackwardsClick = () => {
-    setFormSecondStep(true);
+    setEmailFormStepOnScreen(true);
     setFormEmailVerifyStep(false);
   };
 
   const handleClickContinue = async () => {
-    const emailVeified = await verifyUserEmail(email, password);
+    const emailVeified = await signupWithEmailAndPasswordEmailVerification(email, password);
     if (!emailVeified) {
       setVerificationFailed(true);
       return;
     };
     setFormEmailVerifyStep(false);
-    setFormThirdStep(true);
+    setPlanSubscriptionFormOnScreen(true);
   };
 
   return (
