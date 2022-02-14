@@ -2,7 +2,7 @@ import "../config/firebaseClient";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import createUser from "../firestore/CreateNewUser";
 
-const signupWithGoogle = async (): Promise<boolean> => {
+const signupWithGoogle = async (): Promise<string> => {
   try {
     const { user } = await signInWithPopup(
       getAuth(),
@@ -16,10 +16,10 @@ const signupWithGoogle = async (): Promise<boolean> => {
       id: user.uid,
     });
 
-    return true;
+    return user.uid;
   } catch (error) {
     console.log(error);
-    return false;
+    return '';
   }
 };
 

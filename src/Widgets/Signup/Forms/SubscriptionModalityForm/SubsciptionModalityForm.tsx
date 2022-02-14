@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { SquareX } from '../../../../Assets/svgs/Analitycs copy';
 import { Check } from '../../../../Assets/svgs/Check';
 import { Button } from '../../../../Components/Button/Index';
+import { UserContextData } from '../../Context/UserContext';
 import { Variants } from '../FormAnimationVariants';
 import { FormContainer } from '../styled';
 import { ModalityCard } from './styled';
+import createCheckoutSession from '../../../../stripe/createCheckoutSession';
 
 const SubsciptionModalityForm: React.FC = () => {
   const [paymentSelectTrace, setPaymentSelectTrace] = useState([false, true, false]);
-  const [price, setPrice] = useState('R$349,99')
+  const [price, setPrice] = useState({ value: 'R$349,99', key: '' });
+  const { uid } = useContext(UserContextData)
 
   const cards = [
     {
@@ -59,10 +62,19 @@ const SubsciptionModalityForm: React.FC = () => {
     newArr[index] = true;
     setPaymentSelectTrace(newArr);
     if (index === 0) {
-      setPrice('R$0,00')
+      setPrice({
+        value: 'R$0,00',
+        key: ''
+      })
       return;
     }
-    setPrice(index === 1 ? 'R$349,00' : 'R$39,99');
+    setPrice(index === 1 ? {
+      value: 'R$349,99',
+      key: 'price_1KQzqsEqE8aFGmq4lvQDGDnP',
+    } : {
+      value: 'R$39,99',
+      key: 'price_1KQynuEqE8aFGmq4XB8Ylzkn',
+    });
   }
 
   return (
@@ -96,8 +108,8 @@ const SubsciptionModalityForm: React.FC = () => {
       </div>
 
       <div className="row" style={{ justifyContent: 'center' }}>
-        <Button className="paid-button" >
-          {`Pagar ${price}`}
+        <Button onClick={() => createCheckoutSession(uid, price.key)} className="paid-button" >
+          {`Pagar ${price.value}`}
         </Button>
       </div>
     </FormContainer>

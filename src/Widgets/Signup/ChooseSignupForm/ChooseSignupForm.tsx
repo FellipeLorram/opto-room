@@ -6,6 +6,7 @@ import { Button } from '../../../Components/Button/Index';
 import signupWithFacebook from '../../../firebase/Auth/SignupWithFacebook';
 import signupWithGoogle from '../../../firebase/Auth/SignupWIthGoogle';
 import { FormProgressContext } from '../Context/Index';
+import { UserContextData } from '../Context/UserContext';
 import { ChooseSignupFormContainer } from './styled';
 
 
@@ -15,15 +16,18 @@ interface Props {
 
 const ChooseSignupForm: React.FC<Props> = ({ setSignupEmailForm }) => {
   const { setPlanSubscriptionFormOnScreen } = useContext(FormProgressContext);
+  const { setUid } = useContext(UserContextData)
 
   const handleSignupExternalFormClick = async (
-    signupMethod: () => Promise<boolean>
+    signupMethod: () => Promise<string>
   ) => {
-    if (await signupMethod()) {
+    const uid = await signupMethod()
+    if (uid) {
+      setUid(uid);
       setPlanSubscriptionFormOnScreen(true);
     }
   }
-  
+
   return (
     <ChooseSignupFormContainer>
       <div className="typograph">Como você quer criar sua conta?</div>

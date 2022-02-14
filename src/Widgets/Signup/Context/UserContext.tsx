@@ -1,6 +1,8 @@
 import React, { createContext, useState } from 'react';
 
 interface IContext {
+  uid: string;
+  setUid(value: string): void,
   name: string;
   setName(value: string): void,
   email: string;
@@ -12,11 +14,14 @@ interface IContext {
 export const UserContextData = createContext({} as IContext);
 
 const UserContext = ({ children }: { children: React.ReactNode }) => {
+  const [uid, setUid] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const user = {
+    uid, 
+    setUid,
     name,
     setName,
     email,

@@ -2,7 +2,7 @@ import "../config/firebaseClient";
 import { getAuth, signInWithPopup, FacebookAuthProvider } from "firebase/auth";
 import createUser from "../firestore/CreateNewUser";
 
-const signupWithFacebook = async (): Promise<boolean> => {
+const signupWithFacebook = async (): Promise<string> => {
   try {
     const { user } = await signInWithPopup(
       getAuth(),
@@ -15,11 +15,11 @@ const signupWithFacebook = async (): Promise<boolean> => {
       date: new Date().toISOString(),
       id: user.uid,
     });
-    
-    return true;
+
+    return user.uid;
   } catch (error) {
     console.log(error);
-    return false;
+    return '';
   }
 }
 
