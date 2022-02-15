@@ -24,6 +24,13 @@ export const FormContainer = styled(motion.div)`
 
   .button-row {
     padding: 10% 0 0;
+    
+    @media (max-width: 548px) {
+      gap: 1.5rem;
+      flex-direction: column-reverse;
+
+    }
+
   }
   .back-button{
     position: relative;

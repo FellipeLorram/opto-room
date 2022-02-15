@@ -14,8 +14,8 @@ const VerifyEmailForm: React.FC = () => {
 
   const {
     setEmailFormStepOnScreen,
-    setPlanSubscriptionFormOnScreen,
     setFormEmailVerifyStep,
+    setEmailSignup,
   } = useContext(FormProgressContext);
 
   const handleBackwardsClick = () => {
@@ -29,8 +29,8 @@ const VerifyEmailForm: React.FC = () => {
       setVerificationFailed(true);
       return;
     };
+    setEmailSignup(false)
     setFormEmailVerifyStep(false);
-    setPlanSubscriptionFormOnScreen(true);
   };
 
   return (

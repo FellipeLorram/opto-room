@@ -45,7 +45,7 @@ export const CardContainer = styled(motion.div)`
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 
   z-index: 2;
 

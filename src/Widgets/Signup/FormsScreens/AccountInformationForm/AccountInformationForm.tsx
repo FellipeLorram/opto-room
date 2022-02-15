@@ -49,9 +49,17 @@ const AccountInformationForm: React.FC<Props> = ({ setSignupEmailForm }) => {
       confirmPassword,
       setErrors,
     )) return;
+    if(!await signupWithEmailAndPassword(email, password)){
+      setErrors((errors) => {
+        const newErrorsObject = {...errors}
+        newErrorsObject.emailError = true;
+        newErrorsObject.emailMessage = 'E-mail inválido. Esse endereço de email já está em uso'
+        return newErrorsObject;
+      });
+      return;
+    }
     setEmailFormStepOnScreen(false);
     setFormEmailVerifyStep(true);
-    await signupWithEmailAndPassword(email, password);
   };
 
   return <FormContainer

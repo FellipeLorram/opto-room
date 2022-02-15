@@ -8,7 +8,6 @@ import { Background, Container } from './styled';
 import { FormProgress } from './FormsScreens/FormProgress/FormProgress';
 import { AnimatePresence } from 'framer-motion';
 import { BackgroundVariants, ContainerVariants } from './AnimationVariants';
-import { SubsciptionModalityForm } from './FormsScreens/SubscriptionModalityForm/SubsciptionModalityForm';
 import { VerifyEmailForm } from './FormsScreens/VerifyEmail/VerifyEmailForm';
 import { ChooseSignupForm } from './ChooseSignupForm/ChooseSignupForm';
 import { WaveOpacity } from '../../Assets/svgs/WaveOpacity';
@@ -19,15 +18,13 @@ const SignupModalWrapper: React.FC<SignupModalProps> = ({ onScreen, setOnScreen 
   const [EmailSignup, setEmailSignup] = useState(false);
   const [EmailFormStepOnScreen, setEmailFormStepOnScreen] = useState(true);
   const [formEmailVerifyStep, setFormEmailVerifyStep] = useState(false);
-  const [PlanSubscriptionFormOnScreen, setPlanSubscriptionFormOnScreen] = useState(false);
 
   const formSteps = {
     EmailFormStepOnScreen,
     setEmailFormStepOnScreen,
-    PlanSubscriptionFormOnScreen,
-    setPlanSubscriptionFormOnScreen,
     formEmailVerifyStep,
-    setFormEmailVerifyStep
+    setFormEmailVerifyStep,
+    setEmailSignup,
   };
 
   return (
@@ -45,7 +42,17 @@ const SignupModalWrapper: React.FC<SignupModalProps> = ({ onScreen, setOnScreen 
             <Header setOnScreen={setOnScreen} />
 
             <FormProgressContext.Provider value={formSteps}>
+
               {EmailSignup ? (
+                <>
+                  <FormProgress />
+                  {EmailFormStepOnScreen && <AccountInformationForm setSignupEmailForm={setEmailSignup} />}
+                  {formEmailVerifyStep && <VerifyEmailForm />}
+
+                </>
+              ) : <ChooseSignupForm setSignupEmailForm={setEmailSignup} /> }
+
+              {/* {EmailSignup ? (
                 <>
                   <FormProgress />
                   {EmailFormStepOnScreen && <AccountInformationForm setSignupEmailForm={setEmailSignup} />}
@@ -61,7 +68,7 @@ const SignupModalWrapper: React.FC<SignupModalProps> = ({ onScreen, setOnScreen 
                 ) :
                 <ChooseSignupForm setSignupEmailForm={setEmailSignup} />
 
-              }
+              } */}
 
             </FormProgressContext.Provider>
 

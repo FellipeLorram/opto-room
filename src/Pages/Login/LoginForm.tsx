@@ -31,8 +31,6 @@ const FormContainer = styled.div`
     padding: 0 .5rem;
     margin-bottom: 2rem;
   }
-}
-
 `;
 
 const LoginForm = () => {

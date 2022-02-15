@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { OptoLogo } from '../../Components/Logo/Index';
 import { CardContainer, PageContainer } from './styled';
-import UserGoogleLogin from '../../Widgets/GoogleLogin/Index';
 import { Promotion } from './Promotion/Index';
 import ArrowLink from './ArrowLink';
 import LoginForm from './LoginForm';
 import { SignupModal } from '../../Widgets/Signup/Index'
 import { Wave } from '../../Assets/svgs/Wave';
+import UserOAuth from '../../Components/UserOAuth/Index';
 
 const transition = {
   duration: 0.3,
@@ -42,7 +42,7 @@ const Login: React.FC = () => {
           <OptoLogo />
         </div>
         <LoginForm />
-        <UserGoogleLogin />
+        <UserOAuth />
 
         <ArrowLink text="Crie sua conta em menos de 5 minutos." onClick={handleCreateAccountClick} />
 

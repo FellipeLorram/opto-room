@@ -21,7 +21,7 @@ export const ChooseSignupFormContainer = styled.div`
     color: #a6a6a6;
   } 
   
-  .sigin-button{
+  .signin-button{
     width: 300px;
     padding: 1rem 2rem;
     justify-content: space-around;

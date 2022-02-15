@@ -5,11 +5,11 @@ import createUser from "../firestore/CreateNewUser";
 const signupWithEmailAndPassword = async (
   email: string,
   password: string,
-) => {
+): Promise<boolean> => {
   try {
     const auth = getAuth();
     const { user } = await createUserWithEmailAndPassword(auth, email, password)
-    
+        
     if (auth.currentUser) {
       await sendEmailVerification(auth.currentUser);
     }
@@ -20,8 +20,9 @@ const signupWithEmailAndPassword = async (
       date: new Date().toISOString(),
       id: user.uid,
     });
-  } catch (error) {
-    console.log(error);
+    return true;
+  } catch (e) {
+    return false;
   }
 };
 
