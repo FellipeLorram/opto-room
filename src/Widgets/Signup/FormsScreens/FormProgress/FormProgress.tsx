@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { FormStepsContainer, StepsTrace } from './styled';
 
-import { FormProgressContext } from '../../Context/Index';
+import { FormProgressContext } from '../../Context/FormProgressContext';
 
 const FormProgress: React.FC = () => {
   const {

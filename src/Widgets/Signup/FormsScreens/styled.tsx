@@ -9,6 +9,7 @@ export const FormContainer = styled(motion.div)`
   justify-content: center;
   flex-direction: column;
   gap: 1rem;
+  position: relative;
   .row, .button-row{
     width: 70%;
     display: flex;

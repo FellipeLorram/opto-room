@@ -5,7 +5,7 @@ import { GoogleBrand } from '../../../Assets/svgs/GoogleBrand';
 import { Button } from '../../../Components/Button/Index';
 import signupWithFacebook from '../../../firebase/Auth/SignupWithFacebook';
 import signupWithGoogle from '../../../firebase/Auth/SignupWIthGoogle';
-import { FormProgressContext } from '../Context/Index';
+import { FormProgressContext } from '../Context/FormProgressContext';
 import { UserContextData } from '../Context/UserContext';
 import { ChooseSignupFormContainer } from './styled';
 

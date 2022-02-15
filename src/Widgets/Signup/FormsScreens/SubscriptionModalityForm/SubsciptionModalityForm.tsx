@@ -7,10 +7,13 @@ import { Variants } from '../FormAnimationVariants';
 import { FormContainer } from '../styled';
 import { ModalityCard } from './styled';
 import createCheckoutSession from '../../../../stripe/createCheckoutSession';
+import { GenerateStripeSession } from '../GenerateStripeSession/GenerateStripeSession';
 
 const SubsciptionModalityForm: React.FC = () => {
   const [paymentSelectTrace, setPaymentSelectTrace] = useState([false, true, false]);
-  const [price, setPrice] = useState({ value: 'R$349,99', key: '' });
+  const [price, setPrice] = useState({ value: 'R$349,99', key: 'price_1KQzqsEqE8aFGmq4lvQDGDnP' });
+  const [sessionReady, setSessionReady] = useState(false);
+
   const { uid } = useContext(UserContextData)
 
   const cards = [
@@ -77,41 +80,54 @@ const SubsciptionModalityForm: React.FC = () => {
     });
   }
 
+  const handlePayButtonClick = () => {
+    createCheckoutSession(uid, price.key);
+    setSessionReady(true)
+  }
+
   return (
     <FormContainer
       style={{ width: '60rem' }}
       variants={Variants}
     >
-      <div className="row" style={{ gap: '1.5rem', width: '100%' }}>
-        {cards.map(({ header, price, selected, benefits, index }) => (
-          <ModalityCard
-            selected={selected}
-            key={price}
-            onClick={() => handleCardCick(index)}
-          >
-            <div className="header">
-              {header}
-            </div>
-            <div className="price">
-              {price}
-            </div>
-            <div className="benefits-list">
-              {benefits.map(({ text, haveThisBenefit }) => (
-                <span className="benefit" key={text}>
-                  {haveThisBenefit ? <Check className="check" /> : <SquareX className="non-check" />}
-                  {text}
-                </span>
-              ))}
-            </div>
-          </ModalityCard>
-        ))}
-      </div>
+      {!sessionReady ? (
+        <>
+          <div className="row" style={{ gap: '1.5rem', width: '100%' }}>
+            {cards.map(({ header, price, selected, benefits, index }) => (
+              <ModalityCard
+                selected={selected}
+                key={price}
+                onClick={() => handleCardCick(index)}
+              >
+                <div className="header">
+                  {header}
+                </div>
+                <div className="price">
+                  {price}
+                </div>
+                <div className="benefits-list">
+                  {benefits.map(({ text, haveThisBenefit }) => (
+                    <span className="benefit" key={text}>
+                      {haveThisBenefit ? <Check className="check" /> : <SquareX className="non-check" />}
+                      {text}
+                    </span>
+                  ))}
+                </div>
+              </ModalityCard>
+            ))}
+          </div>
 
-      <div className="row" style={{ justifyContent: 'center' }}>
-        <Button onClick={() => createCheckoutSession(uid, price.key)} className="paid-button" >
-          {`Pagar ${price.value}`}
-        </Button>
-      </div>
+          <div className="row" style={{ justifyContent: 'center' }}>
+            <Button onClick={handlePayButtonClick} className="paid-button" >
+              {`Pagar ${price.value}`}
+            </Button>
+          </div>
+        </>
+      ) : (
+        <GenerateStripeSession />
+      )}
+
+
     </FormContainer>
   );
 };

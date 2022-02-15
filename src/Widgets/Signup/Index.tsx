@@ -1,6 +1,78 @@
-import React from 'react';
-import { SignupModalWrapper } from './Context/Index';
+import React, { useState } from 'react';
 import UserContext from './Context/UserContext';
+
+import Header from './Header';
+import AccountInformationForm from './FormsScreens/AccountInformationForm/AccountInformationForm';
+
+import { Background, Container } from './styled';
+import { FormProgress } from './FormsScreens/FormProgress/FormProgress';
+import { AnimatePresence } from 'framer-motion';
+import { BackgroundVariants, ContainerVariants } from './AnimationVariants';
+import { SubsciptionModalityForm } from './FormsScreens/SubscriptionModalityForm/SubsciptionModalityForm';
+import { VerifyEmailForm } from './FormsScreens/VerifyEmail/VerifyEmailForm';
+import { ChooseSignupForm } from './ChooseSignupForm/ChooseSignupForm';
+import { WaveOpacity } from '../../Assets/svgs/WaveOpacity';
+import { FormProgressContext } from './Context/FormProgressContext';
+
+
+const SignupModalWrapper: React.FC<SignupModalProps> = ({ onScreen, setOnScreen }) => {
+  const [EmailSignup, setEmailSignup] = useState(false);
+  const [EmailFormStepOnScreen, setEmailFormStepOnScreen] = useState(true);
+  const [formEmailVerifyStep, setFormEmailVerifyStep] = useState(false);
+  const [PlanSubscriptionFormOnScreen, setPlanSubscriptionFormOnScreen] = useState(false);
+
+  const formSteps = {
+    EmailFormStepOnScreen,
+    setEmailFormStepOnScreen,
+    PlanSubscriptionFormOnScreen,
+    setPlanSubscriptionFormOnScreen,
+    formEmailVerifyStep,
+    setFormEmailVerifyStep
+  };
+
+  return (
+    <AnimatePresence>
+      {onScreen && (
+        <Background
+          variants={BackgroundVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+        >
+          <Container
+            variants={ContainerVariants}
+          >
+            <Header setOnScreen={setOnScreen} />
+
+            <FormProgressContext.Provider value={formSteps}>
+              {EmailSignup ? (
+                <>
+                  <FormProgress />
+                  {EmailFormStepOnScreen && <AccountInformationForm setSignupEmailForm={setEmailSignup} />}
+                  {formEmailVerifyStep && <VerifyEmailForm />}
+
+                </>
+              ) : (PlanSubscriptionFormOnScreen) ?
+                (
+                  <>
+                    <FormProgress />
+                    <SubsciptionModalityForm />
+                  </>
+                ) :
+                <ChooseSignupForm setSignupEmailForm={setEmailSignup} />
+
+              }
+
+            </FormProgressContext.Provider>
+
+            <WaveOpacity className="waveOpacity" />
+          </Container>
+        </Background>
+      )}
+    </AnimatePresence>
+  );
+};
+
 
 export interface SignupModalProps {
   onScreen: boolean;
