@@ -15,7 +15,7 @@ export default createGlobalStyle`
   body {
     font-size: 62.5%;
     font-family: 'Cairo', sans-serif;
-    background: ${({ theme }) => theme.colors.background};
+    background:#f6f7f9;
   }
   @keyframes shake {
     0% {

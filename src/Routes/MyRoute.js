@@ -4,7 +4,7 @@ import { Route, Redirect } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
 
 export default function MyRoute({ component: Component, isClosed, ...rest }) {
-  const isLoggedIn = false;
+  const isLoggedIn = true;
   // useSelector((state) => state.auth.isLoggedIn);
   // const level = useSelector((state) => state.auth.level);
 

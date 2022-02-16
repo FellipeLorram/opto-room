@@ -12,11 +12,12 @@ const Logo = styled.h1`
 
 interface Props {
   style?: React.CSSProperties;
+  className?: string;
 }
 
-const OptoLogo: React.FC<Props> = ({ style }) => {
+const OptoLogo: React.FC<Props> = ({ style, className }) => {
   return (
-    <Logo style={style}>OPTO ROOM</Logo>
+    <Logo className={className} style={style}>OPTO ROOM</Logo>
   );
 }
 
