@@ -14,15 +14,13 @@ const Routes = (): React.ReactElement => {
     <AnimatePresence exitBeforeEnter>
       <Switch>
         <MyRoute path="/login" component={Login} isClosed={false} />
-      </Switch>
-      <Appwrapper>
-        <Navbar />
-        <Main>
-          <Switch>
+        <Appwrapper>
+          <Navbar />
+          <Main>
             <MyRoute path="/" component={Dashoard} isClosed />
-          </Switch>
-        </Main>
-      </Appwrapper>
+          </Main>
+        </Appwrapper>
+      </Switch>
     </AnimatePresence>
   );
 }

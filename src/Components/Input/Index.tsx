@@ -34,13 +34,15 @@ const Input: React.FC<Props> = ({
     if (value) setAnimate(true);
   }, [error, value])
 
-  const handleInputonClick = useCallback(() => setAnimate(true), []);
+  const handleInputOnClick = useCallback(() => setAnimate(true), []);
 
   const onBlur = useCallback(() => !value && setAnimate(false), [value]);
+
   const handleEyeOnClick = useCallback(() => {
     if (setType) setType('text');
     setSeePassword(true);
-  }, [setType])
+  }, [setType]);
+
   const handleEyeOffOnClick = useCallback(() => {
     if (setType) setType('password');
     setSeePassword(false);
@@ -56,7 +58,7 @@ const Input: React.FC<Props> = ({
         <input
           type={type}
           id={label}
-          onClick={handleInputonClick}
+          onClick={handleInputOnClick}
           onBlur={onBlur}
           value={value}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange(e)}
@@ -66,7 +68,7 @@ const Input: React.FC<Props> = ({
           type="text"
           displayType="input"
           id={label}
-          onClick={handleInputonClick}
+          onClick={handleInputOnClick}
           onBlur={onBlur}
           value={value}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange(e)}
@@ -74,7 +76,7 @@ const Input: React.FC<Props> = ({
         />
       )}
 
-      <label htmlFor={label} className="error-message">
+      <label htmlFor={label} className="error-message" aria-label='error-message'>
         {errorOnScreen && (<>{errorMessage}</>)}
       </label>
       {type === 'password' && value && (<Eye onClick={handleEyeOnClick} className="eye" />)}
