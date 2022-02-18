@@ -11,7 +11,7 @@ export const StyledButton = styled.button<Props>`
 
   width: 195px;
 
-  color: ${({ theme, inverse }) => inverse ? theme.colors.secondary : '#fff'};
+  color: ${({ theme, inverse }) => inverse ? theme.colors.button.primary : '#fff'};
   cursor: pointer;
   padding: 0.5rem 4rem;
   outline: none;
@@ -21,8 +21,8 @@ export const StyledButton = styled.button<Props>`
   font-weight: 500;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   :hover{
-    background: ${({ inverse }) => !inverse ? '#1967d2' : '#f2f2f220'};
+    background: ${({ inverse, theme }) => !inverse ? theme.colors.button.primaryHover : theme.colors.button.inverseHover};
   }
 
-  background: ${({ theme, inverse }) => !inverse ? theme.colors.secondary : '#fff'};
+  background: ${({ theme, inverse }) => !inverse ? theme.colors.button.primary : theme.colors.button.inverse};
 `;

@@ -7,11 +7,25 @@ declare module 'styled-components' {
     colors: {
       primary: string;
       secondary: string;
-
-      background: string;
       logo: string;
-      text: string;
       card: string;
+
+      background: {
+        primary: string;
+        secondary: string;
+        hover: string;
+      },
+
+      text: {
+        primary: string;
+        secondary: string;
+      }
+      button: {
+        primary: string;
+        primaryHover: string;
+        inverse: string;
+        inverseHover: string;
+      }
     }
   }
 }

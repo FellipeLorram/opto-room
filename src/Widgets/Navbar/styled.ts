@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const NavBarContainer = styled.div`
   width: 300px;
   height: 100vh;
-  background: #f5f6f9;
+  background: #fff;
 
   border-right: 1px solid #d9d9d9;
   display: flex;
@@ -17,8 +17,15 @@ export const NavBarContainer = styled.div`
 
   .header{
     width: 100%;
-    padding: 1.5rem;
-    background-image: linear-gradient(#eff1f5, #f5f6f9);
+    padding: 1rem;
+    background-image: linear-gradient(#eff1f5, #fff);
+    height: 64px;
+
+    border-bottom: 1px solid;
+    border-image-slice: 1;
+    border-width: 1px;
+    border-image-source: linear-gradient(to left, #bfc6d9, #dfe2ec, #f5f6f9);
+
     .nav-logo {
       text-align: left;
       font-size: 1.5rem;
@@ -78,10 +85,14 @@ position: relative;
   border-radius: 10px 0 0 10px;
   transition: all .2s ease-in-out;
 
+  :hover{
+    color: #61606c;
+  }
+
   ::after, ::before {
     content: '';
     position: absolute;
-    height: ${({ active, theme }) => active ? '50%' : '0'};
+    height: ${({ active }) => active ? '50%' : '0'};
     width: 3px;
     right: 0;
     background: ${({ active, theme }) => active ? theme.colors.secondary : 'none'};
@@ -103,6 +114,17 @@ position: relative;
    place-items: center; 
     svg{
       stroke: ${({ active, theme }) => active ? theme.colors.secondary : '#a0a2ae'};
+    }
+  }
+
+  .block-icon{
+    position: absolute;
+    right: 20px;
+    top: 23%;
+    
+    svg {
+      width: 1rem;
+      stroke: ${({ active }) => active ? '#ff0000' : '#a0a2ae'};
     }
   }
 `;

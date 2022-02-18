@@ -5,4 +5,5 @@ export const MainContainer = styled.main`
   min-height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
+  background: #f1f2f8;
 `
