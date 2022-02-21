@@ -21,7 +21,7 @@ export default {
     },
 
     button: {
-      primary: '#1967d2',
+      primary: '#1a73e8',
       primaryHover: '#1559b7',
       inverse: '#fff',
       inverseHover: '#f2f2f2',

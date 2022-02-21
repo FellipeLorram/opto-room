@@ -14,12 +14,12 @@ import * as actions from './actions';
 function* loginRequest({ payload }) {
   try {
     const { email, password } = payload;
-    const response = yield call(axios.post, '/signin', { email, password });
+    const response = yield call(axios.post, '/token', { email, password });
     yield put(actions.loginSucess({ ...response.data }));
 
     axios.defaults.headers.Authorization = `Bearer ${response.data.token}`;
 
-    history.push('/Level');
+    history.push('/');
   } catch (error) {
     yield put(actions.loginFailure());
   }
