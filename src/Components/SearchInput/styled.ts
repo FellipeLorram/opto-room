@@ -31,6 +31,7 @@ export const SeachInputContainer = styled.div`
     svg{
       stroke: #F5F5F5;
       width: 1rem;
+      height: 1rem;
     }
     
     :hover{

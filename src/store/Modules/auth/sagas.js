@@ -1,5 +1,4 @@
 import {
-  call,
   put,
   all,
   takeLatest,
@@ -13,11 +12,10 @@ import * as actions from './actions';
 
 function* loginRequest({ payload }) {
   try {
-    const { email, password } = payload;
-    const response = yield call(axios.post, '/token', { email, password });
-    yield put(actions.loginSucess({ ...response.data }));
+    const { email, id, token } = payload;
+    yield put(actions.loginSucess({  email, id, token }));
 
-    axios.defaults.headers.Authorization = `Bearer ${response.data.token}`;
+    axios.defaults.headers.Authorization = `Bearer ${token}`;
 
     history.push('/');
   } catch (error) {

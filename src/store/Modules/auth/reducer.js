@@ -1,16 +1,17 @@
 import * as types from '../types';
-import IAction from './Interfaces/IActions';
 
 const initialState = {
   isLoggedIn: false,
   token: '',
-  user: {},
+  user: {
+    name: '',
+  },
   isLoading: false,
   level: 0,
   currentUserName: '',
 };
 
-const Reducer = (state = initialState, action: IAction): typeof initialState => {
+const Reducer = (state = initialState, action) => {
   switch (action.type) {
     case types.LOGIN_REQUEST: {
       const newState = { ...state };

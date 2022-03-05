@@ -1,9 +1,8 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Router } from 'react-router-dom';
-// import { Provider } from 'react-redux';
-// import { } from 'redux-persist';
-// import { PersistGate } from 'redux-persist/integration/react';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import CreateGlobalStyle from './styles/GlobalStyles';
 
@@ -13,6 +12,7 @@ import Principal from './styles/themes/Principal';
 // import dark from './styles/themes/dark';
 import Routes from './Routes';
 import history from './Services/history';
+import store, { persistor } from './store';
 
 
 function App() {
@@ -23,14 +23,16 @@ function App() {
   // }, [theme.title, setTheme]);
 
   return (
-
-    <Router history={history}>
-      <ThemeProvider theme={theme}>
-        <CreateGlobalStyle />
-        <Routes />
-      </ThemeProvider>
-    </Router>
-
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <Router history={history}>
+          <ThemeProvider theme={theme}>
+            <CreateGlobalStyle />
+            <Routes />
+          </ThemeProvider>
+        </Router>
+      </PersistGate>
+    </Provider>
   );
 
 }

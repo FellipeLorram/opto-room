@@ -1,8 +1,9 @@
 import "../config/firebaseClient";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import createUser from "../firestore/CreateNewUser";
+import UserTokenRequestProps from "./Interfaces/IUserTokenRequest";
 
-const signupWithGoogle = async (): Promise<string> => {
+const signupWithGoogle = async (): Promise<UserTokenRequestProps> => {
   try {
     const { user } = await signInWithPopup(
       getAuth(),
@@ -16,10 +17,12 @@ const signupWithGoogle = async (): Promise<string> => {
       id: user.uid,
     });
 
-    return user.uid;
+    const acessToken = await user.getIdToken();
+
+    return { uid: user.uid, email: user.email as string, token: acessToken };
   } catch (error) {
     console.log(error);
-    return '';
+    return { uid: '', email: '', token: '' };
   }
 };
 
