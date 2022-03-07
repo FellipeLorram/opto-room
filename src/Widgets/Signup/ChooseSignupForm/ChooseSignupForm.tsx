@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import { EmailIcon } from '../../../Assets/svgs/EmailIcon';
 import { Button } from '../../../Components/Button/Index';
-import signupWithFacebook from '../../../firebase/Auth/SignupWithFacebook';
-import signupWithGoogle from '../../../firebase/Auth/SignupWIthGoogle';
+import signupWithFacebook from '../../../firebase/Auth/signup/SignupWithFacebook';
+import signupWithGoogle from '../../../firebase/Auth/signup/SignupWIthGoogle';
 import { UserContextData } from '../Context/UserContext';
 import { ChooseSignupFormContainer } from './styled';
 import icon_facebook from '../../../Assets/png/icon_facebook.png'

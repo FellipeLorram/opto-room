@@ -1,6 +1,6 @@
-import "../config/firebaseClient";
+import "../../config/firebaseClient";
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
-import createUser from "../firestore/CreateNewUser";
+import createUser from "../../firestore/CreateNewUser";
 
 const signupWithEmailAndPassword = async (
   email: string,
@@ -22,6 +22,8 @@ const signupWithEmailAndPassword = async (
     });
     return true;
   } catch (e) {
+    console.log(e);
+    
     return false;
   }
 };

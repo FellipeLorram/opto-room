@@ -1,16 +1,18 @@
 import React, { useContext, useState } from 'react';
 import { ChevronLeft } from '../../../../Assets/svgs/ChevronLeft';
 import { Button } from '../../../../Components/Button/Index';
-import signupWithEmailAndPasswordEmailVerification from '../../../../firebase/Auth/SWAPEmailVerification';
+import signupWithEmailAndPasswordEmailVerification from '../../../../firebase/Auth/signup/SWAPEmailVerification';
 import { FormProgressContext } from '../../Context/FormProgressContext';
 import { UserContextData } from '../../Context/UserContext';
 import { Variants } from '../FormAnimationVariants';
-
+import { useDispatch } from 'react-redux';
+import * as actions from '../../../../store/Modules/auth/actions';
 import { FormContainer } from '../styled';
 
 const VerifyEmailForm: React.FC = () => {
   const { email, password } = useContext(UserContextData);
   const [verificationFailed, setVerificationFailed] = useState(false);
+  const dispatch = useDispatch();
 
   const {
     setEmailFormStepOnScreen,
@@ -24,11 +26,13 @@ const VerifyEmailForm: React.FC = () => {
   };
 
   const handleClickContinue = async () => {
-    const emailVeified = await signupWithEmailAndPasswordEmailVerification(email, password);
-    if (!emailVeified) {
+    const { emailVerified, token, id } = await signupWithEmailAndPasswordEmailVerification(email, password);
+    if (!emailVerified) {
       setVerificationFailed(true);
       return;
     };
+    dispatch(actions.loginRequest({ email: email, id, token }));
+
     setEmailSignup(false)
     setFormEmailVerifyStep(false);
   };

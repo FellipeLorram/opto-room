@@ -1,7 +1,7 @@
-import "../config/firebaseClient";
+import "../../config/firebaseClient";
 import { getAuth, signInWithPopup, FacebookAuthProvider } from "firebase/auth";
-import createUser from "../firestore/CreateNewUser";
-import UserTokenRequestProps from "./Interfaces/IUserTokenRequest";
+import createUser from "../../firestore/CreateNewUser";
+import UserTokenRequestProps from "../Interfaces/IUserTokenRequest";
 
 const signupWithFacebook = async (): Promise<UserTokenRequestProps> => {
   try {

@@ -1,7 +1,7 @@
-import "../config/firebaseClient";
+import "../../config/firebaseClient";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import createUser from "../firestore/CreateNewUser";
-import UserTokenRequestProps from "./Interfaces/IUserTokenRequest";
+import createUser from "../../firestore/CreateNewUser";
+import UserTokenRequestProps from "../Interfaces/IUserTokenRequest";
 
 const signupWithGoogle = async (): Promise<UserTokenRequestProps> => {
   try {

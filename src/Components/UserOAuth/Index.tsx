@@ -5,7 +5,6 @@ import { LoginGoogleContainer } from './styled';
 
 
 const UserOAuth: React.FC = () => {
-
   return (
     <LoginGoogleContainer>
       <div className="oauth-login">

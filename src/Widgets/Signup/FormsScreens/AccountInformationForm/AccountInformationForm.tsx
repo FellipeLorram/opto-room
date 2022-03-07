@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { ChevronLeft } from '../../../../Assets/svgs/ChevronLeft';
 import { Button } from '../../../../Components/Button/Index';
 import { Input } from '../../../../Components/Input/Index';
-import signupWithEmailAndPassword from '../../../../firebase/Auth/SignupWithEmailAndPassword';
+import signupWithEmailAndPassword from '../../../../firebase/Auth/signup/SignupWithEmailAndPassword';
 import { FormProgressContext } from '../../Context/FormProgressContext';
 import { UserContextData } from '../../Context/UserContext';
 import { Variants } from '../FormAnimationVariants';
