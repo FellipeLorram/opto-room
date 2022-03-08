@@ -26,12 +26,12 @@ const VerifyEmailForm: React.FC = () => {
   };
 
   const handleClickContinue = async () => {
-    const { emailVerified, token, id } = await signupWithEmailAndPasswordEmailVerification(email, password);
+    const { emailVerified, token, id, userName } = await signupWithEmailAndPasswordEmailVerification(email, password);
     if (!emailVerified) {
       setVerificationFailed(true);
       return;
     };
-    dispatch(actions.loginRequest({ email: email, id, token }));
+    dispatch(actions.loginRequest({ email: email, id, token, userName }));
 
     setEmailSignup(false)
     setFormEmailVerifyStep(false);

@@ -12,8 +12,8 @@ import * as actions from './actions';
 
 function* loginRequest({ payload }) {
   try {
-    const { email, id, token } = payload;
-    yield put(actions.loginSucess({  email, id, token }));
+    const { email, id, token, userName } = payload;
+    yield put(actions.loginSucess({  email, id, token, userName }));
 
     axios.defaults.headers.Authorization = `Bearer ${token}`;
 

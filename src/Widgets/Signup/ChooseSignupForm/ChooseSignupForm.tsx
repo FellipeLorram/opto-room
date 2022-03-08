@@ -22,12 +22,12 @@ const ChooseSignupForm: React.FC<Props> = ({ setSignupEmailForm }) => {
   const handleSignupExternalFormClick = async (
     signupMethod: () => Promise<UserTokenRequestProps>
   ) => {
-    const {uid, email, token} = await signupMethod()
+    const {uid, email, token, userName} = await signupMethod()
     if (uid) {
       setUid(uid);
       setEmail(email)
     }
-    dispatch(actions.loginRequest({ email: email, id: uid, token }));
+    dispatch(actions.loginRequest({ email: email, id: uid, token, userName }));
   }
 
   return (

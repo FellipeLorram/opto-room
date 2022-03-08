@@ -3,11 +3,8 @@ import * as types from '../types';
 const initialState = {
   isLoggedIn: false,
   token: '',
-  user: {
-    name: '',
-  },
+  userName: '',
   isLoading: false,
-  level: 0,
   currentUserName: '',
 };
 
@@ -23,7 +20,8 @@ const Reducer = (state = initialState, action) => {
       const newState = { ...state };
       newState.isLoggedIn = true;
       newState.token = action.payload.token;
-      newState.user = action.payload.user;
+      newState.userName = action.payload.userName;
+      newState.currentUserName = action.payload.userName;
       newState.isLoading = false;
       return newState;
     }

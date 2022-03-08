@@ -7,6 +7,8 @@ import LoginForm from './LoginForm';
 import { SignupModal } from '../../Widgets/Signup/Index'
 import { Wave } from '../../Assets/svgs/Wave';
 import UserOAuth from '../../Components/UserOAuth/Index';
+import { useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 const transition = {
   duration: 0.3,
@@ -19,13 +21,24 @@ const CardVariant = {
   exit: { scale: 0, opacity: 0, transition: transition },
 };
 
+type state = {
+  auth: {
+    isLoggedIn: boolean
+  }
+}
 
 const Login: React.FC = () => {
+  const isLoggedIn = useSelector((state: state) => state.auth.isLoggedIn);
+
   const [signupModalOnScreen, setSignupModalOnScreen] = useState(false);
 
   const handleCreateAccountClick = () => {
     setSignupModalOnScreen(true);
   };
+
+  if (isLoggedIn) {
+    return <Redirect to={{ pathname: '/' }} />;
+  }
 
   return (
     <PageContainer>

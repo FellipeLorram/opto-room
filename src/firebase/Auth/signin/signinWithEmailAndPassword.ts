@@ -9,12 +9,14 @@ const signInEmailAndPassord = async (email: string, password: string): Promise<E
     return {
       token,
       id: user.uid,
+      userName: user.displayName || '',
     }
   } catch (error) {
     console.log(error);
     return {
       token: '',
       id: '',
+      userName: ''
     }
   }
 

@@ -19,10 +19,15 @@ const signupWithFacebook = async (): Promise<UserTokenRequestProps> => {
 
     const acessToken = await user.getIdToken();
 
-    return { uid: user.uid, email: user.email as string, token: acessToken };
+    return {
+      uid: user.uid,
+      email: user.email as string,
+      token: acessToken,
+      userName: user.displayName || '',
+    };
   } catch (error) {
     console.log(error);
-    return { uid: '', email: '', token: '' };
+    return { uid: '', email: '', token: '', userName: '' };
   }
 }
 

@@ -5,7 +5,7 @@ export const TopbarContainer = styled.div`
   padding: 1rem 5rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   font-size: 1.2rem;
   font-weight: 700;
   background-image: linear-gradient(#eff1f5,#fff);
@@ -14,5 +14,4 @@ export const TopbarContainer = styled.div`
   border-image-slice: 1;
   border-width: 1px;
   border-image-source: linear-gradient(to right, #bfc6d9, #dfe2ec, #f5f6f9);
-
 `;

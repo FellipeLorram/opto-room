@@ -17,13 +17,15 @@ const signupWithEmailAndPasswordEmailVerification = async (
       return {
         emailVerified: user.emailVerified,
         token,
-        id: user.uid
+        id: user.uid,
+        userName: user.displayName || ''
       }
     }
     return {
       emailVerified: user.emailVerified,
       token: '',
-      id: ''
+      id: '',
+      userName: ''
     }
 
   } catch (error) {
@@ -31,7 +33,8 @@ const signupWithEmailAndPasswordEmailVerification = async (
     return {
       emailVerified: false,
       token: '',
-      id: ''
+      id: '',
+      userName: ''
     }
   }
 }
