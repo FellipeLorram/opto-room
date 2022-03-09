@@ -1,17 +1,10 @@
 import React from 'react'
+import PatientProps from '../PatientProps';
 import { PatientCardContainer } from './styled'
 
-interface Props {
-  name: string;
-  age: number;
-  address: string;
-  lastAppoitment: string;
-  id: string;
-}
-
-const PatientCard: React.FC<Props> = ({ name, address, age, lastAppoitment, id }) => {
+const PatientCard: React.FC<PatientProps> = ({ name, address, age, lastAppoitment, id, local, localColor }) => {
   return (
-    <PatientCardContainer>
+    <PatientCardContainer localColor={localColor}>
       <div className='header'>{name}</div>
       <div className='body'>
         <div className='info'>
@@ -25,6 +18,10 @@ const PatientCard: React.FC<Props> = ({ name, address, age, lastAppoitment, id }
         <div className='info'>
           <span>Ultima consulta:</span>
           <span>{new Date(lastAppoitment).toLocaleDateString('pt-BR')}</span>
+        </div>
+        <div className='info local'>
+          <span>Local de atendimento</span>
+          <span>{local}</span>
         </div>
       </div>
     </PatientCardContainer>

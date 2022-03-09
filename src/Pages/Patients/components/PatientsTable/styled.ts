@@ -25,18 +25,26 @@ export const PatientTableContainer = styled.table`
     }
   }
 
-  .row {
-    td{
-      :first-child {
-        border-left: 1px solid transparent;
-      }
-      :last-child {
-        border-right: 1px solid transparent;
-      }
+
+`;
+
+interface RowProps {
+  localColor: 'color1' | 'color2' | 'color3' | 'color4' | 'color5' | 'color6';
+}
+
+export const Row = styled.tr <RowProps> `
+  td{
+    :first-child {
+      border-left: 1px solid transparent;
+    }
+    :last-child {
+      border-right: 1px solid transparent;
+      color: ${({ theme, localColor }) => theme.colors.localColors[localColor]}
     }
   }
 
-  .row:hover{
+
+  :hover{
     td {
       border-color: ${({ theme }) => theme.colors.secondary};
     }

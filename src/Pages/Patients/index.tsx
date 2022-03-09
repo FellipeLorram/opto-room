@@ -7,10 +7,15 @@ import { CardDisposition, PatientPageStruct } from './styled'
 
 const Patients: React.FC = () => {
   const [isLineDisposition, setIsLineDisposition] = useState(true);
-
+  const [searchValue, setSearchValue] = useState('');
   return (
     <PatientPageStruct>
-      <Actions isLineDisposition={isLineDisposition} setDisposition={setIsLineDisposition} />
+      <Actions
+        isLineDisposition={isLineDisposition}
+        setDisposition={setIsLineDisposition}
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+      />
       {isLineDisposition ? (
         <PatientTable>
           {Patiens.map((props) => (

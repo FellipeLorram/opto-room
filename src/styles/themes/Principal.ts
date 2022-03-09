@@ -25,6 +25,15 @@ export default {
       primaryHover: '#1559b7',
       inverse: '#fff',
       inverseHover: '#f2f2f2',
+    },
+
+    localColors: {
+      color1: '#61E786',
+      color2: '#5A5766',
+      color3: '#48435C',
+      color4: '#9792E3',
+      color5: '#A9DDD6',
+      color6: '#5F634F',
     }
   }
 }

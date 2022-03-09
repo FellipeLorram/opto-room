@@ -4,8 +4,17 @@ export const SeachInputContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #e8f1fc;
+  background: #fff;
+  height: 40px;
+  border-radius: 5px;
   width: 25rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border: 1px solid transparent;
+  transition: all .2s ease-in-out;
+  
+  :hover{
+    border-color: ${({ theme }) => theme.colors.secondary};
+  }
 
   input { 
     position: relative;
@@ -24,18 +33,13 @@ export const SeachInputContainer = styled.div`
     align-items: center;
     justify-content: center;
     padding: .5rem 1rem;
-    background: ${({theme}) => theme.colors.button.primary};
     transition: all .2s ease-in-out;
     cursor: pointer;
 
     svg{
-      stroke: #F5F5F5;
+      stroke: #838695;
       width: 1rem;
       height: 1rem;
-    }
-    
-    :hover{
-      background: ${({theme}) => theme.colors.button.primaryHover};
     }
   }
 `;

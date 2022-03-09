@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const PatientCardContainer = styled.div`
+interface CardProps {
+  localColor: 'color1' | 'color2' | 'color3' | 'color4' | 'color5' | 'color6';
+}
+
+export const PatientCardContainer = styled.div<CardProps>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,6 +40,8 @@ export const PatientCardContainer = styled.div`
       width: 100%;
       font-size: 0.9rem;
       padding: .2rem;
+      border-bottom: 1px solid #e3e4e8;
+
       span{
         :first-of-type{
           color: #838695;
@@ -45,6 +51,13 @@ export const PatientCardContainer = styled.div`
     }
   }
 
+  .local {
+    span {
+      :last-of-type {
+        color: ${({theme, localColor}) => theme.colors.localColors[localColor]}
+      }
+    }
+  }
   :hover{
     border-color: ${({ theme }) => theme.colors.secondary};
   }
