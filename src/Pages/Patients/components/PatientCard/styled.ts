@@ -17,6 +17,7 @@ export const PatientCardContainer = styled.div<CardProps>`
   border: 1px solid transparent;
   transition: all 0.2s ease-in-out;
   gap: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   .header {
     font-size: 1.2rem;
     width: 100%;

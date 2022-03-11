@@ -1,25 +1,11 @@
 import React from 'react'
-import styled from 'styled-components'
 import ActionButton from '../../../../Components/ActionButton';
 import { LayoutList } from '../../../../Assets/svgs/LayoutList';
 import { LayoutGrid } from '../../../../Assets/svgs/LayoutGrid';
 import { Filter } from '../../../../Assets/svgs/Filter';
 import { SearchInput } from '../../../../Components/SearchInput/Index';
+import { ActionsContainer, FilterOptions } from './styled';
 
-const ActionsContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
-  gap: 1rem;
-  width: 100%;
-
-  .actions-button-container{
-    display: flex;
-    flex-direction: row;
-    gap: 1rem  
-  }  
-`;
 
 interface Props {
   isLineDisposition: boolean;
@@ -46,6 +32,11 @@ const Actions: React.FC<Props> = ({
         <ActionButton text='Filtrar'>
           <Filter />
         </ActionButton>
+        <FilterOptions>
+          <div className="header">
+            Filtros
+          </div>
+        </FilterOptions>
       </div>
       <div className='search-input-container' style={{ alignSelf: 'flex-end' }}>
         <SearchInput value={searchValue} setValue={setSearchValue} />
