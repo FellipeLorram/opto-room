@@ -1,28 +1,39 @@
 import { AnimatePresence } from 'framer-motion';
 import React, { useContext } from 'react'
 import { Check } from '../../../../../Assets/svgs/Check'
+import { Close } from '../../../../../Assets/svgs/CloseX';
 import FilterContext from '../../../context/FilterContext';
 import { FilterContainer, FilterOptions } from './styled'
 
 interface Props {
   onScreen: boolean;
+  setOnScreen(value: boolean): void;
+  sethandleCustomAnimate(value: boolean): void;
 }
 
-const Filters: React.FC<Props> = ({ onScreen }) => {
+const Filters: React.FC<Props> = ({ onScreen, setOnScreen, sethandleCustomAnimate }) => {
   const { lastAppoitment, workplace, setFilters } = useContext(FilterContext);
 
   const handleFilterOptionClick = (option: 'lastAppoitment' | 'workplace') => {
     setFilters(filters => {
-      const newFilters = {...filters}
+      const newFilters = { ...filters }
       newFilters[option] = !filters[option]
       return newFilters;
     });
+  }
+
+  const handleCloseClick = () => {
+    setOnScreen(false);
+    sethandleCustomAnimate(false);
   }
 
   return (
     <AnimatePresence>
       {onScreen && (
         <FilterOptions>
+          <div className="pre-header">
+            <Close className='close-button' onClick={handleCloseClick} /> 
+          </div>
           <div className="header">
             Filtrar por
           </div>

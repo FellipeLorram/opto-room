@@ -45,7 +45,7 @@ const Actions: React.FC<Props> = ({
         >
           <Filter />
         </ActionButton>
-        <Filters onScreen={filtersOnScreen} />
+        <Filters onScreen={filtersOnScreen} setOnScreen={setFiltersOnScreen} sethandleCustomAnimate={sethandleCustomAnimate} />
       </div>
       <div className='search-input-container' style={{ alignSelf: 'flex-end' }}>
         <SearchInput value={searchValue} setValue={setSearchValue} />

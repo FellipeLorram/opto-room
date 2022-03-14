@@ -5,12 +5,14 @@ interface Props {
   onClick?: { (): void; };
 }
 
-const BlackManSmile: React.FC<Props> = ({ className, onClick }) => {
+const Close: React.FC<Props> = ({ className, onClick }) => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" onClick={onClick} className={className} width="44" height="44" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#000000" fill="none" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M650 1300C290.71 1300 0 1008.86 0 650C0 290.71 291.141 0 650 0C1009.29 0 1300 291.141 1300 650C1300.43 1009.29 1009.29 1300 650 1300Z" fill="#1A73E8" />
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <line x1="18" y1="6" x2="6" y2="18" />
+      <line x1="6" y1="6" x2="18" y2="18" />
     </svg>
   );
 };
 
-export { BlackManSmile };
+export { Close };

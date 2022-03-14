@@ -15,6 +15,21 @@ export const FilterOptions = styled(motion.div)`
   gap: .2rem;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
   
+  .pre-header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .close-button {
+      stroke: #838695;
+      width: .9rem;
+      height: .9rem;
+      cursor: pointer;
+    }
+
+  }
+
   .header {
     width: 100%;
     text-align:left;
