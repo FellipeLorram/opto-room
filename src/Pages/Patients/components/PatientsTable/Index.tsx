@@ -1,5 +1,5 @@
 import React from 'react'
-import PatientProps from '../PatientProps'
+import Patient from '../../Entities/Patient'
 import { PatientTableContainer, Row } from './styled'
 
 
@@ -28,7 +28,7 @@ const PatientTable = ({ children }: { children: React.ReactNode }) => {
   )
 }
 
-export const PatientTr: React.FC<PatientProps> = ({ address, age, id, lastAppoitment, name, local, localColor }) => {
+export const PatientTr: React.FC<Patient> = ({ address, age, id, lastAppoitment, name, local, localColor }) => {
   return (
     <Row localColor={localColor}>
       <td>{name}</td>

@@ -18,7 +18,7 @@ export const ActionsButtonWrapper = styled.div<Props>`
   gap: 1rem;
   border: 1px solid transparent;
   border-color: ${({ theme, animate }) => animate ? theme.colors.secondary : 'transparent'};
-
+  position: relative;
   transition: all .2s ease-in-out;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 
@@ -44,14 +44,4 @@ export const ActionsButtonWrapper = styled.div<Props>`
     font-size: .6rem;
     color: #838695;
   }
-
-  /* :hover{
-    border-color: ${({ theme }) => theme.colors.secondary};
-    max-width: 120px;
-    .icon-container{
-      svg{
-        stroke: #464853;
-      }
-    }
-  } */
 `

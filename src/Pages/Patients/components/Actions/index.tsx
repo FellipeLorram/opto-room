@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import ActionButton from '../../../../Components/ActionButton';
 import { LayoutList } from '../../../../Assets/svgs/LayoutList';
 import { LayoutGrid } from '../../../../Assets/svgs/LayoutGrid';
 import { Filter } from '../../../../Assets/svgs/Filter';
 import { SearchInput } from '../../../../Components/SearchInput/Index';
-import { ActionsContainer } from './styled';
+import { ActionsContainer, AppliedFilterIndicator } from './styled';
 import Filters from './Filters/Index';
+import FilterContext from '../../context/FilterContext';
 
 
 interface Props {
@@ -23,10 +24,26 @@ const Actions: React.FC<Props> = ({
 }) => {
   const [filtersOnScreen, setFiltersOnScreen] = useState(false);
   const [handleCustomAnimate, sethandleCustomAnimate] = useState(false);
+  const [filtersAppliedQuantity, setFiltersAppliedQuantity] = useState('');
+
+  const { workplace, lastAppoitment } = useContext(FilterContext);
+
+  useEffect(() => {
+    if (workplace && lastAppoitment) setFiltersAppliedQuantity('2');
+    else if (workplace || lastAppoitment) setFiltersAppliedQuantity('1');
+    else setFiltersAppliedQuantity('');
+
+  }, [workplace, lastAppoitment])
 
   const handleFilterButtonClick = () => {
     setFiltersOnScreen(!filtersOnScreen);
     sethandleCustomAnimate(!handleCustomAnimate)
+  }
+
+  const handleDispositionButtonCLick = () => {
+    setDisposition(!isLineDisposition);
+    setFiltersOnScreen(false);
+    sethandleCustomAnimate(false)
   }
 
   return (
@@ -34,7 +51,7 @@ const Actions: React.FC<Props> = ({
       <div className='actions-button-container'>
         <ActionButton
           text={isLineDisposition ? 'Blocos' : 'Linhas'}
-          onClick={() => setDisposition(!isLineDisposition)}
+          onClick={handleDispositionButtonCLick}
         >
           {isLineDisposition ? <LayoutGrid /> : <LayoutList />}
         </ActionButton>
@@ -44,6 +61,7 @@ const Actions: React.FC<Props> = ({
           text='Filtrar'
         >
           <Filter />
+          {filtersAppliedQuantity && <AppliedFilterIndicator>{filtersAppliedQuantity}</AppliedFilterIndicator>}
         </ActionButton>
         <Filters onScreen={filtersOnScreen} setOnScreen={setFiltersOnScreen} sethandleCustomAnimate={sethandleCustomAnimate} />
       </div>

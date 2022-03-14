@@ -14,7 +14,7 @@ export const FilterOptions = styled(motion.div)`
   flex-direction: column;
   gap: .2rem;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
-  
+  z-index: 3;
   .pre-header{
     width: 100%;
     display: flex;

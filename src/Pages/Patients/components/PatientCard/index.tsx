@@ -1,8 +1,8 @@
 import React from 'react'
-import PatientProps from '../PatientProps';
+import Patient from '../../Entities/Patient'
 import { PatientCardContainer } from './styled'
 
-const PatientCard: React.FC<PatientProps> = ({ name, address, age, lastAppoitment, id, local, localColor }) => {
+const PatientCard: React.FC<Patient> = ({ name, address, age, lastAppoitment, id, local, localColor }) => {
   return (
     <PatientCardContainer localColor={localColor}>
       <div className='header'>{name}</div>

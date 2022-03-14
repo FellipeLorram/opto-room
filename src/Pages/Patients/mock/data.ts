@@ -1,13 +1,13 @@
-import { localColor } from "../components/PatientProps";
+import Patient, { localColor } from "../Entities/Patient";
 
-export const Patiens = [
+export const Patients: Patient[] = [
   {
     localColor: 'color1' as localColor,
     local: 'Caju',
     name: 'fellipe lorram',
     address: 'Rua peter lund, n38',
     age: 21,
-    lastAppoitment: new Date().toISOString(),
+    lastAppoitment: new Date(1995,11,17).toISOString(),
     id: '',
   },
   {
@@ -43,7 +43,7 @@ export const Patiens = [
     name: 'Leonardo Castro',
     address: 'Rua peter lund, n38',
     age: 16,
-    lastAppoitment: new Date().toISOString(),
+    lastAppoitment: new Date(1995,11,17).toISOString(),
     id: '',
   },
   {

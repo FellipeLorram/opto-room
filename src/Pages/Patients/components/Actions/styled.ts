@@ -16,3 +16,16 @@ export const ActionsContainer = styled.div`
   }  
 `;
 
+export const AppliedFilterIndicator = styled.div`
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a73e8;
+  position: absolute;
+  top: -0%;
+  left: 0;
+  border-radius: 50%;
+  color: #fff;
+`;
