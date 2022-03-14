@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ActionButton from '../../../../Components/ActionButton';
 import { LayoutList } from '../../../../Assets/svgs/LayoutList';
 import { LayoutGrid } from '../../../../Assets/svgs/LayoutGrid';
 import { Filter } from '../../../../Assets/svgs/Filter';
 import { SearchInput } from '../../../../Components/SearchInput/Index';
-import { ActionsContainer, FilterOptions } from './styled';
+import { ActionsContainer } from './styled';
+import Filters from './Filters/Index';
 
 
 interface Props {
@@ -20,6 +21,14 @@ const Actions: React.FC<Props> = ({
   searchValue,
   setSearchValue
 }) => {
+  const [filtersOnScreen, setFiltersOnScreen] = useState(false);
+  const [handleCustomAnimate, sethandleCustomAnimate] = useState(false);
+
+  const handleFilterButtonClick = () => {
+    setFiltersOnScreen(!filtersOnScreen);
+    sethandleCustomAnimate(!handleCustomAnimate)
+  }
+
   return (
     <ActionsContainer>
       <div className='actions-button-container'>
@@ -29,14 +38,14 @@ const Actions: React.FC<Props> = ({
         >
           {isLineDisposition ? <LayoutGrid /> : <LayoutList />}
         </ActionButton>
-        <ActionButton text='Filtrar'>
+        <ActionButton
+          customAnimate={handleCustomAnimate}
+          onClick={handleFilterButtonClick}
+          text='Filtrar'
+        >
           <Filter />
         </ActionButton>
-        <FilterOptions>
-          <div className="header">
-            Filtros
-          </div>
-        </FilterOptions>
+        <Filters onScreen={filtersOnScreen} />
       </div>
       <div className='search-input-container' style={{ alignSelf: 'flex-end' }}>
         <SearchInput value={searchValue} setValue={setSearchValue} />

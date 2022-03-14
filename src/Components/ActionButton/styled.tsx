@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const ActionsButtonWrapper = styled.div`
+interface Props {
+  animate: boolean;
+}
+
+export const ActionsButtonWrapper = styled.div<Props>`
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -8,11 +12,13 @@ export const ActionsButtonWrapper = styled.div`
   cursor: pointer;
   border-radius: 5px;
   padding: .7rem;
-  max-width: 40px;
+  max-width: ${({ animate }) => animate ? '120px' : '40px'};
   height: 40px;
   overflow: hidden;
   gap: 1rem;
   border: 1px solid transparent;
+  border-color: ${({ theme, animate }) => animate ? theme.colors.secondary : 'transparent'};
+
   transition: all .2s ease-in-out;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 
@@ -25,7 +31,7 @@ export const ActionsButtonWrapper = styled.div`
     svg{
       width: 1rem;
       height: 1rem;
-      stroke: #838695;
+      stroke: ${({ animate }) => animate ? '#464853' : '#838695'};
       transition: all .2s ease-in-out;
     }
   }
@@ -39,13 +45,13 @@ export const ActionsButtonWrapper = styled.div`
     color: #838695;
   }
 
-  :hover{
-    border-color: ${({theme}) => theme.colors.secondary};
+  /* :hover{
+    border-color: ${({ theme }) => theme.colors.secondary};
     max-width: 120px;
     .icon-container{
       svg{
         stroke: #464853;
       }
     }
-  }
+  } */
 `
