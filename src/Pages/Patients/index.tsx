@@ -9,7 +9,7 @@ import { CardDisposition, PatientPageStruct } from './styled'
 
 
 const PatientsPage: React.FC = () => {
-  const [isLineDisposition, setIsLineDisposition] = useState(true);
+  const [isLineDisposition, setIsLineDisposition] = useState(false);
   const [searchValue, setSearchValue] = useState('');
   const [patients, setPatients] = useState<Patient[]>([]);
   const [filters, setFilters] = useState({

@@ -10,6 +10,7 @@ import { Dashoard } from '../Pages/Dashboard/Index';
 import Appwrapper from '../Components/AppWrapper/Index';
 import { Topbar } from '../Widgets/Topbar/Index';
 import Patients from '../Pages/Patients';
+import PatientPage from '../Pages/PatientPage/Index';
 
 const Routes = (): React.ReactElement => {
   return (
@@ -22,6 +23,7 @@ const Routes = (): React.ReactElement => {
             <Topbar />
             <MyRoute path="/dashboard" component={Dashoard} isClosed />
             <MyRoute path="/patients" component={Patients} isClosed />
+            <MyRoute path="/new-patient" component={PatientPage} isClosed />
           </Main>
         </Appwrapper>
       </Switch>

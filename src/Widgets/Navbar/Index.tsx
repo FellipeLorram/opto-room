@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import { Board } from '../../Assets/svgs/NavbarIcons/Board';
 import { Locals } from '../../Assets/svgs/NavbarIcons/Locals';
 import { Lock } from '../../Assets/svgs/NavbarIcons/Lock';
@@ -11,13 +11,9 @@ import { OptoLogo } from '../../Components/Logo/Index';
 import UpgradeCard from '../UpgradeCard/Index';
 import { NavBarContainer, NavBarLink } from './styled';
 
-// interface Props {
-//   toggle(): void;
-// }
-
 const Navbar: React.FC = () => {
   const { pathname } = useLocation();
-
+  const history = useHistory()
   const NavLinks = [
     { block: false, text: 'Dashboard', to: '/', icon: <Board /> },
     { block: false, text: 'Pacientes', to: '/patients', icon: <Patients /> },
@@ -32,7 +28,7 @@ const Navbar: React.FC = () => {
       </div>
 
       <div className='content-top'>
-        <Button className='add-patient-button'>
+        <Button onClick={() => history.push('/new-patient')} className='add-patient-button'>
           <span className='text'>
             Adicionar Paciente
           </span>
