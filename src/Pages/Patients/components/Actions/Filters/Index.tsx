@@ -4,6 +4,7 @@ import { Check } from '../../../../../Assets/svgs/Check'
 import { Close } from '../../../../../Assets/svgs/CloseX';
 import FilterContext from '../../../context/FilterContext';
 import { FilterContainer, FilterOptions } from './styled'
+import { variants } from './variants';
 
 interface Props {
   onScreen: boolean;
@@ -30,7 +31,11 @@ const Filters: React.FC<Props> = ({ onScreen, setOnScreen, sethandleCustomAnimat
   return (
     <AnimatePresence>
       {onScreen && (
-        <FilterOptions>
+        <FilterOptions
+          variants={variants}
+          initial="initial"
+          animate="animate"
+        >
           <div className="pre-header">
             <Close className='close-button' onClick={handleCloseClick} /> 
           </div>

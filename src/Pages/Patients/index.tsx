@@ -10,6 +10,7 @@ import { CardDisposition, PatientPageStruct } from './styled'
 const Patients: React.FC = () => {
   const [isLineDisposition, setIsLineDisposition] = useState(true);
   const [searchValue, setSearchValue] = useState('');
+
   const [filters, setFilters] = useState({
     workplace: false,
     lastAppoitment: false,
@@ -26,13 +27,13 @@ const Patients: React.FC = () => {
         />
         {isLineDisposition ? (
           <PatientTable>
-            {Patiens.map((props) => (
+            {Patiens.filter(({name}) => name.toLocaleLowerCase().startsWith(searchValue)).map((props) => (
               <PatientTr {...props} />
             ))}
           </PatientTable>
         ) : (
           <CardDisposition>
-            {Patiens.map((props) => (
+            {Patiens.filter(({name}) => name.toLocaleLowerCase().startsWith(searchValue)).map((props) => (
               <PatientCard {...props} />
             ))}
           </CardDisposition>

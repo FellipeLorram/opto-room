@@ -10,6 +10,7 @@ export const PatientCardContainer = styled.div<CardProps>`
   justify-content: center;
   flex-direction: column;
   width: 100%;
+  max-width: 276px;
   background: #fff;
   border-radius: 5px;
   padding: 1rem;
