@@ -3,7 +3,7 @@ import Actions from './components/Actions';
 import PatientCard from './components/PatientCard';
 import PatientTable, { PatientTr } from './components/PatientsTable/Index';
 import FilterContext from './context/FilterContext';
-import Patient from './Entities/Patient';
+import Patient from '../../Entities/Patient';
 import { Patients } from './mock/data';
 import { CardDisposition, PatientPageStruct } from './styled'
 
@@ -21,12 +21,14 @@ const PatientsPage: React.FC = () => {
     setPatients(Patients)
   }, [])
 
-  const filterByDate = (a: Patient, b: Patient) => {
-    return +new Date(b.lastAppoitment) - +new Date(a.lastAppoitment)
+  const filterByDate = (a: Patient, b: Patient): number => {
+    if (b.lastAppoitment && a.lastAppoitment) return +new Date(b.lastAppoitment) - +new Date(a.lastAppoitment);
+    return a.name > b.name ? 1 : -1
   }
 
   const filterByWorkplace = (a: Patient, b: Patient): number => {
-    return a.local > b.local ? 1 : -1;
+    if (b.local && a.local) return a.local > b.local ? 1 : -1;
+    return 0;
   }
 
   useEffect(() => {

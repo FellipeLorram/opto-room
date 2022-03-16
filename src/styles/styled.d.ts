@@ -33,6 +33,7 @@ declare module 'styled-components' {
         color4: string,
         color5: string,
         color6: string,
+        Default: string,
       }
     }
   }

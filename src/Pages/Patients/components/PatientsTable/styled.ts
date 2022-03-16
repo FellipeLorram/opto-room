@@ -29,7 +29,7 @@ export const PatientTableContainer = styled.table`
 `;
 
 interface RowProps {
-  localColor: 'color1' | 'color2' | 'color3' | 'color4' | 'color5' | 'color6';
+  localColor: 'color1' | 'color2' | 'color3' | 'color4' | 'color5' | 'color6' | 'Default';
 }
 
 export const Row = styled.tr <RowProps> `

@@ -23,6 +23,10 @@ const Topbar: React.FC = () => {
       setCurrentLocation('Configurações');
       return;
     };
+    if (pathname === '/new-patient') {
+      setCurrentLocation('Adicionar Paciente');
+      return;
+    };
     return () => {
       setCurrentLocation('');
     }

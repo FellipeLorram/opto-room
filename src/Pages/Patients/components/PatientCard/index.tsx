@@ -1,10 +1,10 @@
 import React from 'react'
-import Patient from '../../Entities/Patient'
+import Patient from '../../../../Entities/Patient'
 import { PatientCardContainer } from './styled'
 
 const PatientCard: React.FC<Patient> = ({ name, address, age, lastAppoitment, id, local, localColor }) => {
   return (
-    <PatientCardContainer localColor={localColor}>
+    <PatientCardContainer localColor={localColor || 'Default'}>
       <div className='header'>{name}</div>
       <div className='body'>
         <div className='info'>
@@ -17,7 +17,7 @@ const PatientCard: React.FC<Patient> = ({ name, address, age, lastAppoitment, id
         </div>
         <div className='info'>
           <span>Ultima consulta:</span>
-          <span>{new Date(lastAppoitment).toLocaleDateString('pt-BR')}</span>
+          <span>{lastAppoitment && new Date(lastAppoitment).toLocaleDateString('pt-BR')}</span>
         </div>
         <div className='info local'>
           <span>Local de atendimento</span>

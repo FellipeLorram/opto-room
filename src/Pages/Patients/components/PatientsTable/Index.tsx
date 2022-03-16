@@ -1,5 +1,5 @@
 import React from 'react'
-import Patient from '../../Entities/Patient'
+import Patient from '../../../../Entities/Patient'
 import { PatientTableContainer, Row } from './styled'
 
 
@@ -30,11 +30,11 @@ const PatientTable = ({ children }: { children: React.ReactNode }) => {
 
 export const PatientTr: React.FC<Patient> = ({ address, age, id, lastAppoitment, name, local, localColor }) => {
   return (
-    <Row localColor={localColor}>
+    <Row localColor={localColor || 'Default'}>
       <td>{name}</td>
       <td>{address}</td>
       <td>{age}</td>
-      <td>{new Date(lastAppoitment).toLocaleDateString('pt-BR')}</td>
+      <td>{lastAppoitment && new Date(lastAppoitment).toLocaleDateString('pt-BR')}</td>
       <td>{local}</td>
     </Row>
   );

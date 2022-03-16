@@ -34,6 +34,7 @@ export default {
       color4: '#9792E3',
       color5: '#A9DDD6',
       color6: '#5F634F',
+      Default: '#838695'
     }
   }
 }
