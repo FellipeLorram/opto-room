@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { PatientContext } from './context/PatientContext';
+import ButtonsHandle from './DataReq/Index';
 import PatientForm from './Form/Index';
 import { Container, PatientPageStruct } from './styled'
 
@@ -28,6 +29,7 @@ const PatientPage: React.FC = () => {
             Informações pessoais
           </div>
           <PatientForm />
+          <ButtonsHandle />
         </Container>
       </PatientPageStruct>
     </PatientContext.Provider>

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { ChevronLeft } from '../../../../Assets/svgs/ChevronLeft';
 import { Button } from '../../../../Components/Button/Index';
-import { Input } from '../../../../Components/Input/Index';
+import { LoginPageInput } from '../../../../Components/Input/LoginPageInput/Index';
 import signupWithEmailAndPassword from '../../../../firebase/Auth/signup/SignupWithEmailAndPassword';
 import { FormProgressContext } from '../../Context/FormProgressContext';
 import { UserContextData } from '../../Context/UserContext';
@@ -66,7 +66,7 @@ const AccountInformationForm: React.FC<Props> = ({ setSignupEmailForm }) => {
     variants={Variants}
   >
     <div className="row">
-      <Input
+      <LoginPageInput
         value={name}
         setValue={setName}
         type="text"
@@ -76,7 +76,7 @@ const AccountInformationForm: React.FC<Props> = ({ setSignupEmailForm }) => {
       />
     </div>
     <div className="row">
-      <Input
+      <LoginPageInput
         value={email}
         setValue={setEmail}
         type="email"
@@ -86,7 +86,7 @@ const AccountInformationForm: React.FC<Props> = ({ setSignupEmailForm }) => {
       />
     </div>
     <div className="row">
-      <Input
+      <LoginPageInput
         value={password}
         setValue={setPassword}
         type={confirmPasswordType}
@@ -97,7 +97,7 @@ const AccountInformationForm: React.FC<Props> = ({ setSignupEmailForm }) => {
       />
     </div>
     <div className="row">
-      <Input
+      <LoginPageInput
         value={confirmPassword}
         setValue={setConfirmPassword}
         type={passwordType}

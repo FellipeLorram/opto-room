@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Button } from '../../Components/Button/Index';
-import { Input } from '../../Components/Input/Index';
+import { LoginPageInput } from '../../Components/Input/LoginPageInput/Index';
 import signInEmailAndPassord from '../../firebase/Auth/signin/signinWithEmailAndPassword';
 import ArrowLink from './ArrowLink';
 import { useDispatch } from 'react-redux';
@@ -55,7 +55,7 @@ const LoginForm = () => {
   return (
     <FormContainer>
       <div className="input-group">
-        <Input
+        <LoginPageInput
           label='E-mail'
           value={email}
           setValue={setEmail}
@@ -63,7 +63,7 @@ const LoginForm = () => {
           error={errorMessage}
           errorMessage="Usúario ou senha inválidos"
         />
-        <Input
+        <LoginPageInput
           label='Senha'
           value={password}
           setValue={setPassword}

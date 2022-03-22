@@ -20,3 +20,9 @@ export const FormContainer = styled.div`
     gap: 2rem;
   }
 `;
+
+export const AddToAWorkPlaceButton = styled.div`
+  padding: 1rem 1.5rem;
+  color: #00000080;
+
+`;

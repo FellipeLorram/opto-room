@@ -1,18 +1,20 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-interface Props {
-  animate: boolean;
-  error?: boolean;
-}
-
-export const Container = styled.div`
-  width: 100%;
-  position: relative;
+export const SeachInputContainer = styled.div`
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  background: #F5F5F5;
-  padding: .5rem;
+  background: #fff;
+  height: 40px;
+  border-radius: 5px;
+  width: 25rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border: 1px solid transparent;
+  transition: all .2s ease-in-out;
+  
+  :hover{
+    border-color: ${({ theme }) => theme.colors.secondary};
+  }
 
   input { 
     position: relative;
@@ -20,41 +22,24 @@ export const Container = styled.div`
     border: 0;
     outline: none;
     background: none;
-    font-size: 1rem;
-    padding: .2rem 2%;
+    font-size: .8rem;
+    padding: .2rem 5%;
     line-height: 1px;  
     letter-spacing: 2px;
   }
 
-  label { 
-    cursor: text;
-    position: absolute;
-    left: 5%;
-    bottom: ${({ animate }: Props) => animate ? '80%' : '25%'};
-    font-size: ${({ animate }: Props) => animate ? '.7rem' : '1rem'};
-    transition: all 0.2s ease-out;
-    color: ${({ animate, theme }) => animate ? theme.colors.secondary : 'rgba(0,0,0, .5)'};
-    letter-spacing: 2px;
-  }
-
-  .error-message{
-    position: absolute;
-    bottom: -15%;
-    left: 5%;
-    color: #ff0000;
-    font-size: .8rem;
-  }
-
-  .eye {
-    position: absolute;
-    right: 5%;
-    bottom: 5%;
-    width: ${({ animate }) => animate ? '1rem' : 0};
+  .search-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem 1rem;
+    transition: all .2s ease-in-out;
     cursor: pointer;
-    stroke: ${({ theme }) => theme.colors.secondary};
+
+    svg{
+      stroke: #838695;
+      width: 1rem;
+      height: 1rem;
+    }
   }
-  ${({ error }) => error && `
-    animation-duration: 0.2s;
-    animation-name: shake;
-  `}
 `;

@@ -4,8 +4,8 @@ import userEvent from '@testing-library/user-event';
 
 import '@testing-library/jest-dom';
 
-import { Input } from './Index'
-import renderWithThemeWrapper from '../../TestAssets/RenderWithThemeProvider';
+import { LoginPageInput } from './Index'
+import renderWithThemeWrapper from '../../../TestAssets/RenderWithThemeProvider';
 
 const InpuMockProps = {
 
@@ -21,14 +21,14 @@ const InpuMockProps = {
 describe('<Input />', () => {
   it('should render correctly', () => {
     renderWithThemeWrapper(
-      <Input type={InpuMockProps.type} label={InpuMockProps.label} value={InpuMockProps.value} setValue={InpuMockProps.setValue} />
+      <LoginPageInput type={InpuMockProps.type} label={InpuMockProps.label} value={InpuMockProps.value} setValue={InpuMockProps.setValue} />
     );
     expect(screen.getByLabelText('jest-test')).toBeInTheDocument();
   });
 
   it('should have the value passed', () => {
     renderWithThemeWrapper(
-      <Input type="text" label="jest-test" value="jest-test" setValue={InpuMockProps.setValue} />
+      <LoginPageInput type="text" label="jest-test" value="jest-test" setValue={InpuMockProps.setValue} />
     );
     const input = screen.getByLabelText('jest-test') as HTMLInputElement;
 
@@ -38,7 +38,7 @@ describe('<Input />', () => {
 
   it('should have choosed type when not receive prop format', () => {
     renderWithThemeWrapper(
-      <Input type={InpuMockProps.type} label={InpuMockProps.label} value={InpuMockProps.value} setValue={InpuMockProps.setValue} />
+      <LoginPageInput type={InpuMockProps.type} label={InpuMockProps.label} value={InpuMockProps.value} setValue={InpuMockProps.setValue} />
     );
     const input = screen.getByLabelText('jest-test');
     expect(input).toHaveAttribute('type', InpuMockProps.type)
@@ -46,7 +46,7 @@ describe('<Input />', () => {
 
   it('should have default type "text" when receive format prop', () => {
     renderWithThemeWrapper(
-      <Input
+      <LoginPageInput
         type={InpuMockProps.type}
         label="jest-test"
         value="jest-test"
@@ -60,7 +60,7 @@ describe('<Input />', () => {
 
   it('should show error message when prop for error is true', () => {
     renderWithThemeWrapper(
-      <Input
+      <LoginPageInput
         error
         errorMessage={InpuMockProps.errorMessage}
         type={InpuMockProps.type}
@@ -76,7 +76,7 @@ describe('<Input />', () => {
 
   it("should'nt show error message when prop for error is false", async () => {
     renderWithThemeWrapper(
-      <Input
+      <LoginPageInput
         error={false}
         errorMessage={InpuMockProps.errorMessage}
         type={InpuMockProps.type}
@@ -92,7 +92,7 @@ describe('<Input />', () => {
 
   it('should call handle change function on each key pressed', async () => {
     renderWithThemeWrapper(
-      <Input
+      <LoginPageInput
         type="text" label="jest-test" value="" setValue={InpuMockProps.setValue}
       />
     );

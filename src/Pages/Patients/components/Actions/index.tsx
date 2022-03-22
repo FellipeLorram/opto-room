@@ -3,7 +3,7 @@ import ActionButton from '../../../../Components/ActionButton';
 import { LayoutList } from '../../../../Assets/svgs/LayoutList';
 import { LayoutGrid } from '../../../../Assets/svgs/LayoutGrid';
 import { Filter } from '../../../../Assets/svgs/Filter';
-import { SearchInput } from '../../../../Components/SearchInput/Index';
+import { Input } from '../../../../Components/Input/Index';
 import { ActionsContainer, AppliedFilterIndicator } from './styled';
 import Filters from './Filters/Index';
 import FilterContext from '../../context/FilterContext';
@@ -66,7 +66,7 @@ const Actions: React.FC<Props> = ({
         <Filters onScreen={filtersOnScreen} setOnScreen={setFiltersOnScreen} sethandleCustomAnimate={sethandleCustomAnimate} />
       </div>
       <div className='search-input-container' style={{ alignSelf: 'flex-end' }}>
-        <SearchInput value={searchValue} setValue={setSearchValue} />
+        <Input search type='text' value={searchValue} setValue={setSearchValue} />
       </div>
 
     </ActionsContainer>

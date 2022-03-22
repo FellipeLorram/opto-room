@@ -1,6 +1,6 @@
 import '../config/firebaseClient';
 import { doc, getFirestore, setDoc } from 'firebase/firestore';
-import IUser from '../Entities/User';
+import IUser from '../../Entities/User';
 
 const database = getFirestore();
 

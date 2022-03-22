@@ -23,6 +23,7 @@ const PatientForm: React.FC = (): JSX.Element => {
         <Input label='Data de nascimento' setValue={setBirthday} value={birthday as string} type='text' format='##/##/####' />
         <Input label='Idade' setValue={setAge} value={age} type='text' />
       </div>
+
     </FormContainer>
   )
 }
