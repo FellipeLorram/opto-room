@@ -10,11 +10,20 @@ interface Props {
   label?: string;
   type: string
   format?: string;
+  className?: string;
 }
 
-const Input: React.FC<Props> = ({ type, label, setValue, value, search, format }) => {
+const Input: React.FC<Props> = ({
+  className,
+  type,
+  label,
+  setValue,
+  value,
+  search,
+  format
+}) => {
   return (
-    <SeachInputContainer>
+    <SeachInputContainer className={className}>
       {!format ? <input
         type={type}
         placeholder={label || 'Buscar'}
@@ -22,6 +31,7 @@ const Input: React.FC<Props> = ({ type, label, setValue, value, search, format }
         onChange={(e) => setValue(e.target.value)}
       /> :
         <NumberFormat
+          placeholder={label || 'Buscar'}
           type="text"
           displayType="input"
           id={label}
@@ -31,9 +41,11 @@ const Input: React.FC<Props> = ({ type, label, setValue, value, search, format }
         />
 
       }
-      <div className='search-button'>
-        {search && <Search />}
-      </div>
+      {search && (
+        <div className='search-button'>
+          <Search />
+        </div>
+      )} 
     </SeachInputContainer>
   )
 }

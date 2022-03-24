@@ -1,6 +1,6 @@
 import "../../config/firebaseClient";
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
-import createUser from "../../firestore/CreateNewUser";
+import createUser from "../../firestore/User/CreateNewUser";
 
 const signupWithEmailAndPassword = async (
   email: string,

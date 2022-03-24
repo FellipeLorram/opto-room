@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { localColor } from '../../Entities/Patient';
 import { PatientContext } from './context/PatientContext';
 import ButtonsHandle from './DataReq/Index';
 import PatientForm from './Form/Index';
@@ -9,6 +10,8 @@ const PatientPage: React.FC = () => {
   const [address, setAddress] = useState('');
   const [age, setAge] = useState('');
   const [birthday, setBirthday] = useState('');
+  const [local, setLocal] = useState('');
+  const [localColor, setLocalColor] = useState<localColor>('Default');
 
   return (
     <PatientContext.Provider
@@ -17,10 +20,14 @@ const PatientPage: React.FC = () => {
         address,
         age,
         birthday,
+        local,
+        localColor,
         setBirthday,
         setName,
         setAddress,
-        setAge
+        setAge,
+        setLocal,
+        setLocalColor
       }}
     >
       <PatientPageStruct>

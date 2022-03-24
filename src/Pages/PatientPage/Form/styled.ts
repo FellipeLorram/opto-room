@@ -19,10 +19,29 @@ export const FormContainer = styled.div`
     flex-direction: row;
     gap: 2rem;
   }
+
+  .patient-form-input {
+    width: 100%;
+   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  }
 `;
 
 export const AddToAWorkPlaceButton = styled.div`
-  padding: 1rem 1.5rem;
+  padding: 0.2rem 5%;
   color: #00000080;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  font-size: .8rem;
+  align-self: flex-start;
+ box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;  
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  :hover {
+    border-color: ${({ theme }) => theme.colors.secondary};
+  }
 `;

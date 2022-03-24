@@ -9,8 +9,9 @@ export const SeachInputContainer = styled.div`
   border-radius: 5px;
   width: 25rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  border: 1px solid transparent;
+  border: 1px solid transparent; 
   transition: all .2s ease-in-out;
+
   
   :hover{
     border-color: ${({ theme }) => theme.colors.secondary};
@@ -26,6 +27,8 @@ export const SeachInputContainer = styled.div`
     padding: .2rem 5%;
     line-height: 1px;  
     letter-spacing: 2px;
+    align-self: stretch;
+    border-radius: 5px;
   }
 
   .search-button {

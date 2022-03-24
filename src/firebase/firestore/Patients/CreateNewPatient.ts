@@ -1,8 +1,8 @@
 import '../../config/firebaseClient';
-import { doc, getFirestore, setDoc } from 'firebase/firestore';
+import { doc, setDoc } from 'firebase/firestore';
 import Patient from '../../../Entities/Patient';
+import database from '../DataBase';
 
-const database = getFirestore();
 
 const createPatient = async (Patient: Patient) => {
   await setDoc(doc(database, "Patients", Patient.id as string), Patient);
