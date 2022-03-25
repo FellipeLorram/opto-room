@@ -1,11 +1,19 @@
-import '../config/firebaseClient';
-import { collection, DocumentData, getDocs } from 'firebase/firestore';
+import { useCollection, useCollectionData } from 'react-firebase-hooks/firestore';
+import { collection } from 'firebase/firestore';
+
+import '../../config/firebaseClient'
+import '../../Auth';
 import database from '../DataBase';
 
-const getLocals = async (): Promise<DocumentData[]> => {
-  const { docs } = await getDocs(collection(database, 'locals'));
-  const locals = docs.map(doc => doc.data());
-  return locals;
+const useGetLocals = () => {
+  const [localsDocs] = useCollectionData(
+    collection(database, 'locals'),
+    {
+      snapshotListenOptions: { includeMetadataChanges: true },
+    }
+  );
+  
+  return [localsDocs];
 }
 
-export default getLocals;
+export default useGetLocals;

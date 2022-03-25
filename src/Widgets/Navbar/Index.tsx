@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
         </Button>
         <div className='nav-link-container'>
           {NavLinks.map(({ text, to, icon, block }) => (
-            <NavBarLink key={text} to={to} active={to === pathname}>
+            <NavBarLink key={text} to={to} active={to === pathname ? 'true' : 'false'}>
               <span className='icon'>
                 {icon}
               </span>

@@ -36,7 +36,6 @@ const PatientsPage: React.FC = () => {
     if (filters.lastAppoitment) setPatients(patients.sort(filterByDate));
     if (filters.workplace) setPatients(patients.sort(filterByWorkplace));
     else setPatients(Patients);
-    console.log(1);
     
   }, [patients, filters.lastAppoitment, filters.workplace])
 

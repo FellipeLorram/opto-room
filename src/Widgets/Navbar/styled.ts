@@ -65,7 +65,7 @@ export const NavBarContainer = styled.div`
 `;
 
 interface NavBarLinkProps {
-  active: boolean;
+  active: string;
 }
 
 export const NavBarLink = styled(Link) <NavBarLinkProps>`
@@ -79,8 +79,8 @@ position: relative;
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
-  background: ${({ active }) => active ? '#eff1f5' : 'none'};
-  color:  ${({ active }) => active ? '#4a4953' : '#a0a2ae'};
+  background: ${({ active }) => active === 'true' ? '#eff1f5' : 'none'};
+  color:  ${({ active }) => active === 'true' ? '#4a4953' : '#a0a2ae'};
   font-weight: bold;
   border-radius: 10px 0 0 10px;
   transition: all .2s ease-in-out;
@@ -92,10 +92,10 @@ position: relative;
   ::after, ::before {
     content: '';
     position: absolute;
-    height: ${({ active }) => active ? '50%' : '0'};
+    height: ${({ active }) => active === 'true' ? '50%' : '0'};
     width: 3px;
     right: 0;
-    background: ${({ active, theme }) => active ? theme.colors.secondary : 'none'};
+    background: ${({ active, theme }) => active === 'true' ? theme.colors.secondary : 'none'};
     transition: all .2s ease-in-out;
   }
 
@@ -113,7 +113,7 @@ position: relative;
    display: grid;
    place-items: center; 
     svg{
-      stroke: ${({ active, theme }) => active ? theme.colors.secondary : '#a0a2ae'};
+      stroke: ${({ active, theme }) => active === 'true' ? theme.colors.secondary : '#a0a2ae'};
     }
   }
 
@@ -124,7 +124,7 @@ position: relative;
     
     svg {
       width: 1rem;
-      stroke: ${({ active }) => active ? '#ff0000' : '#a0a2ae'};
+      stroke: ${({ active }) => active === 'true' ? '#ff0000' : '#a0a2ae'};
     }
   }
 `;

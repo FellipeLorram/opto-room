@@ -1,9 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Input } from '../../../Components/Input/Index'
 import { AddToAWorkPlaceButton, FormContainer } from './styled'
 import { PatientContext } from '../context/PatientContext';
+import SelectWorkPlaceModal from './SelectWorkPlaceModal/Index';
 
 const PatientForm: React.FC = (): JSX.Element => {
+  const [workPlacesModalOnScreen, setWorkPlacesModalOnScreen] = useState(false);
   const {
     name,
     setName,
@@ -23,8 +25,11 @@ const PatientForm: React.FC = (): JSX.Element => {
         <Input className='patient-form-input' label='Data de nascimento' setValue={setBirthday} value={birthday as string} type='text' format='##/##/####' />
         <Input className='patient-form-input' label='Idade' setValue={setAge} value={age} type='text' />
       </div>
-      <AddToAWorkPlaceButton>Local</AddToAWorkPlaceButton> 
-    </FormContainer>
+      <div className="work-locals-modal-wrapper">
+        <SelectWorkPlaceModal onScreen={workPlacesModalOnScreen} setOnScreen={setWorkPlacesModalOnScreen} />
+        <AddToAWorkPlaceButton onClick={() => setWorkPlacesModalOnScreen(!workPlacesModalOnScreen)}>Local</AddToAWorkPlaceButton>
+      </div>
+    </FormContainer >
   )
 }
 
