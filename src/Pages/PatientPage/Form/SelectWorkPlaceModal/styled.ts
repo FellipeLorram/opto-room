@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import { localColor } from "../../../../Entities/Patient";
 
 export const ModalContainer = styled(motion.div)`
   position: absolute;
-  right: -100%;
+  right: -30%;
   top: -50%;
   background: #fff;
   padding: .7rem;
@@ -15,6 +16,7 @@ export const ModalContainer = styled(motion.div)`
   gap: .2rem;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
   z-index: 3;
+
   .pre-header{
     width: 100%;
     display: flex;
@@ -33,16 +35,30 @@ export const ModalContainer = styled(motion.div)`
   .header {
     width: 100%;
     text-align:left;
-    font-size: .8rem;
+    font-size: .9rem;
     color: #838695;
     padding: .1rem;
     border-bottom: 1px solid  #83869530;
+  }
+
+  .body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    gap: .3rem;
   }
 `;
 
 
 interface IWorkPlaceCheckProps {
   selected: boolean;
+  color: localColor
+}
+
+const defaultColorCheck = (color: string) => {
+  return color === 'Default' ? '#838695' : '#ffffff'
 }
 
 export const WorkPlaceCheck = styled.div<IWorkPlaceCheckProps>`
@@ -52,26 +68,15 @@ export const WorkPlaceCheck = styled.div<IWorkPlaceCheckProps>`
   gap: .5rem;
   width: 100%;
 
-  .filter{
-    text-align: left;
-    font-size: .9rem;
-    color: ${({ selected }) => selected ? '#5d9cef' : '#838695'};
+  .local{
+    text-align: center;
+    font-size: 1rem;
+    background: ${({ selected, color, theme }) => selected ? theme.colors.localColors[color] : `${theme.colors.localColors[color]}05`};
+    color: ${({ selected, color, theme }) => selected ? defaultColorCheck(color) : theme.colors.localColors[color]};
     cursor: pointer;
+    padding: .2rem 1rem;
+    width: 100%;
+    border-radius: 6px;
   }
-
-  .check {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #83869530;
-    height: 1rem;
-    width: 1rem;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: all .2s ease-in-out;
-    background: ${({ selected }) => selected ? '#1a73e8' : '#fff'};
-    .checked {
-      stroke: #fff;
-    }
-  }
+  
 `

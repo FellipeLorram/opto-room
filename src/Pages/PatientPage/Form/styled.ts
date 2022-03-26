@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { localColor } from "../../../Entities/Patient";
 
 export const FormContainer = styled.div`
   width: 100%;
@@ -35,9 +36,18 @@ export const FormContainer = styled.div`
   }
 `;
 
-export const AddToAWorkPlaceButton = styled.div`
+interface IAddToAWorkPlaceButtonProps {
+  background: localColor;
+}
+
+const handleColor = (color: string) => {
+  return color === 'Default' ? '#00000080' : '#fff'
+}
+
+export const AddToAWorkPlaceButton = styled.div<IAddToAWorkPlaceButtonProps>`
   padding: 0.2rem 1.5rem;
-  color: #00000080;
+  color: ${({ background }) => handleColor(background)};
+  width: 15rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,6 +60,8 @@ export const AddToAWorkPlaceButton = styled.div`
   transition: all .2s ease-in-out;
   letter-spacing: 2px;
   border-radius: 5px;
+  background: ${({ background, theme }) => theme.colors.localColors[background]};
+  transition: all .2s ease-in-out;
   :hover {
     border-color: ${({ theme }) => theme.colors.secondary};
   }

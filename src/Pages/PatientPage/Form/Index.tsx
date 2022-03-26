@@ -14,7 +14,9 @@ const PatientForm: React.FC = (): JSX.Element => {
     age,
     setAge,
     birthday,
-    setBirthday
+    setBirthday,
+    local,
+    localColor
   } = useContext(PatientContext);
 
   return (
@@ -27,7 +29,7 @@ const PatientForm: React.FC = (): JSX.Element => {
       </div>
       <div className="work-locals-modal-wrapper">
         <SelectWorkPlaceModal onScreen={workPlacesModalOnScreen} setOnScreen={setWorkPlacesModalOnScreen} />
-        <AddToAWorkPlaceButton onClick={() => setWorkPlacesModalOnScreen(!workPlacesModalOnScreen)}>Local</AddToAWorkPlaceButton>
+        <AddToAWorkPlaceButton background={localColor ? localColor : 'Default'} onClick={() => setWorkPlacesModalOnScreen(!workPlacesModalOnScreen)}>{`Local: ${local}`}</AddToAWorkPlaceButton>
       </div>
     </FormContainer >
   )

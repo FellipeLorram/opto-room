@@ -1,9 +1,11 @@
 import { AnimatePresence } from 'framer-motion';
-import React from 'react'
-import { Check } from '../../../../Assets/svgs/Check';
+import React, { useContext } from 'react'
 import { Close } from '../../../../Assets/svgs/CloseX';
+import { localColor } from '../../../../Entities/Patient';
 import useGetLocals from '../../../../firebase/firestore/locals/getLocals';
+import { PatientContext } from '../../context/PatientContext';
 import { ModalContainer, WorkPlaceCheck } from './styled';
+import { variants } from './variants';
 
 
 interface Props {
@@ -13,13 +15,33 @@ interface Props {
 
 const SelectWorkPlaceModal: React.FC<Props> = ({ setOnScreen, onScreen }) => {
   const [locals] = useGetLocals();
+
+  const { local, setLocalColor, setLocal } = useContext(PatientContext)
+
   const handleCloseClick = () => {
     setOnScreen(false);
   }
+
+  const handleLocalClick = (index: number) => {
+    if (!locals) return
+    if (index === -1) {
+      setLocal('Avulso');
+      setLocalColor('Default');
+      return;
+    }
+    setLocalColor(locals[index].color as localColor);
+    setLocal(locals[index].name);
+  }
+
   return (
     <AnimatePresence>
       {onScreen && (
-        <ModalContainer>
+        <ModalContainer
+          variants={variants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+        >
           <div className="pre-header">
             <Close className='close-button' onClick={handleCloseClick} />
           </div>
@@ -28,17 +50,17 @@ const SelectWorkPlaceModal: React.FC<Props> = ({ setOnScreen, onScreen }) => {
           </div>
           <div className="body">
             {locals && locals?.length > 0 && (
-              locals?.map(local => (
+              locals?.map((localDoc, index) => (
 
-                <WorkPlaceCheck selected={false}>
-                  <span className="filter">{local.name}</span>
-                  <span className="check">
-                    <Check className='checked' />
-                  </span>
+                <WorkPlaceCheck onClick={() => handleLocalClick(index)} color={localDoc.color ? localDoc.color : 'Default'} selected={localDoc.name === local}>
+                  <span className="local">{localDoc.name}</span>
                 </WorkPlaceCheck>
 
               ))
             )}
+            <WorkPlaceCheck onClick={() => handleLocalClick(-1)} color='Default' selected={'Avulso' === local}>
+              <span className="local">Avulso</span>
+            </WorkPlaceCheck>
           </div>
         </ModalContainer>
       )}

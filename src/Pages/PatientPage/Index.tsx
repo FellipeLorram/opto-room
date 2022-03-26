@@ -10,7 +10,7 @@ const PatientPage: React.FC = () => {
   const [address, setAddress] = useState('');
   const [age, setAge] = useState('');
   const [birthday, setBirthday] = useState('');
-  const [local, setLocal] = useState('');
+  const [local, setLocal] = useState('Avulso');
   const [localColor, setLocalColor] = useState<localColor>('Default');
 
   return (
