@@ -9,6 +9,7 @@ const PatientPage: React.FC = () => {
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [age, setAge] = useState('');
+  const [cpf, setCpf] = useState('');
   const [birthday, setBirthday] = useState('');
   const [local, setLocal] = useState('Avulso');
   const [localColor, setLocalColor] = useState<localColor>('Default');
@@ -22,12 +23,14 @@ const PatientPage: React.FC = () => {
         birthday,
         local,
         localColor,
+        cpf,
         setBirthday,
         setName,
         setAddress,
         setAge,
         setLocal,
-        setLocalColor
+        setLocalColor,
+        setCpf,
       }}
     >
       <PatientPageStruct>

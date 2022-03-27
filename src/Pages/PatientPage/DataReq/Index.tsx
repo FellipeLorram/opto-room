@@ -19,7 +19,8 @@ const ButtonsHandle: React.FC = (): JSX.Element => {
     name,
     address,
     birthday,
-    age
+    age,
+    cpf
   } = useContext(PatientContext);
 
   const handleClickSaveButton = async () => {
@@ -28,13 +29,14 @@ const ButtonsHandle: React.FC = (): JSX.Element => {
       address, 
       age,
       birthday,
+      cpf,
       id: nanoid(),
     })
   }
  
   return (
     <ButtonsHandleContainer>
-      <Button>
+      <Button onClick={handleClickSaveButton}>
         Salvar
       </Button>
     </ButtonsHandleContainer>

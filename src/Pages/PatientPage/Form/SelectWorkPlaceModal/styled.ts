@@ -16,6 +16,8 @@ export const ModalContainer = styled(motion.div)`
   gap: .2rem;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
   z-index: 3;
+  width: 12rem;
+
 
   .pre-header{
     width: 100%;
@@ -71,7 +73,7 @@ export const WorkPlaceCheck = styled.div<IWorkPlaceCheckProps>`
   .local{
     text-align: center;
     font-size: 1rem;
-    background: ${({ selected, color, theme }) => selected ? theme.colors.localColors[color] : `${theme.colors.localColors[color]}05`};
+    background: ${({ selected, color, theme }) => selected ? theme.colors.localColors[color] : `${theme.colors.localColors[color]}15`};
     color: ${({ selected, color, theme }) => selected ? defaultColorCheck(color) : theme.colors.localColors[color]};
     cursor: pointer;
     padding: .2rem 1rem;

@@ -7,6 +7,7 @@ interface PatientContextExtended extends Patient {
   setAge: React.Dispatch<React.SetStateAction<string>>
   setBirthday: React.Dispatch<React.SetStateAction<string>>
   setLocal: React.Dispatch<React.SetStateAction<string>>
+  setCpf: React.Dispatch<React.SetStateAction<string>>
   setLocalColor: React.Dispatch<React.SetStateAction<localColor>>
 }
 

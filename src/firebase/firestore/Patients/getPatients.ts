@@ -5,15 +5,15 @@ import '../../config/firebaseClient'
 import '../../Auth';
 import database from '../DataBase';
 
-const useGetLocals = () => {
-  const [localsDocs] = useCollectionData(
-    collection(database, 'locals'),
+const useGetPatients = () => {
+  const [patientsDocs] = useCollectionData(
+    collection(database, 'Patients'),
     {
       snapshotListenOptions: { includeMetadataChanges: true },
     }
   );
   
-  return [localsDocs];
+  return [patientsDocs];
 }
 
-export default useGetLocals;
+export default useGetPatients;

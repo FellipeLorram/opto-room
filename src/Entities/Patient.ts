@@ -6,6 +6,7 @@ export default interface Patient {
   name: string,
   address: string,
   age: string,
+  cpf: string,
   lastAppoitment?: string | Date,
   id?: string,
   birthday?: string

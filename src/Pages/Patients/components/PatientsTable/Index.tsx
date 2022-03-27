@@ -1,3 +1,4 @@
+import { DocumentData } from 'firebase/firestore'
 import React from 'react'
 import Patient from '../../../../Entities/Patient'
 import { PatientTableContainer, Row } from './styled'
@@ -28,7 +29,7 @@ const PatientTable = ({ children }: { children: React.ReactNode }) => {
   )
 }
 
-export const PatientTr: React.FC<Patient> = ({ address, age, id, lastAppoitment, name, local, localColor }) => {
+export const PatientTr: React.FC<Patient | DocumentData> = ({ address, age, id, lastAppoitment, name, local, localColor }) => {
   return (
     <Row localColor={localColor || 'Default'}>
       <td>{name}</td>

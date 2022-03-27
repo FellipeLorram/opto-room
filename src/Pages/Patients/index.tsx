@@ -3,41 +3,44 @@ import Actions from './components/Actions';
 import PatientCard from './components/PatientCard';
 import PatientTable, { PatientTr } from './components/PatientsTable/Index';
 import FilterContext from './context/FilterContext';
-import Patient from '../../Entities/Patient';
-import { Patients } from './mock/data';
 import { CardDisposition, PatientPageStruct } from './styled'
+import useGetPatients from '../../firebase/firestore/Patients/getPatients';
+import { DocumentData } from 'firebase/firestore';
 
 
 const PatientsPage: React.FC = () => {
   const [isLineDisposition, setIsLineDisposition] = useState(false);
   const [searchValue, setSearchValue] = useState('');
-  const [patients, setPatients] = useState<Patient[]>([]);
+  const [patients, setPatients] = useState<DocumentData[]>([]);
+  const [patientDocs] = useGetPatients();
   const [filters, setFilters] = useState({
     workplace: false,
     lastAppoitment: false,
   });
 
   useEffect(() => {
-    setPatients(Patients)
-  }, [])
+    if(!patientDocs) return;
+    setPatients(patientDocs)
+  }, [patientDocs])
 
-  const filterByDate = (a: Patient, b: Patient): number => {
+  const filterByDate = (a: DocumentData, b: DocumentData): number => {
     if (b.lastAppoitment && a.lastAppoitment) return +new Date(b.lastAppoitment) - +new Date(a.lastAppoitment);
     return a.name > b.name ? 1 : -1
   }
 
-  const filterByWorkplace = (a: Patient, b: Patient): number => {
+  const filterByWorkplace = (a: DocumentData, b: DocumentData): number => {
     if (b.local && a.local) return a.local > b.local ? 1 : -1;
     return 0;
   }
 
   useEffect(() => {
+    if(!patientDocs) return;
     if (filters.workplace && filters.lastAppoitment) setPatients(patients.sort(filterByWorkplace).sort(filterByDate));
     if (filters.lastAppoitment) setPatients(patients.sort(filterByDate));
     if (filters.workplace) setPatients(patients.sort(filterByWorkplace));
-    else setPatients(Patients);
+    else setPatients(patientDocs);
     
-  }, [patients, filters.lastAppoitment, filters.workplace])
+  }, [patientDocs, patients, filters.lastAppoitment, filters.workplace])
 
 
   return (
@@ -57,7 +60,7 @@ const PatientsPage: React.FC = () => {
           </PatientTable>
         ) : (
           <CardDisposition>
-            {Patients.filter(({ name }) => name.toLocaleLowerCase().startsWith(searchValue)).map((props) => (
+            {patients.filter(({ name }) => name.toLocaleLowerCase().startsWith(searchValue)).map((props) => (
               <PatientCard {...props} key={props.name} />
             ))}
           </CardDisposition>
