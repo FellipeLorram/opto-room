@@ -60,7 +60,7 @@ interface IWorkPlaceCheckProps {
 }
 
 const defaultColorCheck = (color: string) => {
-  return color === 'Default' ? '#838695' : '#ffffff'
+  return color === 'Default' ? '#fff' : '#ffffff'
 }
 
 export const WorkPlaceCheck = styled.div<IWorkPlaceCheckProps>`

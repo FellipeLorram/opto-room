@@ -16,7 +16,7 @@ const signInEmailAndPassord = async (email: string, password: string): Promise<E
     return {
       token: '',
       id: '',
-      userName: ''
+      userName: '',
     }
   }
 

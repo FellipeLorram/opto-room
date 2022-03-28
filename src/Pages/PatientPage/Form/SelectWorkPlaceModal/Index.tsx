@@ -15,7 +15,6 @@ interface Props {
 
 const SelectWorkPlaceModal: React.FC<Props> = ({ setOnScreen, onScreen }) => {
   const [locals] = useGetLocals();
-
   const { local, setLocalColor, setLocal } = useContext(PatientContext)
 
   const handleCloseClick = () => {
@@ -52,7 +51,7 @@ const SelectWorkPlaceModal: React.FC<Props> = ({ setOnScreen, onScreen }) => {
             {locals && locals?.length > 0 && (
               locals?.map((localDoc, index) => (
 
-                <WorkPlaceCheck onClick={() => handleLocalClick(index)} color={localDoc.color ? localDoc.color : 'Default'} selected={localDoc.name === local}>
+                <WorkPlaceCheck key={localDoc.name} onClick={() => handleLocalClick(index)} color={localDoc.color ? localDoc.color : 'Default'} selected={localDoc.name === local}>
                   <span className="local">{localDoc.name}</span>
                 </WorkPlaceCheck>
 

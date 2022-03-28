@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { localColor } from '../../Entities/Patient';
+import useUserRef from '../../firebase/userRef/useUserRef';
 import { PatientContext } from './context/PatientContext';
 import ButtonsHandle from './DataReq/Index';
 import PatientForm from './Form/Index';
 import { Container, PatientPageStruct } from './styled'
 
 const PatientPage: React.FC = () => {
+  const user_ref = useUserRef()
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [age, setAge] = useState('');
@@ -24,6 +26,7 @@ const PatientPage: React.FC = () => {
         local,
         localColor,
         cpf,
+        user_ref,
         setBirthday,
         setName,
         setAddress,

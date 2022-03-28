@@ -15,7 +15,7 @@ export const CardDisposition = styled.div`
   width: 100%;
   gap: 1.5rem;
   display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+  grid-template-columns: repeat( auto-fit, minmax(250px, 300px) );
   grid-template-rows: auto;
 `;
 

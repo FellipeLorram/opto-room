@@ -5,6 +5,7 @@ const initialState = {
   token: '',
   userName: '',
   isLoading: false,
+  userRef: '',
   currentUserName: '',
 };
 
@@ -22,6 +23,7 @@ const Reducer = (state = initialState, action) => {
       newState.token = action.payload.token;
       newState.userName = action.payload.userName;
       newState.currentUserName = action.payload.userName;
+      newState.userRef = action.payload.id
       newState.isLoading = false;
       return newState;
     }

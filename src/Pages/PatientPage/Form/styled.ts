@@ -41,7 +41,7 @@ interface IAddToAWorkPlaceButtonProps {
 }
 
 const handleColor = (color: string) => {
-  return color === 'Default' ? '#00000080' : '#fff'
+  return color === 'Default' ? '#fff' : '#fff'
 }
 
 export const AddToAWorkPlaceButton = styled.div<IAddToAWorkPlaceButtonProps>`
