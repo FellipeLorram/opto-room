@@ -6,6 +6,11 @@ import ButtonsHandle from './DataReq/Index';
 import PatientForm from './Form/Index';
 import { Container, PatientPageStruct } from './styled'
 
+const variants = {
+  initial: { scale: 0 },
+  animate: { scale: 1 },
+}
+
 const PatientPage: React.FC = () => {
   const user_ref = useUserRef()
   const [name, setName] = useState('');
@@ -37,7 +42,11 @@ const PatientPage: React.FC = () => {
       }}
     >
       <PatientPageStruct>
-        <Container>
+        <Container
+          variants={variants}
+          initial="initial"
+          animate="animate"
+        >
           <div className="header">
             Informações pessoais
           </div>

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const PatientPageStruct = styled.div`
@@ -8,7 +9,7 @@ export const PatientPageStruct = styled.div`
   margin-top: 6rem;
 `;
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
   width: 800px;
   max-width: 90%;
   background: #fff;

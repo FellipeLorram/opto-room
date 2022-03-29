@@ -6,6 +6,7 @@ import FilterContext from './context/FilterContext';
 import { CardDisposition, PatientPageStruct } from './styled'
 import useGetPatients from '../../firebase/firestore/Patients/getPatients';
 import { DocumentData } from 'firebase/firestore';
+import NoPatients from './components/NoPatient';
 
 
 const PatientsPage: React.FC = () => {
@@ -19,7 +20,7 @@ const PatientsPage: React.FC = () => {
   });
 
   useEffect(() => {
-    if(!patientDocs) return;
+    if (!patientDocs) return;
     setPatients(patientDocs)
   }, [patientDocs])
 
@@ -34,12 +35,12 @@ const PatientsPage: React.FC = () => {
   }
 
   useEffect(() => {
-    if(!patientDocs) return;
+    if (!patientDocs) return;
     if (filters.workplace && filters.lastAppoitment) setPatients(patients.sort(filterByWorkplace).sort(filterByDate));
     if (filters.lastAppoitment) setPatients(patients.sort(filterByDate));
     if (filters.workplace) setPatients(patients.sort(filterByWorkplace));
     else setPatients(patientDocs);
-    
+
   }, [patientDocs, patients, filters.lastAppoitment, filters.workplace])
 
 
@@ -52,18 +53,24 @@ const PatientsPage: React.FC = () => {
           searchValue={searchValue}
           setSearchValue={setSearchValue}
         />
-        {isLineDisposition ? (
-          <PatientTable>
-            {patients.filter(({ name }) => name.toLocaleLowerCase().startsWith(searchValue.toLocaleLowerCase())).map((props) => (
-              <PatientTr {...props} key={props.name} />
-            ))}
-          </PatientTable>
+        {patients.length > 0 ? (
+          <>
+            {isLineDisposition ? (
+              <PatientTable>
+                {patients.filter(({ name }) => name.toLocaleLowerCase().startsWith(searchValue.toLocaleLowerCase())).map((props) => (
+                  <PatientTr {...props} key={props.name} />
+                ))}
+              </PatientTable>
+            ) : (
+              <CardDisposition>
+                {patients.filter(({ name }) => name.toLocaleLowerCase().startsWith(searchValue.toLocaleLowerCase())).map((props) => (
+                  <PatientCard {...props} key={props.name} />
+                ))}
+              </CardDisposition>
+            )}
+          </>
         ) : (
-          <CardDisposition>
-            {patients.filter(({ name }) => name.toLocaleLowerCase().startsWith(searchValue.toLocaleLowerCase())).map((props) => (
-              <PatientCard {...props} key={props.name} />
-            ))}
-          </CardDisposition>
+          <NoPatients onScreen={patients.length === 0} />
         )}
       </FilterContext.Provider>
     </PatientPageStruct>
