@@ -1,16 +1,23 @@
 import React from 'react'
 import { Check } from '../../../../Assets/svgs/Check';
 import { Button } from '../../../../Components/Button/Index';
+import createCheckoutSession from '../../../../stripe/createCheckoutSession';
 import { CardContainer } from './styled';
+import useUserRef from '../../../../firebase/userRef/useUserRef';
 
 interface Props {
   header: string;
   price: string;
   benefits: string[];
   CTA: boolean;
+  priceKey: string;
 }
 
-const Card: React.FC<Props> = ({ header, price, benefits, CTA }) => {
+const Card: React.FC<Props> = ({ header, price, benefits, CTA, priceKey }) => {
+  const userRef = useUserRef() 
+  const handleClick = async () => {
+    await createCheckoutSession(userRef, priceKey);
+  }
   return (
     <CardContainer CTA={CTA}>
       <div className="card-header">{header}</div>
@@ -26,7 +33,7 @@ const Card: React.FC<Props> = ({ header, price, benefits, CTA }) => {
       </div>
 
       <div className="button-container">
-        <Button className='card-button'>
+        <Button onClick={handleClick} className='card-button'>
           COMEÇAR
         </Button>
       </div>

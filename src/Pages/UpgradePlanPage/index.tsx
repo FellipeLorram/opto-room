@@ -30,12 +30,14 @@ const UpgradePage: React.FC = () => {
           CTA={false}
           header='MENSAL'
           price='40'
+          priceKey='price_1KQynuEqE8aFGmq4XB8Ylzkn'
         />
         <Card
           benefits={[...montlyBenefits, 'Economize mais que uma mensalidade']}
           CTA
           header='ANUAL'
           price='350'
+          priceKey='price_1KQzqsEqE8aFGmq4lvQDGDnP'
         />
       </div>
     </PageContainer>
