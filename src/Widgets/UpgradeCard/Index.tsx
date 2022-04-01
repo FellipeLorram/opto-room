@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Lottie from 'react-lottie'
 import { UpgradeCardContainer } from './styled'
 import resources from '../../Assets/Animations/resources.json'
+import history from '../../Services/history'
 
 const UpgradeCard = () => {
   const [animate, setAnimate] = useState(false)
@@ -15,7 +16,7 @@ const UpgradeCard = () => {
     },
   };
   return (
-    <UpgradeCardContainer>
+    <UpgradeCardContainer onClick={() => history.push('/upgrade-my-plan')}>
       <div
         onMouseEnter={() => setAnimate(true)}
         onMouseLeave={() => setAnimate(false)}

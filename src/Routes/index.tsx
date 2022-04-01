@@ -11,12 +11,14 @@ import Appwrapper from '../Components/AppWrapper/Index';
 import { Topbar } from '../Widgets/Topbar/Index';
 import Patients from '../Pages/Patients';
 import PatientPage from '../Pages/PatientPage/Index';
+import UpgradePage from '../Pages/UpgradePlanPage';
 
 const Routes = (): React.ReactElement => {
   return (
     <AnimatePresence exitBeforeEnter>
       <Switch>
         <MyRoute path="/login" component={Login} isClosed={false} />
+        <MyRoute path="/upgrade-my-plan" component={UpgradePage} isClosed />
         <Appwrapper>
           <Navbar />
           <Main>
