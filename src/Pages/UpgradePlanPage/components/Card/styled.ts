@@ -83,7 +83,7 @@ export const CardContainer = styled.div<Props>`
       font-weight: 700;
       letter-spacing: 2px;
       box-shadow: none;
-
+      padding: 0.5rem 2rem;
       ${({CTA}) => CTA ? '' : `
         font-size: .9rem;
         border: 2px solid #1A73E8;

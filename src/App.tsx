@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -13,10 +13,12 @@ import Principal from './styles/themes/Principal';
 import Routes from './Routes';
 import history from './Services/history';
 import store, { persistor } from './store';
+import LoadingContextProvider from './Utils/Contexts/Loading';
 
 
 function App() {
   const [theme] = UsePersistedState('theme', Principal);
+  const [isLoading, setIsLoading] = useState(false);
 
   // const toggleTheme = useCallback(() => {
   //   setTheme(theme.title === 'Principal' ? dark : Principal);
@@ -27,8 +29,10 @@ function App() {
       <PersistGate persistor={persistor}>
         <Router history={history}>
           <ThemeProvider theme={theme}>
-            <CreateGlobalStyle />
-            <Routes />
+            <LoadingContextProvider.Provider value={{isLoading, setIsLoading}}>
+              <CreateGlobalStyle />
+              <Routes />
+            </LoadingContextProvider.Provider>
           </ThemeProvider>
         </Router>
       </PersistGate>

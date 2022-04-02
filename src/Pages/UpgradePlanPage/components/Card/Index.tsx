@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Check } from '../../../../Assets/svgs/Check';
 import { Button } from '../../../../Components/Button/Index';
 import createCheckoutSession from '../../../../stripe/createCheckoutSession';
 import { CardContainer } from './styled';
 import useUserRef from '../../../../firebase/userRef/useUserRef';
+import { ScreenMapContext } from '../../Context/Index';
 
 interface Props {
   header: string;
@@ -11,13 +12,18 @@ interface Props {
   benefits: string[];
   CTA: boolean;
   priceKey: string;
+  priceType: string;
 }
 
-const Card: React.FC<Props> = ({ header, price, benefits, CTA, priceKey }) => {
-  const userRef = useUserRef() 
+const Card: React.FC<Props> = ({ header, price, benefits, CTA, priceKey, priceType }) => {
+  const userRef = useUserRef();
+  const { setPreparingCheckoutSessionOnScreen } = useContext(ScreenMapContext)
+
   const handleClick = async () => {
+    setPreparingCheckoutSessionOnScreen(true);
     await createCheckoutSession(userRef, priceKey);
   }
+
   return (
     <CardContainer CTA={CTA}>
       <div className="card-header">{header}</div>
@@ -29,12 +35,12 @@ const Card: React.FC<Props> = ({ header, price, benefits, CTA, priceKey }) => {
       <div className="price-container">
         <div className="currency">R$</div>
         <div className="price">{price}</div>
-        <div className="month">/mês</div>
+        <div className="month">/{priceType}</div>
       </div>
 
       <div className="button-container">
         <Button onClick={handleClick} className='card-button'>
-          COMEÇAR
+          ASSINE JÁ
         </Button>
       </div>
 

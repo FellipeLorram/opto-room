@@ -42,14 +42,5 @@ export const PageContainer = styled.div`
     padding-bottom: 2rem;
   }
 
-  .card-container {
-    width: 100%;
-    z-index: 2;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: row;
-    align-self: stretch;
-    gap: 3rem;
-  }
 `;
+

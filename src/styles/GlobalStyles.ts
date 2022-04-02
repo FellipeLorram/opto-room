@@ -4,6 +4,7 @@ export default createGlobalStyle`
   :root{
     --radius: 10px;
     --shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    --primary-color: #1a73e8;
   }
   *{
     margin: 0;
