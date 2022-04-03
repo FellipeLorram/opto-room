@@ -1,18 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { localColor } from '../../Entities/Patient';
 import useUserRef from '../../firebase/userRef/useUserRef';
 import { PatientContext } from './context/PatientContext';
 import ButtonsHandle from './DataReq/Index';
 import PatientForm from './Form/Index';
 import { Container, PatientPageStruct } from './styled'
+import useGetPatient from '../../firebase/firestore/Patients/getPatient';
 
 const variants = {
   initial: { scale: 0 },
   animate: { scale: 1 },
 }
 
-const PatientPage: React.FC = () => {
-  const user_ref = useUserRef()
+interface PageParams {
+  match: {
+    params: {
+      id: string
+    }
+  };
+}
+
+const PatientPage: React.FC<PageParams> = ({ match }) => {
+  const user_ref = useUserRef();
+  const [patientData] = useGetPatient(match.params.id)
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [age, setAge] = useState('');
@@ -20,6 +30,20 @@ const PatientPage: React.FC = () => {
   const [birthday, setBirthday] = useState('');
   const [local, setLocal] = useState('Avulso');
   const [localColor, setLocalColor] = useState<localColor>('Default');
+
+  useEffect(() => {
+    if (!match?.params?.id) return;
+    if (!patientData) return;
+
+    setName(patientData.name)
+    setAddress(patientData.address)
+    setAge(patientData.age)
+    setBirthday(patientData.birthday || '');
+    setCpf(patientData.cpf);
+    setLocal(patientData.local || 'Avulso');
+    setLocalColor(patientData.localColor || 'Default');
+
+  }, [match?.params?.id, patientData])
 
   return (
     <PatientContext.Provider

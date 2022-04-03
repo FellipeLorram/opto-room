@@ -26,6 +26,7 @@ const Routes = (): React.ReactElement => {
             <MyRoute path="/dashboard" component={Dashoard} isClosed />
             <MyRoute path="/patients" component={Patients} isClosed />
             <MyRoute path="/new-patient" component={PatientPage} isClosed />
+            <MyRoute path="/patient/:id" component={PatientPage} isClosed />
           </Main>
         </Appwrapper>
       </Switch>

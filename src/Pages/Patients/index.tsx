@@ -58,13 +58,13 @@ const PatientsPage: React.FC = () => {
             {isLineDisposition ? (
               <PatientTable>
                 {patients.filter(({ name }) => name.toLocaleLowerCase().startsWith(searchValue.toLocaleLowerCase())).map((props) => (
-                  <PatientTr {...props} key={props.name} />
+                  <PatientTr {...props} key={props.id} />
                 ))}
               </PatientTable>
             ) : (
               <CardDisposition>
                 {patients.filter(({ name }) => name.toLocaleLowerCase().startsWith(searchValue.toLocaleLowerCase())).map((props) => (
-                  <PatientCard {...props} key={props.name} />
+                  <PatientCard {...props} key={props.id} />
                 ))}
               </CardDisposition>
             )}

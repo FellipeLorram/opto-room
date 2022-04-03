@@ -1,6 +1,7 @@
 import { DocumentData } from 'firebase/firestore'
 import React from 'react'
 import Patient from '../../../../Entities/Patient'
+import history from '../../../../Services/history'
 import { PatientTableContainer, Row } from './styled'
 
 
@@ -31,7 +32,7 @@ const PatientTable = ({ children }: { children: React.ReactNode }) => {
 
 export const PatientTr: React.FC<Patient | DocumentData> = ({ address, age, id, lastAppoitment, name, local, localColor }) => {
   return (
-    <Row localColor={localColor || 'Default'}>
+    <Row onClick={() => history.push(`/patient/${id}`)} localColor={localColor || 'Default'}>
       <td>{name}</td>
       <td>{address}</td>
       <td>{age}</td>

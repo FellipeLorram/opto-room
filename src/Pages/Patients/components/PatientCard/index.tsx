@@ -1,11 +1,12 @@
 import { DocumentData } from 'firebase/firestore'
 import React from 'react'
 import Patient from '../../../../Entities/Patient'
+import history from '../../../../Services/history'
 import { PatientCardContainer } from './styled'
 
 const PatientCard: React.FC<Patient  | DocumentData> = ({ name, address, age, lastAppoitment, id, local, localColor }) => {
   return (
-    <PatientCardContainer localColor={localColor || 'Default'}>
+    <PatientCardContainer onClick={() => history.push(`/patient/${id}`)} localColor={localColor || 'Default'}>
       <div className='header'>{name}</div>
       <div className='body'>
         <div className='info'>

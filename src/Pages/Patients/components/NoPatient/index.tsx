@@ -12,7 +12,11 @@ interface Props {
 
 const variants = {
   initial: { scale: 0 },
-  animate: { scale: 1 },
+  animate: {
+    scale: 1,
+    transition: { delay: 1.5 }
+  },
+
 }
 
 const NoPatients: React.FC<Props> = ({ onScreen }) => {
