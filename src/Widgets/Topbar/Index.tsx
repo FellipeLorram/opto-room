@@ -11,19 +11,19 @@ const Topbar: React.FC = () => {
       setCurrentLocation('Dashboard');
       return;
     };
-    if (pathname === '/patients') {
+    if (pathname.startsWith('/patients') ) {
       setCurrentLocation('Pacientes');
       return;
     };
-    if (pathname === '/locals') {
+    if (pathname.startsWith('/locals') ) {
       setCurrentLocation('Locais de trabalho');
       return;
     };
-    if (pathname === '/settings') {
+    if (pathname.startsWith('/settings')) {
       setCurrentLocation('Configurações');
       return;
     };
-    if (pathname === '/new-patient') {
+    if (pathname.startsWith('/new-patient') ) {
       setCurrentLocation('Adicionar Paciente');
       return;
     };

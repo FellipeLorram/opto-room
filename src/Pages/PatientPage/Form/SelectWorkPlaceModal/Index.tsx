@@ -22,7 +22,7 @@ const SelectWorkPlaceModal: React.FC<Props> = ({ setOnScreen, onScreen }) => {
   }
 
   const handleLocalClick = (index: number) => {
-    if (!locals) return
+    if (!locals) return;
     if (index === -1) {
       setLocal('Avulso');
       setLocalColor('Default');

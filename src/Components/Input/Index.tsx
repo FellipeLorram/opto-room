@@ -6,6 +6,7 @@ import { SeachInputContainer } from './styled';
 interface Props {
   value: string;
   setValue(value: string): void;
+  disabled?: boolean | undefined;
   search?: boolean;
   label?: string;
   type: string
@@ -20,7 +21,8 @@ const Input: React.FC<Props> = ({
   setValue,
   value,
   search,
-  format
+  format,
+  disabled
 }) => {
   return (
     <SeachInputContainer className={className}>
@@ -28,6 +30,7 @@ const Input: React.FC<Props> = ({
         type={type}
         placeholder={label || 'Buscar'}
         value={value}
+        disabled={disabled}
         onChange={(e) => setValue(e.target.value)}
       /> :
         <NumberFormat
@@ -36,6 +39,7 @@ const Input: React.FC<Props> = ({
           displayType="input"
           id={label}
           value={value}
+          disabled={disabled}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value)}
           format={format}
         />

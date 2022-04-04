@@ -20,16 +20,19 @@ const ButtonsHandle: React.FC = (): JSX.Element => {
     address,
     birthday,
     age,
-    cpf, 
+    cpf,
     local,
     localColor,
     user_ref,
+    id,
+    editForm,
   } = useContext(PatientContext);
 
   const handleClickSaveButton = async () => {
+    if (id) return;
     await createPatient({
-      name, 
-      address, 
+      name,
+      address,
       age,
       birthday,
       cpf,
@@ -39,12 +42,15 @@ const ButtonsHandle: React.FC = (): JSX.Element => {
       user_ref,
     })
   }
- 
+
   return (
     <ButtonsHandleContainer>
-      <Button onClick={handleClickSaveButton}>
-        Salvar
-      </Button>
+      {!editForm && (
+        <Button onClick={handleClickSaveButton}>
+          Salvar
+        </Button>
+      )}
+
     </ButtonsHandleContainer>
   )
 }

@@ -6,6 +6,7 @@ import ButtonsHandle from './DataReq/Index';
 import PatientForm from './Form/Index';
 import { Container, PatientPageStruct } from './styled'
 import useGetPatient from '../../firebase/firestore/Patients/getPatient';
+import DotOptionsModal from './DotOptionsModal/Index';
 
 const variants = {
   initial: { scale: 0 },
@@ -22,7 +23,7 @@ interface PageParams {
 
 const PatientPage: React.FC<PageParams> = ({ match }) => {
   const user_ref = useUserRef();
-  const [patientData] = useGetPatient(match.params.id)
+  const [patientData] = useGetPatient(match?.params?.id || 'NO')
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [age, setAge] = useState('');
@@ -30,11 +31,14 @@ const PatientPage: React.FC<PageParams> = ({ match }) => {
   const [birthday, setBirthday] = useState('');
   const [local, setLocal] = useState('Avulso');
   const [localColor, setLocalColor] = useState<localColor>('Default');
+  const [id, setId] = useState(match?.params?.id || '');
+  const [editForm, setEditForm] = useState(false);
+  const [actionsOnScreen, setActionsOnScreen] = useState(false);
 
   useEffect(() => {
-    if (!match?.params?.id) return;
+    if (!id) return;
     if (!patientData) return;
-
+    setEditForm(true);
     setName(patientData.name)
     setAddress(patientData.address)
     setAge(patientData.age)
@@ -43,11 +47,16 @@ const PatientPage: React.FC<PageParams> = ({ match }) => {
     setLocal(patientData.local || 'Avulso');
     setLocalColor(patientData.localColor || 'Default');
 
-  }, [match?.params?.id, patientData])
+  }, [id, patientData])
+
+  const handleActionsDotsClick = () => {
+    setActionsOnScreen(true)
+  }
 
   return (
     <PatientContext.Provider
       value={{
+        editForm,
         name,
         address,
         age,
@@ -56,6 +65,8 @@ const PatientPage: React.FC<PageParams> = ({ match }) => {
         localColor,
         cpf,
         user_ref,
+        id,
+        setId,
         setBirthday,
         setName,
         setAddress,
@@ -63,14 +74,26 @@ const PatientPage: React.FC<PageParams> = ({ match }) => {
         setLocal,
         setLocalColor,
         setCpf,
+        setEditForm,
       }}
     >
-      <PatientPageStruct>
+      <PatientPageStruct patientId={id}>
         <Container
+          patientId={id}
           variants={variants}
           initial="initial"
           animate="animate"
         >
+          {editForm && (
+            <>
+              <DotOptionsModal onScreen={actionsOnScreen} setOnScreen={setActionsOnScreen} />
+              <div onClick={handleActionsDotsClick} className="actions-dots">
+                <span className='dot' />
+                <span className='dot' />
+                <span className='dot' />
+              </div>
+            </>
+          )}
           <div className="header">
             Informações pessoais
           </div>
