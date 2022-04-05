@@ -13,7 +13,7 @@ export const PatientPageStruct = styled.section`
 
 export const CardDisposition = styled.div`
   width: 100%;
-  gap: 1.5rem;
+  gap: 1.3rem;
   display: grid;
   grid-template-columns: repeat( auto-fit, minmax(250px, 300px) );
   grid-template-rows: auto;

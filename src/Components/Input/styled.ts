@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
-export const SeachInputContainer = styled.div`
+interface Props {
+  animate: boolean;
+  error?: boolean;
+}
+
+export const InputContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,10 +16,19 @@ export const SeachInputContainer = styled.div`
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   border: 1px solid transparent; 
   transition: all .2s ease-in-out;
-
+  position: relative;
   
   :hover{
     border-color: ${({ theme }) => theme.colors.secondary};
+  }
+
+  .placeholder {
+    transition: all 0.2s ease-out;
+    position: absolute;
+    left: 5%;
+    letter-spacing: 2px;
+    font-size: .8rem;
+    bottom: ${({ animate }: Props) => animate ? '71%' : '19%'};
   }
 
   input { 

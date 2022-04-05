@@ -12,6 +12,14 @@ const ButtonsHandleContainer = styled.div`
   flex-direction: row;
   gap: 2rem;
   margin-top: 1rem;
+
+  button {
+    padding: .5rem 1rem;
+  }
+
+  .cancel-button {
+    background:#ff4d4d ;
+  }
 `;
 
 const ButtonsHandle: React.FC = (): JSX.Element => {
@@ -26,6 +34,7 @@ const ButtonsHandle: React.FC = (): JSX.Element => {
     user_ref,
     id,
     editForm,
+    setEditForm,
   } = useContext(PatientContext);
 
   const handleClickSaveButton = async () => {
@@ -43,12 +52,23 @@ const ButtonsHandle: React.FC = (): JSX.Element => {
     })
   }
 
+  const handleClickCancelButton = () => {
+    setEditForm(true);
+  }
+
   return (
     <ButtonsHandleContainer>
       {!editForm && (
-        <Button onClick={handleClickSaveButton}>
-          Salvar
-        </Button>
+        <>
+          {id && (
+            <Button className='cancel-button' onClick={handleClickCancelButton}>
+              Cancelar
+            </Button>
+          )}
+          <Button onClick={handleClickSaveButton}>
+            {id ? 'Salvar Alterações' : 'Salvar'}
+          </Button>
+        </>
       )}
 
     </ButtonsHandleContainer>
