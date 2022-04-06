@@ -9,9 +9,13 @@ export const AppoitmentsContainer = styled(motion.div)`
 
   .header {
     width: 100%;
-    text-align: center;
+    text-align: left;
     font-size: 1.2rem;
-    padding: 1rem 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 1rem 2rem;
     font-weight: 700;
     color: #4a4953;
   }
@@ -24,4 +28,15 @@ export const AppoitmentsContainer = styled(motion.div)`
     grid-template-rows: auto;  
   }
 
+  .add-appointment-button{
+    padding: .5rem 0;
+    gap: .5rem;
+    font-size: .9rem;
+    svg{
+      width: 1.1rem;
+      height: 1.1rem;
+      stroke: #fff;
+    }
+  }
+ 
 `;

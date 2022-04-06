@@ -10,6 +10,10 @@ export const PatientPageStruct = styled.div<IPatientPageStruct>`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  padding-bottom: 2rem;
+
   margin-top: ${({ patientId }) => patientId ? '1rem' : '6rem'} ;
 `;
 

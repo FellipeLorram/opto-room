@@ -7,6 +7,7 @@ import PatientForm from './Form/Index';
 import { Container, PatientPageStruct } from './styled'
 import useGetPatient from '../../firebase/firestore/Patients/getPatient';
 import DotOptionsModal from './DotOptionsModal/Index';
+import Appoitments from '../../Widgets/Appoitments/Index';
 
 const variants = {
   initial: { scale: 0 },
@@ -100,6 +101,7 @@ const PatientPage: React.FC<PageParams> = ({ match }) => {
           <PatientForm />
           <ButtonsHandle />
         </Container>
+        <Appoitments patientId={id} />
       </PatientPageStruct>
     </PatientContext.Provider>
   )
