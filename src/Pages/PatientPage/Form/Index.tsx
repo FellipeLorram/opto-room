@@ -25,12 +25,12 @@ const PatientForm: React.FC = (): JSX.Element => {
 
 
   const handleSelectWorkPlaceModalOnScreenClick = () => {
-    if (editForm) return
+    if (editForm) return;
     setWorkPlacesModalOnScreen(!workPlacesModalOnScreen)
   }
 
   return (
-    <FormContainer>
+    <FormContainer formBlock={editForm}>
       <Input disabled={editForm} className='patient-form-input' label='Nome' setValue={setName} value={name} type='text' />
       <Input disabled={editForm} className='patient-form-input' label='Endereço' setValue={setAddress} value={address} type='text' />
       <div className="input-row-container">

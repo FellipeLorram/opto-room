@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import { localColor } from "../../../Entities/Patient";
 
-export const FormContainer = styled.div`
+interface FormProps {
+  formBlock?: boolean;
+}
+
+export const FormContainer = styled.div<FormProps>`
   width: 100%;
   background: #fff;
   display: flex;
@@ -26,7 +30,7 @@ export const FormContainer = styled.div`
    /* border: 1px solid #ccc; */
    box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
    :hover {
-     border-color: ${({ theme }) => theme.colors.secondary};
+     border-color: ${({ theme, formBlock }) => !formBlock ? theme.colors.secondary : 'transparent'};
    }
   }
 

@@ -12,6 +12,7 @@ import { Topbar } from '../Widgets/Topbar/Index';
 import Patients from '../Pages/Patients';
 import PatientPage from '../Pages/PatientPage/Index';
 import UpgradePage from '../Pages/UpgradePlanPage';
+import AppoitmentPage from '../Pages/Appoitment/Index';
 
 const Routes = (): React.ReactElement => {
   return (
@@ -19,6 +20,7 @@ const Routes = (): React.ReactElement => {
       <Switch>
         <MyRoute path="/login" component={Login} isClosed={false} />
         <MyRoute path="/upgrade-my-plan" component={UpgradePage} isClosed />
+        <MyRoute path="/:id/new-appoitment" component={AppoitmentPage} isClosed />
         <Appwrapper>
           <Navbar />
           <Main>

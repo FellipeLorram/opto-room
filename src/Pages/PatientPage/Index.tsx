@@ -7,11 +7,14 @@ import PatientForm from './Form/Index';
 import { Container, PatientPageStruct } from './styled'
 import useGetPatient from '../../firebase/firestore/Patients/getPatient';
 import DotOptionsModal from './DotOptionsModal/Index';
-import Appoitments from '../../Widgets/Appoitments/Index';
+import Appoitments from './Widgets/Appoitments/Index';
 
 const variants = {
   initial: { scale: 0 },
-  animate: { scale: 1 },
+  animate: {
+    scale: 1,
+    transition: { type: 'tween' }
+  },
 }
 
 interface PageParams {
