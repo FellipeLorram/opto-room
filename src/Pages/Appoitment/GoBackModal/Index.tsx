@@ -1,6 +1,9 @@
 import { AnimatePresence } from 'framer-motion';
 import React from 'react';
-import { BackGround } from './styled';
+import { Close } from '../../../Assets/svgs/CloseX';
+import { Button } from '../../../Components/Button/Index';
+import history from '../../../Services/history';
+import { BackGround, CancelModalContainer } from './styled';
 
 interface GoBackModalProps {
   onScreen: boolean;
@@ -15,9 +18,27 @@ const GoBackModal: React.FC<GoBackModalProps> = ({ onScreen, setOnScreen }) => {
           onClick={() => setOnScreen(false)}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
         >
-
+          <CancelModalContainer
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+          >
+            <div className="header">
+              <Close className='close-button' onClick={() => setOnScreen(false)} />
+            </div>
+            <div className="body-text">
+              Ao sair, você perderá todos os dados da consulta.<br />
+              Deseja salvar os dados para continuar depois?
+            </div>
+            <div className="button-container">
+              <Button onClick={() => history.goBack()} className='save'>
+                Não salvar
+              </Button>
+              <Button>
+                Salvar
+              </Button>
+            </div>
+          </CancelModalContainer>
         </BackGround>
       )}
     </AnimatePresence>
