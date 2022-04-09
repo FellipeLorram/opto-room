@@ -3,7 +3,7 @@ import NumberFormat from 'react-number-format';
 import { Search } from '../../Assets/svgs/Search';
 import { InputContainer } from './styled';
 
-interface Props {
+export interface InputProps {
   value: string;
   setValue(value: string): void;
   disabled?: boolean | undefined;
@@ -14,7 +14,7 @@ interface Props {
   className?: string;
 }
 
-const Input: React.FC<Props> = ({
+const Input: React.FC<InputProps> = ({
   className,
   type,
   label,
