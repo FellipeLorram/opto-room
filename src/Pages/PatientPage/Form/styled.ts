@@ -27,8 +27,17 @@ export const FormContainer = styled.div<FormProps>`
 
   .patient-form-input {
     width: 100%;
-   /* border: 1px solid #ccc; */
-   box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
+    box-shadow: ${({ formBlock }) => !formBlock ? 'rgb(0 0 0 / 10%) 0px 4px 12px;' : 'none'}; 
+    border-bottom: ${({ formBlock }) => !formBlock ? 'none' : '1px solid #ccc'};
+
+    input {
+      padding-left: ${({ formBlock }) => !formBlock ? '5%' : '0.2rem'}; 
+    }
+    
+    label {
+      left: ${({ formBlock }) => !formBlock ? '5%' : '0.2rem'}; 
+    }
+
    :hover {
      border-color: ${({ theme, formBlock }) => !formBlock ? theme.colors.secondary : 'transparent'};
    }

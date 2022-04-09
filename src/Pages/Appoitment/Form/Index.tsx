@@ -1,8 +1,16 @@
-import React from 'react'
+import React from 'react';
+import RxFinal from '../FormFields/RxFinal';
+import { AppointmentFormContainer } from './styled'
 
-const AppointmentForm: React.FC = () => {
+
+const AppointmentForm: React.FC = () => {  
   return (
-    <div>AppointmentForm</div>
+    <AppointmentFormContainer>
+      <div className="header">
+        Nome: { }
+      </div>
+      <RxFinal />
+    </AppointmentFormContainer>
   )
 }
 

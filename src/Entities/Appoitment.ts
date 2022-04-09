@@ -9,8 +9,8 @@ import { IVisual_acuity } from './AppoitmentUtils/VisualAcuity';
 
 export interface IAppoitment {
   anamnesis: string;
-  rx_final: IRXFinal;
-  patient_ref: string;
+  rxFinal: IRXFinal;
+  patientRef: string;
 
   family_history?: string;
   visual_acuity?: IVisual_acuity;

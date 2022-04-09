@@ -27,7 +27,6 @@ const GoBackModal: React.FC<GoBackModalProps> = ({ onScreen, setOnScreen }) => {
               <Close className='close-button' onClick={() => setOnScreen(false)} />
             </div>
             <div className="body-text">
-              Ao sair, você perderá todos os dados da consulta.<br />
               Deseja salvar os dados para continuar depois?
             </div>
             <div className="button-container">
