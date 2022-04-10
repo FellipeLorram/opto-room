@@ -6,18 +6,26 @@ import { InputWrapper } from './styled'
 const AppoitmentInputWrapper: React.FC<InputProps> = ({
   value,
   setValue,
-  label, 
+  label,
 }) => {
-  const [format, setFormat] = useState('+#.##')
-  const [sign, setSign] = useState('+')
+  const [format, setFormat] = useState('+#.##');
+  const [sign, setSign] = useState('+');
 
   const handleSignClick = () => {
-    if (sign === '+') setSign('-');
-    else setSign('+');
+    if (sign === '+') {
+      setSign('-');
+      setValue(`-${value.substring(1)}`);
+      return;
+    }
+
+    setSign('+');
+    setValue(`+${value.substring(1)}`);
+
   }
 
   useEffect(() => {
-    setFormat(`${sign}#.##`)
+    setFormat(`${ sign }#.##`);
+
   }, [sign]);
 
   return (

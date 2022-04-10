@@ -17,9 +17,9 @@ export const InputContainer = styled.div`
   border: 1px solid transparent; 
   transition: all .2s ease-in-out;
   position: relative;
-  
+
   :hover{
-    border-color: ${({ theme }) => theme.colors.secondary};
+    border-color: ${({ theme, animate }) => !animate && theme.colors.secondary};
   }
 
   .placeholder {

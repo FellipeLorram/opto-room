@@ -15,17 +15,17 @@ interface PageParams {
 
 const AppoitmentPage: React.FC<PageParams> = ({ match }) => {
   const [rxFinal, setRxFinal] = useState<IRXFinal>({
-    left_eye: {
+    leftEye: {
       axle: '',
       cylindrical: '',
       spherical: '',
-      visual_acuity: '',
+      visualAcuity: '',
     },
-    right_eye: {
+    rightEye: {
       axle: '',
       cylindrical: '',
       spherical: '',
-      visual_acuity: '',
+      visualAcuity: '',
     },
   });
   const [anamnesis, setAnamnesis] = useState('')
