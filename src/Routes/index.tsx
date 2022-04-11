@@ -20,7 +20,7 @@ const Routes = (): React.ReactElement => {
       <Switch>
         <MyRoute path="/login" component={Login} isClosed={false} />
         <MyRoute path="/upgrade-my-plan" component={UpgradePage} isClosed />
-        <MyRoute path="/:id/new-appoitment" component={AppoitmentPage} isClosed />
+        <MyRoute path="/:patientId/new-appoitment" component={AppoitmentPage} isClosed />
         <Appwrapper>
           <Navbar />
           <Main>

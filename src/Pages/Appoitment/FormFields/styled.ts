@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const InputFieldsContainer = styled.div`
+interface IInputFieldsContainerProps {
+  flex?: boolean;
+}
+
+export const InputFieldsContainer = styled.div<IInputFieldsContainerProps>`
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -11,7 +15,7 @@ export const InputFieldsContainer = styled.div`
   .appoitment-input {
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     width: 100%;
-    max-width: 140px;
+    max-width: ${({ flex }) => flex && '140px'};
   }
 `;
 
@@ -20,10 +24,10 @@ export const FieldContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px; */
-  padding: 2rem 1rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;  
+  padding: 1rem;
   width: 100%;
-  gap: .5rem;
+  gap: 1rem;
 
   .title, .sub-title {
     width: 100%;

@@ -7,10 +7,11 @@ import { IRXFinal } from './AppoitmentUtils/RXFinal';
 import { IVisual_acuity } from './AppoitmentUtils/VisualAcuity';
 
 
-export interface IAppoitment {
+export default interface IAppoitment {
   anamnesis: string;
   rxFinal: IRXFinal;
   patientRef: string;
+  id: string;
 
   family_history?: string;
   visual_acuity?: IVisual_acuity;

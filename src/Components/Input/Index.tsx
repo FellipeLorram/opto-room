@@ -12,6 +12,7 @@ export interface InputProps {
   type: string
   format?: string;
   className?: string;
+  suffix?: string;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -22,7 +23,8 @@ const Input: React.FC<InputProps> = ({
   value,
   search,
   format,
-  disabled
+  disabled,
+  suffix
 }) => {
   const [animate, setAnimate] = useState(!(value === ''));
   useEffect(() => {
@@ -44,6 +46,7 @@ const Input: React.FC<InputProps> = ({
         onChange={(e) => setValue(e.target.value)}
       /> :
         <NumberFormat
+        suffix={suffix}
           type="text"
           displayType="input"
           id={label}

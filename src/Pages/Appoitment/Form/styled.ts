@@ -1,11 +1,8 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-interface FormProps {
-  formBlock?: boolean;
-}
 
-export const AppointmentFormContainer = styled(motion.div)<FormProps>`
+export const AppointmentFormContainer = styled(motion.div)`
   width: 800px;
   max-width: 90%;
   background: #fff;
@@ -14,30 +11,36 @@ export const AppointmentFormContainer = styled(motion.div)<FormProps>`
   justify-content: flex-start;
   flex-direction: column;
   padding: 2rem;
-  gap: 2rem;
+  gap: .7rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 
-  .input-row-container {
+  .header {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: row;
-    gap: 2rem;
-  }
+    flex-wrap: wrap;
+    padding-bottom: 2rem;
 
-  .patient-form-input {
-    width: 100%;
-   /* border: 1px solid #ccc; */
-   box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
-   :hover {
-     border-color: ${({ theme, formBlock }) => !formBlock ? theme.colors.secondary : 'transparent'};
-   }
-  }
+    .info-container {
+      width: 50%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
 
-  .work-locals-modal-wrapper {
-    align-self: flex-start;
-    position: relative;
+      .info-header {
+        font-size: 1rem;
+        color: #a0a2ae;
+      }
+
+      .info-text {
+        font-size: 1rem;
+        color: #000;
+        padding-left: .3rem;
+      }
+    }
   }
 
 `;

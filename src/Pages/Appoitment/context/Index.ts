@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { IAppoitment } from "../../../Entities/Appoitment";
+import IAppoitment from "../../../Entities/Appoitment";
 import { IRXFinal } from "../../../Entities/AppoitmentUtils/RXFinal";
 
 

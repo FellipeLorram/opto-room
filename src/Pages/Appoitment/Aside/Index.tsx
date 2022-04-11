@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ChevronLeft } from '../../../Assets/svgs/ChevronLeft';
-import GoBackModal from '../GoBackModal/Index';
+// import GoBackModal from '../GoBackModal/Index';
 import Field from './Field/Index';
 import { AppointmentsFieldsContainer } from './styled';
 
-const AppointmentsFields: React.FC = () => {
-  const [goBackModal, setGoBackModal] = useState(false);
+interface Props {
+  setGoBackModal: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const AppointmentsFields: React.FC<Props> = ({ setGoBackModal }) => {
+
   return (
     <AppointmentsFieldsContainer>
-      <GoBackModal onScreen={goBackModal} setOnScreen={setGoBackModal} />
       <div onClick={() => setGoBackModal(true)} className="backwards-container">
         <ChevronLeft className='svg-icon' />
         <span>

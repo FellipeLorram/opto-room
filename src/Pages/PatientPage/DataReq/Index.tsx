@@ -49,7 +49,7 @@ const ButtonsHandle: React.FC = (): JSX.Element => {
       local,
       localColor,
       user_ref,
-    })
+    });
   }
 
   const handleClickCancelButton = () => {

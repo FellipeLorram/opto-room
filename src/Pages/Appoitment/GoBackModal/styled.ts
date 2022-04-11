@@ -8,9 +8,10 @@ export const BackGround = styled(motion.div)`
   top: 0;
   width: 100%;
   min-height: 100vh;
-  background: rgba(0,0,0,0.1);
+  background: rgba(0,0,0,0.2);
   display: grid;
   place-items: center;
+  z-index: 10;
 `;
 
 export const CancelModalContainer = styled(ModalContainer)`
@@ -36,6 +37,8 @@ export const CancelModalContainer = styled(ModalContainer)`
       cursor: pointer;
     }
   }
+  z-index: 11;
+
 
   .body-text {
     font-size: 1rem;

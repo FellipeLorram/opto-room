@@ -67,8 +67,8 @@ const RxFinal: React.FC = () => {
       <InputFieldsContainer>
         <AppoitmentInputWrapper value={esfOe} setValue={setEsfOe} type="text" label='Esférico Oe' />
         <AppoitmentInputWrapper value={cilOe} setValue={setCilOe} type="text" label='Cilindrico Oe' />
-        <Input className='appoitment-input' value={axleOe} setValue={setAxleOe} type="text" format='###' label='Eixo Oe' />
-        <Input className='appoitment-input' value={visualAcuityOe} setValue={setVisualAcuityOe} type="text" format='###' label='AC Visual Oe' />
+        <Input className='appoitment-input' value={axleOe} setValue={setAxleOe} type="text" format='###°' label='Eixo Oe' />
+        <Input className='appoitment-input' value={visualAcuityOe} setValue={setVisualAcuityOe} type="text" format="##/###" label='AC Visual Oe' />
       </InputFieldsContainer >
     </FieldContainer>
   )
