@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { IRXFinal } from '../../Entities/AppoitmentUtils/RXFinal';
 import AppointmentsFields from './Aside/Index'
-import AppoitmentContext from './context/Index';
+import AppoitmentContext from './context/Appointment/Index';
 import AppointmentForm from './Form/Index'
 import { PageStruct } from './styled'
 import GoBackModal from './GoBackModal/Index';
- 
+import FormFieldContextWrapper from './context/FormFields/Index';
+
 interface PageParams {
   match: {
     params: {
@@ -16,6 +17,7 @@ interface PageParams {
 }
 
 const AppoitmentPage: React.FC<PageParams> = ({ match }) => {
+  const [goBackModal, setGoBackModal] = useState(false);
   const [rxFinal, setRxFinal] = useState<IRXFinal>({
     leftEye: {
       axle: '',
@@ -30,10 +32,11 @@ const AppoitmentPage: React.FC<PageParams> = ({ match }) => {
       visualAcuity: '',
     },
   });
-  const [anamnesis, setAnamnesis] = useState('')
+  const [anamnesis, setAnamnesis] = useState('');
+
+
   const patientRef = match.params.patientId;
   const id = match.params.AppointmentId || '';
-  const [goBackModal, setGoBackModal] = useState(false);
 
   const contextValue = {
     rxFinal,
@@ -46,16 +49,17 @@ const AppoitmentPage: React.FC<PageParams> = ({ match }) => {
 
   return (
     <PageStruct>
-      <GoBackModal onScreen={goBackModal} setOnScreen={setGoBackModal} />
-      <AppoitmentContext.Provider value={contextValue}>
-        <div className="aside">
-          <AppointmentsFields setGoBackModal={setGoBackModal} />
-        </div>
-        <div className="main">
-          <AppointmentForm />
-        </div>
-      </AppoitmentContext.Provider>
-
+      <FormFieldContextWrapper>
+        <GoBackModal onScreen={goBackModal} setOnScreen={setGoBackModal} />
+        <AppoitmentContext.Provider value={contextValue}>
+          <div className="aside">
+            <AppointmentsFields setGoBackModal={setGoBackModal} />
+          </div>
+          <div className="main">
+            <AppointmentForm />
+          </div>
+        </AppoitmentContext.Provider>
+      </FormFieldContextWrapper>
     </PageStruct>
   )
 }

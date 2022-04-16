@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Button } from '../../../Components/Button/Index';
 import createAppointment from '../../../firebase/firestore/Appoitments/CreateAppointment';
 import history from '../../../Services/history';
-import AppoitmentContext from '../context/Index';
+import AppoitmentContext from '../context/Appointment/Index';
 
 const ButtonsHandleContainer = styled.div`
   display: flex;

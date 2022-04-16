@@ -13,7 +13,7 @@ export default interface IAppoitment {
   patientRef: string;
   id: string;
 
-  family_history?: string;
+  familyHistory?: string;
   visual_acuity?: IVisual_acuity;
   ophthalmoscopy?: IOphthalmoscopy;
   pupillaryRreflexes?: IPupillaryRreflexes;

@@ -1,6 +1,6 @@
 import { createContext } from "react";
-import IAppoitment from "../../../Entities/Appoitment";
-import { IRXFinal } from "../../../Entities/AppoitmentUtils/RXFinal";
+import IAppoitment from "../../../../Entities/Appoitment";
+import { IRXFinal } from "../../../../Entities/AppoitmentUtils/RXFinal";
 
 
 interface extendedAppoitmentContext extends IAppoitment {

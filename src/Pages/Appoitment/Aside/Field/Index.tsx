@@ -1,13 +1,28 @@
 import React from 'react';
 import { FieldContainer } from './styled';
 
-const Field: React.FC = () => {
+interface IFieldProps {
+  fieldText: string;
+  fieldOnForm: boolean;
+  setFieldOnForm: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Field: React.FC<IFieldProps> = ({
+  fieldText,
+  fieldOnForm,
+  setFieldOnForm,
+}) => {
+  const HandleClick = () => {
+    if (!fieldOnForm) setFieldOnForm(true);
+  }
+
   return (
     <FieldContainer
-      selected
-      title='Historico familiar'
+      onClick={HandleClick}
+      selected={fieldOnForm}
+      title={fieldText}
     >
-      Histórico familiar
+      {fieldText}
     </FieldContainer>
   )
 }

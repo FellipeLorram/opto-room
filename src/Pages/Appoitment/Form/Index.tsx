@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import useGetPatient from '../../../firebase/firestore/Patients/getPatient';
-import AppoitmentContext from '../context/Index';
+import AppoitmentContext from '../context/Appointment/Index';
 import ButtonsRequestAction from '../DataHandle/ButtonsRequestAction';
 import Anamnises from '../FormFields/Anamnises';
+import FamilyHistoryComponent from '../FormFields/FamilyHistory';
 import RxFinal from '../FormFields/RxFinal';
 import { AppointmentFormContainer } from './styled'
 
@@ -27,8 +28,9 @@ const AppointmentForm: React.FC = () => {
       </div>
 
       <Anamnises />
+      <FamilyHistoryComponent />
       <RxFinal />
-      
+
       <ButtonsRequestAction />
     </AppointmentFormContainer>
   )

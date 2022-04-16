@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Input } from '../../../Components/Input/Index'
 import AppoitmentInputWrapper from '../components/Appointmentnput/Index'
-import AppoitmentContext from '../context/Index'
+import AppoitmentContext from '../context/Appointment/Index'
 import { FieldContainer, InputFieldsContainer } from './styled'
 
 const RxFinal: React.FC = () => {

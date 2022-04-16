@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { ChevronLeft } from '../../../Assets/svgs/ChevronLeft';
-// import GoBackModal from '../GoBackModal/Index';
+import { FormFieldContext } from '../context/FormFields/Index';
 import Field from './Field/Index';
 import { AppointmentsFieldsContainer } from './styled';
 
@@ -9,6 +9,14 @@ interface Props {
 }
 
 const AppointmentsFields: React.FC<Props> = ({ setGoBackModal }) => {
+  const {
+    familyHistoryOnScreen,
+    setfamilyHistoryOnScreen,
+  } = useContext(FormFieldContext);
+
+  const fields = [
+    { fieldText: 'Histórico Familiar', setFieldOnForm: setfamilyHistoryOnScreen, fieldOnForm: familyHistoryOnScreen }
+  ]
 
   return (
     <AppointmentsFieldsContainer>
@@ -28,8 +36,9 @@ const AppointmentsFields: React.FC<Props> = ({ setGoBackModal }) => {
       </div>
 
       <div className="fields-grid">
-        <Field />
-        <Field />
+        {fields.map(({ fieldText, setFieldOnForm, fieldOnForm }) => (
+          <Field fieldOnForm={fieldOnForm} setFieldOnForm={setFieldOnForm} fieldText={fieldText} />
+        ))}
       </div>
 
 
