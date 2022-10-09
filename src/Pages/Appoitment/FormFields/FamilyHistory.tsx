@@ -1,6 +1,7 @@
 import { AnimatePresence } from 'framer-motion';
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Input } from '../../../Components/Input/Index';
+import AppoitmentContext from '../context/Appointment/Index';
 import { FormFieldContext } from '../context/FormFields/Index';
 import FormFieldWrapper from './FormFieldWrapper';
 import { FieldContainer, InputFieldsContainer } from './styled'
@@ -8,13 +9,19 @@ import { FieldContainer, InputFieldsContainer } from './styled'
 
 
 const FamilyHistoryComponent: React.FC = () => {
-  const [familyHistory, setFamilyHistory] = useState('');
   const { familyHistoryOnScreen, setfamilyHistoryOnScreen } = useContext(FormFieldContext);
+  const { familyHistory, setFamilyHistory } = useContext(AppoitmentContext);
+
+  useEffect(() => {
+    if (!familyHistoryOnScreen) setFamilyHistory('');
+
+  }, [familyHistoryOnScreen, setFamilyHistory])
+
+
   return (
     <AnimatePresence>
       {familyHistoryOnScreen && (
         <FormFieldWrapper
-        setFieldValue={setFamilyHistory}
           setFieldOnScreen={setfamilyHistoryOnScreen}
         >
           <FieldContainer>
@@ -22,7 +29,7 @@ const FamilyHistoryComponent: React.FC = () => {
               Histórico familiar
             </div>
             <InputFieldsContainer>
-              <Input className='appoitment-input' value={familyHistory} setValue={setFamilyHistory} type="text" label='Histórico familiar' />
+              <Input className='appoitment-input' value={familyHistory || ''} setValue={setFamilyHistory} type="text" label='Histórico familiar' />
             </InputFieldsContainer>
           </FieldContainer>
         </FormFieldWrapper>

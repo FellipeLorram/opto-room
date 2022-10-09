@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 
 interface IPatientPageStruct {
-  patientId?: string | undefined;
+  patientid?: string | undefined;
 }
 
 export const PatientPageStruct = styled.div<IPatientPageStruct>`
@@ -14,11 +14,11 @@ export const PatientPageStruct = styled.div<IPatientPageStruct>`
   gap: 1rem;
   padding-bottom: 2rem;
 
-  margin-top: ${({ patientId }) => patientId ? '1rem' : '6rem'} ;
+  margin-top: ${({ patientid }) => patientid ? '1rem' : '6rem'} ;
 `;
 
 export const Container = styled(motion.div)<IPatientPageStruct>`
-  width: ${({ patientId }) => patientId ? '80%' : '800px'} ;
+  width: ${({ patientid }) => patientid ? '80%' : '800px'} ;
   max-width: 90%;
   background: #fff;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;

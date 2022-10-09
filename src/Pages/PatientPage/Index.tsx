@@ -81,9 +81,9 @@ const PatientPage: React.FC<PageParams> = ({ match }) => {
         setEditForm,
       }}
     >
-      <PatientPageStruct patientId={id}>
+      <PatientPageStruct patientid={id}>
         <Container
-          patientId={id}
+          patientid={id}
           variants={variants}
           initial="initial"
           animate="animate"
@@ -104,7 +104,7 @@ const PatientPage: React.FC<PageParams> = ({ match }) => {
           <PatientForm />
           <ButtonsHandle />
         </Container>
-        <Appoitments patientId={id} />
+        <Appoitments patientid={id} />
       </PatientPageStruct>
     </PatientContext.Provider>
   )

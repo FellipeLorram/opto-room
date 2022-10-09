@@ -12,12 +12,14 @@ export default interface IAppoitment {
   rxFinal: IRXFinal;
   patientRef: string;
   id: string;
+  createdAt: string;
 
   familyHistory?: string;
-  visual_acuity?: IVisual_acuity;
+  visualAcuity?: IVisual_acuity;
   ophthalmoscopy?: IOphthalmoscopy;
   pupillaryRreflexes?: IPupillaryRreflexes;
   ductions?: IDuctions;
   kappa?: IKappa;
   ceratometry?: ICeratometry;
 }
+ 

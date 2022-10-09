@@ -17,13 +17,11 @@ interface Props {
   onScreen: boolean;
   setOnScreen: React.Dispatch<React.SetStateAction<boolean>>
   setFieldOnScreen: React.Dispatch<React.SetStateAction<boolean>>
-  setFieldValue: React.Dispatch<React.SetStateAction<string>>
 }
 
-const DeleteFieldModal: React.FC<Props> = ({ onScreen, setFieldOnScreen, setFieldValue, setOnScreen }) => {
+const DeleteFieldModal: React.FC<Props> = ({ onScreen, setFieldOnScreen, setOnScreen }) => {
   const handleDeleteClick = () => {
     setFieldOnScreen(false);
-    setFieldValue('');
   }
   return (
     <AnimatePresence>

@@ -76,4 +76,5 @@ export const InputFieldsContainer = styled.div<IInputFieldsContainerProps>`
     width: 100%;
     max-width: ${({ flex }) => flex && '140px'};
   }
+
 `;

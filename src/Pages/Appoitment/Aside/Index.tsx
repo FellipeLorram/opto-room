@@ -12,10 +12,14 @@ const AppointmentsFields: React.FC<Props> = ({ setGoBackModal }) => {
   const {
     familyHistoryOnScreen,
     setfamilyHistoryOnScreen,
+    visualAcuityOnScreen,
+    setVisualAcuityOnScreen,
+
   } = useContext(FormFieldContext);
 
   const fields = [
-    { fieldText: 'Histórico Familiar', setFieldOnForm: setfamilyHistoryOnScreen, fieldOnForm: familyHistoryOnScreen }
+    { fieldText: 'Histórico Familiar', setFieldOnForm: setfamilyHistoryOnScreen, fieldOnForm: familyHistoryOnScreen },
+    { fieldText: 'Acuidade Visual', setFieldOnForm: setVisualAcuityOnScreen, fieldOnForm: visualAcuityOnScreen }
   ]
 
   return (

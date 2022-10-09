@@ -65,8 +65,8 @@ const Actions: React.FC<Props> = ({
         </ActionButton>
         <Filters onScreen={filtersOnScreen} setOnScreen={setFiltersOnScreen} sethandleCustomAnimate={sethandleCustomAnimate} />
       </div>
-      <div className='search-input-container' style={{ alignSelf: 'flex-end' }}>
-        <Input search type='text' value={searchValue} setValue={setSearchValue} />
+      <div>
+        <Input search type='text' value={searchValue} className="search-input" setValue={setSearchValue} />
       </div>
 
     </ActionsContainer>

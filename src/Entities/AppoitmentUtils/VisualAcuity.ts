@@ -1,10 +1,10 @@
 interface EyeInfo {
-  right_eye: {
+  rightEye: {
     far: string;
     near: string;
     ph: string;
   };
-  left_eye: {
+  leftEye: {
     far: string;
     near: string;
     ph: string;
@@ -14,5 +14,5 @@ interface EyeInfo {
 export interface IVisual_acuity {
   CC: EyeInfo;
   SC: EyeInfo;
-  used_optotype: string;
+  usedOptotype: string;
 }

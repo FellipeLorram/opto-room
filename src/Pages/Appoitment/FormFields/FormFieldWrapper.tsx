@@ -14,10 +14,9 @@ const variants = {
 
 interface FieldOnScreenProps {
   setFieldOnScreen: React.Dispatch<React.SetStateAction<boolean>>
-  setFieldValue: React.Dispatch<React.SetStateAction<string>>
 }
 
-const FormFieldWrapper: React.FC<FieldOnScreenProps> = ({ children, setFieldOnScreen, setFieldValue }) => {
+const FormFieldWrapper: React.FC<FieldOnScreenProps> = ({ children, setFieldOnScreen }) => {
   const [deleteFieldModalOnScreen, setDeleteFieldModalOnScreen] = useState(false);
   return (
     <FieldWrapper
@@ -29,7 +28,6 @@ const FormFieldWrapper: React.FC<FieldOnScreenProps> = ({ children, setFieldOnSc
       <DeleteFieldModal
         setOnScreen={setDeleteFieldModalOnScreen}
         setFieldOnScreen={setFieldOnScreen}
-        setFieldValue={setFieldValue}
         onScreen={deleteFieldModalOnScreen}
       />
       <div onClick={() => setDeleteFieldModalOnScreen(true)} className="action">

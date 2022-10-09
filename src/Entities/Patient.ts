@@ -11,5 +11,4 @@ export default interface Patient {
   birthday?: string
   localColor?: localColor,
   local?: string,
-
 }

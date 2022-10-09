@@ -5,6 +5,7 @@ import ButtonsRequestAction from '../DataHandle/ButtonsRequestAction';
 import Anamnises from '../FormFields/Anamnises';
 import FamilyHistoryComponent from '../FormFields/FamilyHistory';
 import RxFinal from '../FormFields/RxFinal';
+import VisualAcuity from '../FormFields/VisualAcuity';
 import { AppointmentFormContainer } from './styled'
 
 
@@ -29,6 +30,7 @@ const AppointmentForm: React.FC = () => {
 
       <Anamnises />
       <FamilyHistoryComponent />
+      <VisualAcuity />
       <RxFinal />
 
       <ButtonsRequestAction />

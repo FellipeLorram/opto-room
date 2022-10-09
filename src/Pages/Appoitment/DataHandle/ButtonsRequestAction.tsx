@@ -37,6 +37,7 @@ const ButtonsRequestAction: React.FC = () => {
       rxFinal,
       patientRef,
       id: nanoid(),
+      createdAt: new Date().toISOString(),
     });
     history.push(`/patient/${patientRef}`)
   };

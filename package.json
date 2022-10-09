@@ -16,6 +16,7 @@
     "@types/react-lottie": "^1.2.6",
     "@types/validator": "^13.7.1",
     "axios": "^0.25.0",
+    "date-fns": "^2.29.3",
     "firebase": "^9.6.6",
     "framer-motion": "^6.2.3",
     "history": "^4.10.1",

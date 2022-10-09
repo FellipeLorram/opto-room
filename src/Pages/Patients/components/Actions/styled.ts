@@ -8,12 +8,21 @@ export const ActionsContainer = styled.div`
   gap: 1rem;
   width: 100%;
   position: relative;
-  .actions-button-container{
+
+  .search-input {
+    height: 40px;
+
+    input {
+      padding: .2rem 1rem;
+    }
+  }
+
+  .actions-button-container {
     display: flex;
     flex-direction: row;
     gap: 1rem;
     position: relative;
-  }  
+  }
 `;
 
 export const AppliedFilterIndicator = styled.div`

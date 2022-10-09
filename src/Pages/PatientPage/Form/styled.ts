@@ -30,13 +30,14 @@ export const FormContainer = styled.div<FormProps>`
     box-shadow: ${({ formBlock }) => !formBlock ? 'rgb(0 0 0 / 10%) 0px 4px 12px;' : 'none'}; 
     border-bottom: ${({ formBlock }) => !formBlock ? '1px solid transparent' : '1px solid #ccc'};
     border-radius: ${({ formBlock }) => formBlock && 0};
+    height: ${({ formBlock }) => formBlock && '40px'};
 
     input {
-      padding-left: ${({ formBlock }) => !formBlock ? '5%' : '0.2rem'}; 
+      padding-left: ${({ formBlock }) => !formBlock ? '1rem' : '0.2rem'}; 
     }
     
     label {
-      left: ${({ formBlock }) => !formBlock ? '5%' : '0.2rem'}; 
+      left: ${({ formBlock }) => !formBlock ? '1rem' : '0.2rem'}; 
     }
 
    :hover {

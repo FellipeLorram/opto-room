@@ -10,13 +10,14 @@ export const InputContainer = styled.div`
   align-items: center;
   justify-content: center;
   background: #fff;
-  height: 40px;
+  height: 60px;
   border-radius: 5px;
   width: 25rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   border: 1px solid transparent; 
   transition: all .2s ease-in-out;
   position: relative;
+
 
   :hover{
     border-color: ${({ theme, animate }) => !animate && theme.colors.secondary};
@@ -25,10 +26,10 @@ export const InputContainer = styled.div`
   .placeholder {
     transition: all 0.2s ease-out;
     position: absolute;
-    left: 5%;
+    left: 1rem;
     letter-spacing: 2px;
     font-size: .8rem;
-    bottom: ${({ animate }: Props) => animate ? '71%' : '19%'};
+    bottom: ${({ animate }: Props) => animate ? '55%' : '17px'};
   }
 
   input { 
@@ -38,7 +39,7 @@ export const InputContainer = styled.div`
     outline: none;
     background: none;
     font-size: .8rem;
-    padding: .2rem 5%;
+    padding: 1rem 1rem .2rem;
     line-height: 1px;  
     letter-spacing: 2px;
     align-self: stretch;

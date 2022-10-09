@@ -32,7 +32,7 @@ export const Container = styled.div`
     left: 5%;
     bottom: ${({ animate }: Props) => animate ? '80%' : '25%'};
     font-size: ${({ animate }: Props) => animate ? '.7rem' : '1rem'};
-    transition: all 0.2s ease-out;
+    transition: all 0.1s ease-out;
     color: ${({ animate, theme }) => animate ? theme.colors.secondary : 'rgba(0,0,0, .5)'};
     letter-spacing: 2px;
   }

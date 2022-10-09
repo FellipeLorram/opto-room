@@ -70,7 +70,7 @@ const PatientsPage: React.FC = () => {
             )}
           </>
         ) : (
-          <NoPatients onScreen={patients.length === 0} />
+          <NoPatients onScreen />
         )}
       </FilterContext.Provider>
     </PatientPageStruct>

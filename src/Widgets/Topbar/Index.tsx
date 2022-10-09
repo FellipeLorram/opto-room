@@ -11,7 +11,7 @@ const Topbar: React.FC = () => {
       setCurrentLocation('Dashboard');
       return;
     };
-    if (pathname.startsWith('/patients') ) {
+    if (pathname.startsWith('/patient')) {
       setCurrentLocation('Pacientes');
       return;
     };

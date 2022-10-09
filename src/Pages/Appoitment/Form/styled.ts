@@ -11,7 +11,7 @@ export const AppointmentFormContainer = styled(motion.div)`
   justify-content: flex-start;
   flex-direction: column;
   padding: 2rem;
-  gap: .7rem;
+  gap: 1rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 
   .header {

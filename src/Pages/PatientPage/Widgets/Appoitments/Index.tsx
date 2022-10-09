@@ -1,11 +1,10 @@
 import { AnimatePresence } from 'framer-motion';
-import React, { useContext } from 'react'
+import React from 'react'
 import { AddNote } from '../../../../Assets/svgs/AddNote';
 import { Button } from '../../../../Components/Button/Index';
 import useGetAppoitments from '../../../../firebase/firestore/Appoitments/GetAppoitments';
 import history from '../../../../Services/history';
-import { PatientContext } from '../../context/PatientContext';
-import NoAppoitments from './NoAppoitments/Index';
+import NoAppoitments from './NoAppointments';
 import { AppoitmentsContainer } from './styled'
 
 const variants = {
@@ -18,17 +17,15 @@ const variants = {
 
 
 interface Props {
-  patientId?: string;
+  patientid?: string;
 }
 
-const Appoitments: React.FC<Props> = ({ patientId }) => {
-  const [appoitments] = useGetAppoitments(patientId);
-
-  const { id } = useContext(PatientContext);
+const Appoitments: React.FC<Props> = ({ patientid }) => {
+  const [appoitments] = useGetAppoitments(patientid);
 
   return (
     <AnimatePresence>
-      {patientId && (
+      {patientid && (
         <AppoitmentsContainer
           variants={variants}
           initial="initial"
@@ -37,14 +34,18 @@ const Appoitments: React.FC<Props> = ({ patientId }) => {
         >
           <div className="header">
             Consultas
-            <Button onClick={() => history.push(`/${id}/new-appoitment`)} className='add-appointment-button'>
+            <Button onClick={() => history.push(`/${patientid}/new-appoitment`)} className='add-appointment-button'>
               <span className='text'>
                 Iniciar consulta
               </span>
               <AddNote />
             </Button>
           </div>
-          {appoitments && appoitments.length > 0 ? '' : (
+          {appoitments && appoitments.length > 0 ? (
+            <>
+              a
+            </>
+          ) : (
             <NoAppoitments />
           )}
         </AppoitmentsContainer>
