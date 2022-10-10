@@ -10,26 +10,22 @@ export const InputContainer = styled.div`
   align-items: center;
   justify-content: center;
   background: #fff;
-  height: 60px;
   border-radius: 5px;
   width: 25rem;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  border: 1px solid transparent; 
+  background: none;
   transition: all .2s ease-in-out;
   position: relative;
 
-
-  :hover{
-    border-color: ${({ theme, animate }) => !animate && theme.colors.secondary};
-  }
 
   .placeholder {
     transition: all 0.2s ease-out;
     position: absolute;
     left: 1rem;
-    letter-spacing: 2px;
-    font-size: .8rem;
-    bottom: ${({ animate }: Props) => animate ? '55%' : '17px'};
+    letter-spacing: 1px;
+    font-size: .9rem;
+    font-weight: 600;
+    color: #a0a2ae;
+    bottom: ${({ animate }: Props) => animate ? '2.1rem': '18.4px'};
   }
 
   input { 
@@ -37,9 +33,9 @@ export const InputContainer = styled.div`
     width: 100%;
     border: 0;
     outline: none;
-    background: none;
-    font-size: .8rem;
-    padding: 1rem 1rem .2rem;
+    background: #f7f7f8;
+    font-size: .9rem;
+    padding: 1.5rem 1rem .8rem;
     line-height: 1px;  
     letter-spacing: 2px;
     align-self: stretch;

@@ -8,6 +8,7 @@ export const InputWrapper = styled.div`
   width: 100%;
   gap: .5rem;
   max-width: 140px;
+  
   span {
     text-align: center;
     font-size: 1rem;
