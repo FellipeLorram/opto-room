@@ -1,9 +1,6 @@
 import React from 'react';
+import { Props } from './Props';
 
-interface Props {
-  className?: string;
-  onClick?: { (): void; };
-}
 const Check: React.FC<Props> = ({ className, onClick }) => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" className={className} width="44" height="44" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#000000" fill="none" strokeLinecap="round" strokeLinejoin="round">

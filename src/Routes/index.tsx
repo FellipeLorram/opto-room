@@ -4,11 +4,11 @@ import { AnimatePresence } from 'framer-motion';
 
 import { Login } from '../Pages/Login/Index';
 import MyRoute from './MyRoute';
-import { Navbar } from '../Widgets/Navbar/Index';
+import { Navbar } from '../Components/Navbar/Index';
 import Main from '../Components/Main/Index';
 import { Dashoard } from '../Pages/Dashboard/Index';
 import Appwrapper from '../Components/AppWrapper/Index';
-import { Topbar } from '../Widgets/Topbar/Index';
+import { Topbar } from '../Components/Topbar/Index';
 import Patients from '../Pages/Patients';
 import PatientPage from '../Pages/PatientPage/Index';
 import UpgradePage from '../Pages/UpgradePlanPage';

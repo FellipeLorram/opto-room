@@ -4,7 +4,7 @@ import { CardContainer, PageContainer } from './styled';
 import { Promotion } from './Promotion/Index';
 import ArrowLink from './ArrowLink';
 import LoginForm from './LoginForm';
-import { SignupModal } from '../../Widgets/Signup/Index'
+import { SignupModal } from './Signup/Index'
 import { Wave } from '../../Assets/svgs/Wave';
 import UserOAuth from '../../Components/UserOAuth/Index';
 import { useSelector } from 'react-redux';

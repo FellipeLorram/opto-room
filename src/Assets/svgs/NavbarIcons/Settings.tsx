@@ -1,8 +1,6 @@
 import React from 'react';
+import { Props } from '../Props';
 
-interface Props {
-  className?: string;
-}
 
 const Settings: React.FC<Props> = ({ className }) => {
   return (

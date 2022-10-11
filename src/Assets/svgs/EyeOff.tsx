@@ -1,9 +1,5 @@
 import React from 'react';
-
-interface Props {
-  className?: string;
-  onClick?: { (): void; };
-}
+import { Props } from './Props';
 
 const EyeOff: React.FC<Props> = ({ className, onClick }) => {
   return (

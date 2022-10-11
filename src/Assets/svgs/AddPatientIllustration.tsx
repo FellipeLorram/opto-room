@@ -1,8 +1,5 @@
 import React from 'react';
-
-interface Props {
-  className?: string;
-}
+import { Props } from './Props';
 
 const AddPatientIllustration: React.FC<Props> = ({ className }) => {
   return (

@@ -1,8 +1,5 @@
 import React from 'react';
-
-interface Props {
-  className?: string;
-}
+import { Props } from '../Props';
 
 const Upgrade: React.FC<Props> = ({ className }) => {
   return (

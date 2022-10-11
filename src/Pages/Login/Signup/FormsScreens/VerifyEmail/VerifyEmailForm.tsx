@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react';
-import { ChevronLeft } from '../../../../Assets/svgs/ChevronLeft';
-import { Button } from '../../../../Components/Button/Index';
-import signupWithEmailAndPasswordEmailVerification from '../../../../firebase/Auth/signup/SWAPEmailVerification';
+import { ChevronLeft } from '../../../../../Assets/svgs/ChevronLeft';
+import { Button } from '../../../../../Components/Button/Index';
+import signupWithEmailAndPasswordEmailVerification from '../../../../../firebase/Auth/signup/SWAPEmailVerification';
 import { FormProgressContext } from '../../Context/FormProgressContext';
 import { UserContextData } from '../../Context/UserContext';
 import { Variants } from '../FormAnimationVariants';
 import { useDispatch } from 'react-redux';
-import * as actions from '../../../../store/Modules/auth/actions';
+import * as actions from '../../../../../store/Modules/auth/actions';
 import { FormContainer } from '../styled';
 
 const VerifyEmailForm: React.FC = () => {

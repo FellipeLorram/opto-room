@@ -1,15 +1,15 @@
 import React, { useContext } from 'react'
-import { EmailIcon } from '../../../Assets/svgs/EmailIcon';
-import { Button } from '../../../Components/Button/Index';
-import signupWithFacebook from '../../../firebase/Auth/signup/SignupWithFacebook';
-import signupWithGoogle from '../../../firebase/Auth/signup/SignupWIthGoogle';
+import { EmailIcon } from '../../../../Assets/svgs/EmailIcon';
+import { Button } from '../../../../Components/Button/Index';
+import signupWithFacebook from '../../../../firebase/Auth/signup/SignupWithFacebook';
+import signupWithGoogle from '../../../../firebase/Auth/signup/SignupWIthGoogle';
 import { UserContextData } from '../Context/UserContext';
 import { ChooseSignupFormContainer } from './styled';
-import icon_facebook from '../../../Assets/png/icon_facebook.png'
-import icon_google from '../../../Assets/png/icon_google.png'
+import icon_facebook from '../../../../Assets/png/icon_facebook.png'
+import icon_google from '../../../../Assets/png/icon_google.png'
 import { useDispatch } from 'react-redux';
-import * as actions from '../../../store/Modules/auth/actions';
-import UserTokenRequestProps from '../../../firebase/Auth/Interfaces/IUserTokenRequest';
+import * as actions from '../../../../store/Modules/auth/actions';
+import UserTokenRequestProps from '../../../../firebase/Auth/Interfaces/IUserTokenRequest';
 
 interface Props {
   setSignupEmailForm(value: boolean): void;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { OptoLogo } from '../../Components/Logo/Index';
+import { OptoLogo } from '../../../Components/Logo/Index';
 
 const Container = styled.div`
   width: 100%;

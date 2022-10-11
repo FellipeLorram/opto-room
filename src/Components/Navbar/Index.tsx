@@ -6,8 +6,8 @@ import { Lock } from '../../Assets/svgs/NavbarIcons/Lock';
 import { Patients } from '../../Assets/svgs/NavbarIcons/Patients';
 import { Settings } from '../../Assets/svgs/NavbarIcons/Settings';
 import { PatientPlus } from '../../Assets/svgs/PatientPlus';
-import { Button } from '../../Components/Button/Index';
-import { OptoLogo } from '../../Components/Logo/Index';
+import { Button } from '../Button/Index';
+import { OptoLogo } from '../Logo/Index';
 import UpgradeCard from '../UpgradeCard/Index';
 import { NavBarContainer, NavBarLink } from './styled';
 

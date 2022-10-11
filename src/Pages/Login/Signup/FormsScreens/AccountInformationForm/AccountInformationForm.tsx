@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
-import { ChevronLeft } from '../../../../Assets/svgs/ChevronLeft';
-import { Button } from '../../../../Components/Button/Index';
-import { LoginPageInput } from '../../../../Components/Input/LoginPageInput/Index';
-import signupWithEmailAndPassword from '../../../../firebase/Auth/signup/SignupWithEmailAndPassword';
+import { ChevronLeft } from '../../../../../Assets/svgs/ChevronLeft';
+import { Button } from '../../../../../Components/Button/Index';
+import { LoginPageInput } from '../../../../../Components/Input/LoginPageInput/Index';
+import signupWithEmailAndPassword from '../../../../../firebase/Auth/signup/SignupWithEmailAndPassword';
 import { FormProgressContext } from '../../Context/FormProgressContext';
 import { UserContextData } from '../../Context/UserContext';
 import { Variants } from '../FormAnimationVariants';

@@ -10,7 +10,7 @@ import { AnimatePresence } from 'framer-motion';
 import { BackgroundVariants, ContainerVariants } from './AnimationVariants';
 import { VerifyEmailForm } from './FormsScreens/VerifyEmail/VerifyEmailForm';
 import { ChooseSignupForm } from './ChooseSignupForm/ChooseSignupForm';
-import { WaveOpacity } from '../../Assets/svgs/WaveOpacity';
+import { WaveOpacity } from '../../../Assets/svgs/WaveOpacity';
 import { FormProgressContext } from './Context/FormProgressContext';
 
 
